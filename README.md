@@ -1,12 +1,11 @@
 # Hakoniwa.d
 
-[Hakoniwa] is a sandbox tool that allows you to build an isolated environment based
-on your host os and run application in it. This repository provides a set of [Hakoniwa]
+[Hakoniwa][hakoniwa] is a sandbox tool that allows you to build an isolated environment
+based on your host os and run application in it. This repository provides a set of Hakoniwa
 profiles for the desktop application with following features:
 
-- a separate home directory for each application
-- a root filesystem only contains following directories `/bin`, `/etc`, `/lib`, `/lib64`,
-  `/lib32`, `/sbin`, `/usr`, `/opt`, `/sys` etc.
+- a separate HOME directory for each application
+- a root filesystem only contains necessary directories
 - network access restrictions
 
 ## Installation
@@ -40,7 +39,7 @@ cargo install hakoniwa-cli --locked
 sudo mv ~/.cargo/bin/hakoniwa /usr/bin/hakoniwa
 ```
 
-**Other**
+**Other Installation Methods**
 
 [Hakoniwa#Installation](https://github.com/souk4711/hakoniwa?tab=readme-ov-file#installation)
 
@@ -61,8 +60,13 @@ hakoniwa run -v -c ~/.config/hakoniwa.d/firefox.toml -- /bin/firefox
 
 It will launch the Firefox browser.
 
+> [!NOTE]
+> If AppArmor is enabled on your host os, create an unconfined profile for Hakoniwa
+> first, read [this][troubleshooting-apparmor] to learn more.
+
 ## License
 
 Licensed under the [GPL-3.0-only](./LICENSE).
 
-[Hakoniwa]: https://github.com/souk4711/hakoniwa
+[hakoniwa]: https://github.com/souk4711/hakoniwa
+[troubleshooting-apparmor]: https://github.com/souk4711/hakoniwa/blob/main/hakoniwa-cli/docs/troubleshooting-apparmor
