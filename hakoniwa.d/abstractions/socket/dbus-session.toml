@@ -1,0 +1,21 @@
+# THIS FILE IS PART OF HAKONIWA.D
+#
+# HAKONIWA.D: https://github.com/souk4711/hakoniwa.d
+# SPDX-License-Identifier: GPL-3.0-only
+
+
+# D-Bus socket
+{% set socket = os_env("XDG_RUNTIME_DIR") + "/bus" %}
+{% if path_exists(socket) %}
+[[mounts]]
+source = "{{ socket }}"
+rw = true
+{% endif %}
+
+# List of environment variables exported to the application
+{% for name in [
+  "DBUS_SESSION_BUS_ADDRESS",
+] %}
+[[envs]]
+name = "{{ name }}"
+{% endfor %}

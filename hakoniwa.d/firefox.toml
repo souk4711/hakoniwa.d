@@ -1,0 +1,29 @@
+# THIS FILE IS PART OF HAKONIWA.D
+#
+# HAKONIWA.D: https://github.com/souk4711/hakoniwa.d
+# SPDX-License-Identifier: GPL-3.0-only
+
+
+"@include" = [
+  "abstractions/os/linux.toml",
+  "abstractions/device/dri.toml",
+  "abstractions/device/sound.toml",
+  "abstractions/socket/dbus-session.toml",
+  "abstractions/socket/dbus-system.toml",
+  "abstractions/socket/pipewire.toml",
+  "abstractions/socket/pulseaudio.toml",
+  "abstractions/socket/wayland.toml",
+  "abstractions/socket/x11.toml",
+]
+
+{% set homedir = os_env("HOME") + "/.local/share/hakoniwa/apps/firefox" %}
+{% if path_exists(homedir) %}
+[[mounts]]
+source = "{{ homedir }}"
+destination = "{{ HOME }}"
+rw = true
+{% endif %}
+
+[command]
+cmdline = ["/bin/firefox"]
+cwd = "{{ HOME }}"

@@ -1,0 +1,102 @@
+# THIS FILE IS PART OF HAKONIWA.D
+#
+# HAKONIWA.D: https://github.com/souk4711/hakoniwa.d
+# SPDX-License-Identifier: GPL-3.0-only
+
+
+# List of subsystems isolated from the host system
+{% for ns in [
+  "cgroup",
+  "ipc",
+  "network",
+  "uts",
+] %}
+[[namespaces]]
+type = "{{ ns }}"
+{% endfor %}
+
+# Mount a rich file system, including binaries, libraries, system-wide configurations, etc
+{% set ROOTFS = ["/bin", "/etc", "/lib", "/lib64", "/lib32", "/sbin", "/usr", "/opt", "/sys"] %}
+{% for entry in ROOTFS %}
+  {% if path_exists(entry) %}
+    {% if path_is_symlink(entry) %}
+    {% set original = fs_read_link(entry) %}
+[[filesystem.symlinks]]
+original = "{{ original }}"
+link = "{{ entry }}"
+    {% else %}
+[[mounts]]
+source = "{{ entry }}"
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
+# Mount a minimal set of device files, including /dev/full, /dev/null, /dev/random, etc
+[[mounts]]
+source = ""
+destination = "/dev"
+type = "devfs"
+
+# Mount an empty /run folder, used to store runtime data, including sockets
+[[mounts]]
+source = ""
+destination = "/run"
+type = "tmpfs"
+
+# Mount an empty /tmp folder, used to store the short-lived temporary files
+[[mounts]]
+source = ""
+destination = "/tmp"
+type = "tmpfs"
+
+# Mount an empty /home folder
+[[mounts]]
+source = ""
+destination = "/home"
+type = "tmpfs"
+
+# List of environment variables exported to the application
+{% for name in [
+  "HOME",
+  "LANG",
+  "PATH",
+  "TERM",
+  "XDG_CURRENT_DESKTOP",
+  "XDG_SESSION_DESKTOP",
+  "XDG_SESSION_TYPE",
+  "XDG_RUNTIME_DIR",
+] %}
+[[envs]]
+name = "{{ name }}"
+{% endfor %}
+
+# Restrict ambient rights (e.g. global filesystem access) for the application
+[landlock]
+resources = [
+  { type = "fs"          },   # Filesystem restrictions, requires kernel >= 5.13
+  { type = "tcp.bind"    },   # Network TCP BIND restrictions, requires kernel >= 6.7
+  { type = "tcp.connect" },   # Network TCP CONNECT restrictions, requires kernel >= 6.7
+]
+
+# Allow READ on / and all subdirectories
+[[landlock.fs]]
+path = "/"
+access = "r--"
+
+# Allow EXEC on binaries, libraries
+{% for entry in ["/bin", "/lib", "/lib64", "/lib32", "/sbin", "/opt"] %}
+  {% if path_exists(entry) %}
+[[landlock.fs]]
+path = "{{ entry }}"
+access = "r-x"
+  {% endif %}
+{% endfor %}
+
+# Allow READ-WRITE on ...
+{% for entry in ["/dev", "/run", "/tmp", "/proc", "/home"] %}
+  {% if path_exists(entry) %}
+[[landlock.fs]]
+path = "{{ entry }}"
+access = "rw-"
+  {% endif %}
+{% endfor %}

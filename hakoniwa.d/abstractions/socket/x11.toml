@@ -1,0 +1,30 @@
+# THIS FILE IS PART OF HAKONIWA.D
+#
+# HAKONIWA.D: https://github.com/souk4711/hakoniwa.d
+# SPDX-License-Identifier: GPL-3.0-only
+
+
+# X socket
+{% set socket = "/tmp/.X11-unix" %}
+{% if path_exists(socket) %}
+[[mounts]]
+source = "{{ socket }}"
+rw = true
+{% endif %}
+
+# X authority file
+{% set xauthority = os_env("XAUTHORITY") %}
+{% if path_exists(xauthority) %}
+[[mounts]]
+source = "{{ xauthority }}"
+rw = true
+{% endif %}
+
+# List of environment variables exported to the application
+{% for name in [
+  "DISPLAY",
+  "XAUTHORITY",
+] %}
+[[envs]]
+name = "{{ name }}"
+{% endfor %}
