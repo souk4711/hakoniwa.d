@@ -35,3 +35,6 @@ rw = true
 [command]
 cmdline = ["/bin/firefox"]
 cwd = "{{ HOME }}"
+
+# Embed user profile
+{% include "local/firefox.toml" ignore missing %}

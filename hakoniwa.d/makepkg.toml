@@ -41,3 +41,6 @@ rw = true
 [command]
 cmdline = ["/bin/makepkg"]
 cwd = "/tmp/makepkg"
+
+# Embed user profile
+{% include "local/makepkg.toml" ignore missing %}
