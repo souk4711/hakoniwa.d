@@ -1,0 +1,30 @@
+# THIS FILE IS PART OF HAKONIWA.D
+#
+# HAKONIWA.D: https://github.com/souk4711/hakoniwa.d
+# SPDX-License-Identifier: GPL-3.0-only
+
+
+# Automatically discover a proxy
+{% for name in [
+  "ALL_PROXY",
+  "HTTP_PROXY",
+  "HTTPS_PROXY",
+] %}
+{% set port = os_env(name) | split(":") | list | last %}
+{% if port is ne "" %}
+[[landlock.net]]
+port = {{ port | int }}
+access = "tcp.connect"
+{% endif %}
+{% endfor %}
+
+# List of environment variables exported to the application
+{% for name in [
+  "ALL_PROXY",
+  "HTTP_PROXY",
+  "HTTPS_PROXY",
+  "NO_PROXY",
+] %}
+[[envs]]
+name = "{{ name }}"
+{% endfor %}

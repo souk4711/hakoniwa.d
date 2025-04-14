@@ -4,9 +4,7 @@
 # SPDX-License-Identifier: GPL-3.0-only
 
 
-# Graphics cards
-{% set device = "/dev/dri" %}
-{% if path_exists(device) %}
-[[mounts]]
-source = "{{ device }}"
-{% endif %}
+# HTTP is the protocol used to serve Web pages
+[[landlock.net]]
+port = 80
+access = "tcp.connect"

@@ -4,9 +4,6 @@
 # SPDX-License-Identifier: GPL-3.0-only
 
 
-# Graphics cards
-{% set device = "/dev/dri" %}
-{% if path_exists(device) %}
-[[mounts]]
-source = "{{ device }}"
-{% endif %}
+# Use the host's network
+[network]
+mode = "host"

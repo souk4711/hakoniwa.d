@@ -1,0 +1,10 @@
+# THIS FILE IS PART OF HAKONIWA.D
+#
+# HAKONIWA.D: https://github.com/souk4711/hakoniwa.d
+# SPDX-License-Identifier: GPL-3.0-only
+
+
+# Secure Shell (SSH) is a protocol for logging into and executing commands on remote machines
+[[landlock.net]]
+port = 22
+access = "tcp.connect"

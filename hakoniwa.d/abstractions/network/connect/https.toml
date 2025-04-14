@@ -4,9 +4,7 @@
 # SPDX-License-Identifier: GPL-3.0-only
 
 
-# Graphics cards
-{% set device = "/dev/dri" %}
-{% if path_exists(device) %}
-[[mounts]]
-source = "{{ device }}"
-{% endif %}
+# HTTPS is a modified HTTP used to serve Web pages when security is important
+[[landlock.net]]
+port = 443
+access = "tcp.connect"
