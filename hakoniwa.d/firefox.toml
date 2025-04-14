@@ -19,7 +19,6 @@
   "abstractions/socket/x11.toml",
 
   "abstractions/network/mode/pasta.toml",
-  "abstractions/network/connect/autoproxy.toml",
   "abstractions/network/connect/http.toml",
   "abstractions/network/connect/https.toml",
 ]

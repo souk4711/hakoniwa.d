@@ -7,24 +7,30 @@
 # Include a set of built-in configuration
 "@include" = [
   "abstractions/os/linux.toml",
-  "abstractions/socket/dbus-session.toml",
-  "abstractions/socket/dbus-system.toml",
-
-  "abstractions/device/sound.toml",
-  "abstractions/socket/pipewire.toml",
-  "abstractions/socket/pulseaudio.toml",
-
-  "abstractions/device/dri.toml",
-  "abstractions/socket/wayland.toml",
-  "abstractions/socket/x11.toml",
 
   "abstractions/network/mode/pasta.toml",
+  "abstractions/network/connect/autoproxy.toml",
   "abstractions/network/connect/http.toml",
   "abstractions/network/connect/https.toml",
 ]
 
+# Mount /var/lib which stores application's data
+[[mounts]]
+source = "/var/lib/pacman"
+
+# Mount $PWD
+[[mounts]]
+source = "{{ PWD }}"
+destination = "/tmp/makepkg"
+rw = true
+
+# Allow READ-WRITE-EXEC on $PWD
+[[landlock.fs]]
+path = "/tmp/makepkg"
+access = "rwx"
+
 # Mount a separate HOME directory
-{% set homedir = os_env("HOME") + "/.local/share/hakoniwa/apps/msedge" %}
+{% set homedir = os_env("HOME") + "/.local/share/hakoniwa/apps/makepkg" %}
 {% set _ = fs_mkdir(homedir) %}
 [[mounts]]
 source = "{{ homedir }}"
@@ -33,5 +39,5 @@ rw = true
 
 # COMMAND
 [command]
-cmdline = ["/bin/microsoft-edge-stable"]
-cwd = "{{ HOME }}"
+cmdline = ["/bin/makepkg"]
+cwd = "/tmp/makepkg"
