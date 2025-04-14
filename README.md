@@ -1,10 +1,10 @@
 # Hakoniwa.d
 
-[Hakoniwa][hakoniwa] is a sandbox tool that allows you to build an isolated environment
-based on your host os and run application in it. This repository provides a set of Hakoniwa
-profiles for the desktop application with following features:
+[Hakoniwa][hakoniwa] is an unprivileged sandboxing tool that allows you to build an isolated
+environment based on your host os and run application in it. This repository provides a set
+of Hakoniwa profiles for the desktop application with following features:
 
-- a separate HOME directory for each application
+- a separate **HOME** directory for each application
 - a root filesystem only contains necessary directories
 - network access restrictions
 
@@ -54,7 +54,6 @@ cp -rv hakoniwa.d-main/hakoniwa.d ~/.config/hakoniwa.d
 ### 3. Testing Profile
 
 ```
-mkdir -p ~/.local/share/hakoniwa/apps/firefox
 hakoniwa run -v -c ~/.config/hakoniwa.d/firefox.toml -- /bin/firefox
 ```
 

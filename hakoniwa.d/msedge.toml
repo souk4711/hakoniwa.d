@@ -1,0 +1,38 @@
+# THIS FILE IS PART OF HAKONIWA.D
+#
+# HAKONIWA.D: https://github.com/souk4711/hakoniwa.d
+# SPDX-License-Identifier: GPL-3.0-only
+
+
+# Include a set of built-in configuration
+"@include" = [
+  "abstractions/os/linux.toml",
+  "abstractions/socket/dbus-session.toml",
+  "abstractions/socket/dbus-system.toml",
+
+  "abstractions/device/sound.toml",
+  "abstractions/socket/pipewire.toml",
+  "abstractions/socket/pulseaudio.toml",
+
+  "abstractions/device/dri.toml",
+  "abstractions/socket/wayland.toml",
+  "abstractions/socket/x11.toml",
+
+  "abstractions/network/mode/pasta.toml",
+  "abstractions/network/connect/autoproxy.toml",
+  "abstractions/network/connect/http.toml",
+  "abstractions/network/connect/https.toml",
+]
+
+# Mount a separate HOME directory
+{% set homedir = os_env("HOME") + "/.local/share/hakoniwa/apps/msedge" %}
+{% set _ = fs_mkdir(homedir) %}
+[[mounts]]
+source = "{{ homedir }}"
+destination = "{{ HOME }}"
+rw = true
+
+# COMMAND
+[command]
+cmdline = ["/bin/microsoft-edge-stable"]
+cwd = "{{ HOME }}"

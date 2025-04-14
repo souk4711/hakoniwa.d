@@ -11,11 +11,11 @@
   "HTTPS_PROXY",
 ] %}
 {% set port = os_env(name) | split(":") | list | last %}
-{% if port is ne "" %}
+  {% if port is ne "" %}
 [[landlock.net]]
 port = {{ port | int }}
 access = "tcp.connect"
-{% endif %}
+  {% endif %}
 {% endfor %}
 
 # List of environment variables exported to the application
