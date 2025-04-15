@@ -6,21 +6,19 @@
 
 # Include a set of built-in configuration
 "@include" = [
-  "abstractions/os/linux.toml",
-  "abstractions/socket/dbus-session.toml",
-  "abstractions/socket/dbus-system.toml",
-
-  "abstractions/device/sound.toml",
-  "abstractions/socket/pipewire.toml",
-  "abstractions/socket/pulseaudio.toml",
-
-  "abstractions/device/dri.toml",
-  "abstractions/socket/wayland.toml",
-  "abstractions/socket/x11.toml",
-
-  "abstractions/network/mode/pasta.toml",
-  "abstractions/network/connect/http.toml",
-  "abstractions/network/connect/https.toml",
+  "abstractions/os/linux.toml",                   # Base
+  "abstractions/device/dri.toml",                 # Device - Graphic Card
+  "abstractions/device/sound.toml",               # Device - Sound Card
+  "abstractions/socket/dbus-session.toml",        # D-Bus session
+  "abstractions/socket/dbus-system.toml",         # D-Bus system
+  "abstractions/socket/pipewire.toml",            # Audio Server - PipeWire
+  "abstractions/socket/pulseaudio.toml",          # Audio Server - PulseAudio
+  "abstractions/socket/wayland.toml",             # Display Server - Wayland
+  "abstractions/socket/x11.toml",                 # Display Server - X11
+  "abstractions/network/mode/pasta.toml",         # Network Mode - Pasta
+  "abstractions/network/connect/http.toml",       # Allow outgoing HTTP connections
+  "abstractions/network/connect/https.toml",      # Allow outgoing HTTPS connections
+  "abstractions/filesystem/xdg-download.toml",    # Share Folder - $HOME/Downloads
 ]
 
 # Mount a separate HOME directory

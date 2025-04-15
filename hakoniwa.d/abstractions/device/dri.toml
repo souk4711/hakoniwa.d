@@ -4,9 +4,17 @@
 # SPDX-License-Identifier: GPL-3.0-only
 
 
-# Graphics cards
+# DRI
 {% set device = "/dev/dri" %}
 {% if path_exists(device) %}
 [[mounts]]
 source = "{{ device }}"
+rw = true
 {% endif %}
+
+# NVIDIA
+{% for device in fs_glob("/dev/nvidia*") %}
+[[mounts]]
+source = "{{ device }}"
+rw = true
+{% endfor %}

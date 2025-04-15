@@ -6,12 +6,11 @@
 
 # Include a set of built-in configuration
 "@include" = [
-  "abstractions/os/linux.toml",
-
-  "abstractions/network/mode/pasta.toml",
-  "abstractions/network/connect/autoproxy.toml",
-  "abstractions/network/connect/http.toml",
-  "abstractions/network/connect/https.toml",
+  "abstractions/os/linux.toml",                   # Base
+  "abstractions/network/mode/pasta.toml",         # Network Mode - Pasta
+  "abstractions/network/connect/autoproxy.toml",  # Allow outgoing $ALL_PROXY/... connections
+  "abstractions/network/connect/http.toml",       # Allow outgoing HTTP connections
+  "abstractions/network/connect/https.toml",      # Allow outgoing HTTPS connections
 ]
 
 # Mount /var/lib which stores application's data
