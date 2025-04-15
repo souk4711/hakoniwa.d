@@ -4,8 +4,11 @@
 # SPDX-License-Identifier: GPL-3.0-only
 
 
+{% set wayland_display = os_env("WAYLAND_DISPLAY")%}
+{% if wayland_display is ne "" %}
+
 # Wayland socket
-{% set socket = os_env("XDG_RUNTIME_DIR") + "/" + os_env("WAYLAND_DISPLAY") %}
+{% set socket = os_env("XDG_RUNTIME_DIR") + "/" +  wayland_display %}
 {% if path_exists(socket) %}
 [[mounts]]
 source = "{{ socket }}"
@@ -13,9 +16,7 @@ rw = true
 {% endif %}
 
 # List of environment variables exported to the application
-{% for name in [
-  "WAYLAND_DISPLAY",
-] %}
 [[envs]]
-name = "{{ name }}"
-{% endfor %}
+name = "{{ wayland_display }}"
+
+{% endif %}

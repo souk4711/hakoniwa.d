@@ -25,6 +25,8 @@ rw = true
   "DISPLAY",
   "XAUTHORITY",
 ] %}
+  {% if os_env(name) is ne "" %}
 [[envs]]
 name = "{{ name }}"
+  {% endif %}
 {% endfor %}

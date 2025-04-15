@@ -16,6 +16,8 @@ rw = true
 {% for name in [
   "DBUS_SESSION_BUS_ADDRESS",
 ] %}
+  {% if os_env(name) is ne "" %}
 [[envs]]
 name = "{{ name }}"
+  {% endif %}
 {% endfor %}

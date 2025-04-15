@@ -66,8 +66,10 @@ type = "tmpfs"
   "XDG_SESSION_TYPE",
   "XDG_RUNTIME_DIR",
 ] %}
+  {% if os_env(name) is ne "" %}
 [[envs]]
 name = "{{ name }}"
+  {% endif %}
 {% endfor %}
 
 # Restrict ambient rights (e.g. global filesystem access) for the application

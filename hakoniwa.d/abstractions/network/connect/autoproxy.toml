@@ -25,6 +25,8 @@ access = "tcp.connect"
   "HTTPS_PROXY",
   "NO_PROXY",
 ] %}
+  {% if os_env(name) is ne "" %}
 [[envs]]
 name = "{{ name }}"
+  {% endif %}
 {% endfor %}
