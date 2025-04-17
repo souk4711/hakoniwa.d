@@ -12,7 +12,7 @@ of Hakoniwa profiles for the desktop application with following features:
 
 ### 1. Install Hakoniwa
 
-**Arch**:
+**Arch**
 
 ```sh
 sudo pacman -S libseccomp passt cargo
@@ -21,7 +21,7 @@ cargo install hakoniwa-cli --locked
 sudo mv ~/.cargo/bin/hakoniwa /usr/bin/hakoniwa
 ```
 
-**Fedora 41**:
+**Fedora 41**
 
 ```sh
 sudo dnf install libseccomp-devel passt cargo
@@ -49,13 +49,13 @@ sudo mv ~/.cargo/bin/hakoniwa /usr/bin/hakoniwa
 ```
 wget https://github.com/souk4711/hakoniwa.d/archive/refs/heads/main.zip
 unzip main.zip
-cp -rv hakoniwa.d-main/hakoniwa.d ~/.config/hakoniwa.d
+sudo cp -rv hakoniwa.d-main/hakoniwa.d/. /etc/hakoniwa.d
 ```
 
 ### 3. Testing Profile
 
 ```
-hakoniwa run -v -c ~/.config/hakoniwa.d/firefox.toml -- /bin/firefox
+hakoniwa run -v -c /etc/hakoniwa.d/firefox.toml -- /bin/firefox
 ```
 
 It will launch the Firefox browser.
