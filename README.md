@@ -46,7 +46,7 @@ sudo mv ~/.cargo/bin/hakoniwa /usr/bin/hakoniwa
 
 ### 2. Install Hakoniwa.d Profiles
 
-```
+```sh
 wget https://github.com/souk4711/hakoniwa.d/archive/refs/heads/main.zip
 unzip main.zip
 sudo cp -rv hakoniwa.d-main/hakoniwa.d/. /etc/hakoniwa.d
@@ -54,15 +54,46 @@ sudo cp -rv hakoniwa.d-main/hakoniwa.d/. /etc/hakoniwa.d
 
 ### 3. Testing Profile
 
-```
+```sh
 hakoniwa run -v -c /etc/hakoniwa.d/firefox.toml -- /bin/firefox
 ```
 
 It will launch the Firefox browser.
 
 > [!NOTE]
-> If AppArmor is enabled on your host os, create an unconfined profile for Hakoniwa
-> first, read [this][troubleshooting-apparmor] to learn more.
+>
+> - If you receive `hakoniwa: write("/proc/self/uid_map", ...) => Operation not permitted (os error 1)`, read [this][troubleshooting-apparmor] to learn more.
+
+## Usage
+
+### Profile Customisation
+
+Create a file under `/etc/hakoniwa.d/local`, e.g.:
+
+```jinja
+# /etc/hakoniwa.d/local/firefox.toml
+
+
+# Allow outgoing TCP connections
+{% for port in [
+  8080,
+] %}
+[[landlock.net]]
+port = {{ port }}
+access = "tcp.connect"
+{% endfor %}
+
+# Share folders - $HOME/Documents
+[[mounts]]
+source = "{{ HOME }}/Documents"
+rw = true
+```
+
+It will autoload when you launch Firefox using the following command line:
+
+```sh
+hakoniwa run -v -c /etc/hakoniwa.d/firefox.toml -- /bin/firefox
+```
 
 ## License
 
