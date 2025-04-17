@@ -8,3 +8,13 @@
 [network]
 mode = "pasta"
 options = ["-T", "auto", "-t", "auto"]
+
+# Setting DNS servers
+{% if path_is_symlink("/etc/resolv.conf") %}
+{% set original = fs_read_link("/etc/resolv.conf") %}
+  {% if original is endingwith "/run/systemd/resolve/stub-resolv.conf" %}
+[[mounts]]
+source = "/run/systemd/resolve/resolv.conf"
+destination = "/run/systemd/resolve/stub-resolv.conf"
+  {% endif %}
+{% endif %}

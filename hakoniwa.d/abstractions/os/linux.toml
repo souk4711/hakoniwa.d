@@ -103,7 +103,7 @@ access = "rw-"
   {% endif %}
 {% endfor %}
 
-# Resolve: wrong permissions on runtime directory /run/user/1000, 0755 instead of 0700
+# Fix wrong permissions on runtime directory /run/user/1000, 0755 instead of 0700
 {% set folder = os_env("XDG_RUNTIME_DIR") %}
 {% if path_exists(folder) %}
 [[filesystem.dirs]]
