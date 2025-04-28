@@ -16,23 +16,8 @@
   "abstractions/socket/wayland.toml",             # Display Server - Wayland
   "abstractions/socket/x11.toml",                 # Display Server - X11
   "abstractions/network/mode/pasta.toml",         # Network Mode - Pasta
+  "abstractions/network/connect/autoproxy.toml",  # Allow outgoing $ALL_PROXY/... connections
   "abstractions/network/connect/http.toml",       # Allow outgoing HTTP connections
   "abstractions/network/connect/https.toml",      # Allow outgoing HTTPS connections
   "abstractions/filesystem/xdg-download.toml",    # Share Folder - $HOME/Downloads
 ]
-
-# Mount a separate HOME directory
-{% set homedir = os_env("HOME") + "/.local/share/hakoniwa/apps/msedge" %}
-{% set _ = fs_mkdir(homedir) %}
-[[mounts]]
-source = "{{ homedir }}"
-destination = "{{ HOME }}"
-rw = true
-
-# COMMAND
-[command]
-cmdline = ["/bin/microsoft-edge-stable"]
-cwd = "{{ HOME }}"
-
-# Embed user profile
-{% include "local/msedge.toml" ignore missing %}

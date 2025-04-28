@@ -8,7 +8,7 @@
 {% include "groups/browser.toml" %}
 
 # Mount a separate HOME directory
-{% set homedir = os_env("HOME") + "/.local/share/hakoniwa/apps/firefox" %}
+{% set homedir = os_env("HOME") + "/.local/share/hakoniwa/apps/microsoft-edge-stable" %}
 {% set _ = fs_mkdir(homedir) %}
 [[mounts]]
 source = "{{ homedir }}"
@@ -17,8 +17,8 @@ rw = true
 
 # COMMAND
 [command]
-cmdline = ["/usr/bin/firefox"]
+cmdline = ["/usr/bin/microsoft-edge-stable"]
 cwd = "{{ HOME }}"
 
 # Embed user profile
-{% include "local/firefox.toml" ignore missing %}
+{% include "local/microsoft-edge-stable.toml" ignore missing %}

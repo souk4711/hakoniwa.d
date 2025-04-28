@@ -38,7 +38,7 @@ rw = true
 
 # COMMAND
 [command]
-cmdline = ["/bin/makepkg"]
+cmdline = ["/usr/bin/makepkg"]
 cwd = "/tmp/makepkg"
 
 # Embed user profile
