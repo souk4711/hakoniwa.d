@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: GPL-3.0-only
 
 
-# Clash is a rule based proxy in Go
+# Clash RESTful API
 [[landlock.net]]
-port = 7890
+port = 9090
 access = "tcp.connect"
