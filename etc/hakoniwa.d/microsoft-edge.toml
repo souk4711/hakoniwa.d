@@ -8,7 +8,7 @@
 {% include "groups/browser.toml" %}
 
 # Mount a separate HOME directory
-{% set homedir = os_env("HOME") + "/.local/share/hakoniwa/apps/microsoft-edge-stable" %}
+{% set homedir = os_env("HOME") + "/.local/share/hakoniwa/apps/microsoft-edge" %}
 {% set _ = fs_mkdir(homedir) %}
 [[mounts]]
 source = "{{ homedir }}"
@@ -21,4 +21,4 @@ cmdline = ["/usr/bin/microsoft-edge-stable"]
 cwd = "{{ HOME }}"
 
 # Embed user profile
-{% include "local/microsoft-edge-stable.toml" ignore missing %}
+{% include "local/microsoft-edge.toml" ignore missing %}
