@@ -7,6 +7,7 @@
 # Automatically discover a proxy
 {% for name in [
   "ALL_PROXY",
+  "FTP_PROXY",
   "HTTP_PROXY",
   "HTTPS_PROXY",
 ] %}
@@ -21,6 +22,7 @@ access = "tcp.connect"
 # List of environment variables exported to the application
 {% for name in [
   "ALL_PROXY",
+  "FTP_PROXY",
   "HTTP_PROXY",
   "HTTPS_PROXY",
   "NO_PROXY",

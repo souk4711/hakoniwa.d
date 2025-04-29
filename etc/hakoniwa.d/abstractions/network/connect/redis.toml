@@ -1,0 +1,10 @@
+# THIS FILE IS PART OF HAKONIWA.D
+#
+# HAKONIWA.D: https://github.com/souk4711/hakoniwa.d
+# SPDX-License-Identifier: GPL-3.0-only
+
+
+# Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message broker
+[[landlock.net]]
+port = 6379
+access = "tcp.connect"

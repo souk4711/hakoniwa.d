@@ -1,0 +1,10 @@
+# THIS FILE IS PART OF HAKONIWA.D
+#
+# HAKONIWA.D: https://github.com/souk4711/hakoniwa.d
+# SPDX-License-Identifier: GPL-3.0-only
+
+
+# FTP is a protocol used for remote file transfer
+[[landlock.net]]
+port = 21
+access = "tcp.connect"

@@ -1,0 +1,15 @@
+# THIS FILE IS PART OF HAKONIWA.D
+#
+# HAKONIWA.D: https://github.com/souk4711/hakoniwa.d
+# SPDX-License-Identifier: GPL-3.0-only
+
+
+# Clash is a rule based proxy in Go
+[[landlock.net]]
+port = 7890
+access = "tcp.connect"
+
+# Clash RESTful API
+[[landlock.net]]
+port = 9090
+access = "tcp.connect"
