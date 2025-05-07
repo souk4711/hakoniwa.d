@@ -7,7 +7,7 @@
 # Include a set of built-in configuration
 "@include" = [
   "abstractions/os/linux.toml",                   # Base
-  "abstractions/network/mode/pasta.toml",         # Network Mode - Pasta
+  "abstractions/network/mode/host.toml",          # Network Mode - Host
   "abstractions/network/connect/autoproxy.toml",  # Allow outgoing $ALL_PROXY/... connections
   "abstractions/network/connect/http.toml",       # Allow outgoing HTTP connections
   "abstractions/network/connect/https.toml",      # Allow outgoing HTTPS connections
@@ -17,19 +17,26 @@
 [[mounts]]
 source = "/var/lib/pacman"
 
-# Mount $PWD
+# Mount AUR folders
+{% for entry in [
+  os_env("HOME") + "/.cache/paru",
+  os_env("HOME") + "/.cache/yay",
+] %}
+  {% if path_exists(entry) %}
 [[mounts]]
-source = "{{ PWD }}"
+source = "{{ entry }}"
 rw = true
+  {% endif %}
+{% endfor %}
 
 # Donot try chown in fakeroot environment
 [[envs]]
 name = "FAKEROOTDONTTRYCHOWN"
 value = "1"
 
-# Allow READ-WRITE-EXEC on $PWD
+# Allow READ-WRITE-EXEC on $HOME
 [[landlock.fs]]
-path = "{{ PWD }}"
+path = "{{ HOME }}"
 access = "rwx"
 
 # Mount a separate HOME directory
