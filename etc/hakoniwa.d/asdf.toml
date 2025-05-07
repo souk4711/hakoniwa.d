@@ -1,0 +1,54 @@
+# THIS FILE IS PART OF HAKONIWA.D
+#
+# HAKONIWA.D: https://github.com/souk4711/hakoniwa.d
+# SPDX-License-Identifier: GPL-3.0-only
+
+
+# Include a set of built-in configuration
+"@include" = [
+  "abstractions/os/linux.toml",                   # Base
+  "abstractions/network/mode/host.toml",          # Network Mode - Host
+  "abstractions/network/connect/autoproxy.toml",  # Allow outgoing $ALL_PROXY/... connections
+  "abstractions/network/connect/http.toml",       # Allow outgoing HTTP connections
+  "abstractions/network/connect/https.toml",      # Allow outgoing HTTPS connections
+  "abstractions/filesystem/xdg-code.toml",        # Share Folder - $HOME/Code
+]
+
+# Mount asdf folders
+{% for entry in [
+  os_env("HOME") + "/.asdf",
+  os_env("HOME") + "/.asdfrc",
+  os_env("HOME") + "/.tool-versions",
+] %}
+  {% if path_exists(entry) %}
+[[mounts]]
+source = "{{ entry }}"
+rw = true
+  {% endif %}
+{% endfor %}
+
+# Allow READ-WRITE-EXEC on /tmp
+[[landlock.fs]]
+path = "/tmp"
+access = "rwx"
+
+# Allow READ-WRITE-EXEC on $HOME
+[[landlock.fs]]
+path = "{{ HOME }}"
+access = "rwx"
+
+# Mount a separate HOME directory
+{% set homedir = os_env("HOME") + "/.local/share/hakoniwa/apps/asdf" %}
+{% set _ = fs_mkdir(homedir) %}
+[[mounts]]
+source = "{{ homedir }}"
+destination = "{{ HOME }}"
+rw = true
+
+# COMMAND
+[command]
+cmdline = ["/usr/bin/asdf"]
+cwd = "{{ PWD }}"
+
+# Embed user profile
+{% include "local/asdf.toml" ignore missing %}
