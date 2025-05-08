@@ -11,6 +11,7 @@
   "abstractions/network/connect/autoproxy.toml",  # Allow outgoing $ALL_PROXY/... connections
   "abstractions/network/connect/http.toml",       # Allow outgoing HTTP connections
   "abstractions/network/connect/https.toml",      # Allow outgoing HTTPS connections
+  "abstractions/filesystem/xdg-code.toml",        # Share Folder - $HOME/Code
 ]
 
 # Mount /var/lib which stores application's data
