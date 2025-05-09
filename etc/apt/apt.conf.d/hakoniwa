@@ -1,0 +1,4 @@
+# Updating the desktop file...
+DPkg::Post-Invoke { "sed -i -e 's/Exec=\/bin\//Exec=/g' /usr/share/applications/*.desktop" }
+DPkg::Post-Invoke { "sed -i -e 's/Exec=\/usr\/bin\//Exec=/g' /usr/share/applications/*.desktop" }
+DPkg::Post-Invoke { "sed -i -e 's/Exec=\/usr\/lib\/firefox\//Exec=/g' /usr/share/applications/firefox.desktop 2>/dev/null || true" }

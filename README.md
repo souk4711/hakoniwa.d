@@ -10,16 +10,15 @@ of Hakoniwa profiles for the desktop application with following features:
 
 ## Installation
 
-### 1. Install Hakoniwa
-
-[Hakoniwa#Installation](https://github.com/souk4711/hakoniwa?tab=readme-ov-file#installation)
-
-### 2. Install Hakoniwa.d Profiles
-
 ```sh
-wget https://github.com/souk4711/hakoniwa.d/archive/refs/heads/main.zip
-unzip main.zip
-sudo cp -rv hakoniwa.d-main/etc/hakoniwa.d/. /etc/hakoniwa.d
+# Clone repository
+git clone https://github.com/souk4711/hakoniwa.d.git
+
+# Install hakoniwa
+sudo make install_hakoniwa
+
+# Install hakoniwa profiles
+sudo make install_hakoniwa_d
 ```
 
 ## License
