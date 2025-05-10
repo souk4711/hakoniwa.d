@@ -24,6 +24,10 @@ echo_error() {
 install_hakoniwa_d() {
   echo_info "Installing files /etc/hakoniwa.d..."
   cp -r ./hakoniwa.d/. /etc/hakoniwa.d
+
+  echo_info "Installing files /usr/lib/hakoniwa.d..."
+  cp ./scripts/binwrapper.csv /usr/lib/hakoniwa.d/scripts/binwrapper.csv
+  cp ./scripts/make-binwrapper.sh /usr/lib/hakoniwa.d/scripts/make-binwrapper.sh
 }
 
 install_package_manager_hook() {
@@ -72,6 +76,7 @@ main() {
     exit 1
   fi
 
+  cd "$(dirname -- "$0")/.."
   install_hakoniwa_d
   install_package_manager_hook
 }

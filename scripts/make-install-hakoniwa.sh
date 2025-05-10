@@ -90,6 +90,7 @@ main() {
     exit 1
   fi
 
+  cd "$(dirname -- "$0")/.."
   install_deps
   install_hakoniwa
   configure_selinux

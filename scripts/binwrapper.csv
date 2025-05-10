@@ -1,0 +1,28 @@
+brave                      brave.toml
+chromium                   chromium.toml
+firefox                    firefox.toml
+google-chrome-stable       google-chrome.toml
+microsoft-edge-stable      microsoft-edge.toml
+vivaldi                    vivaldi.toml
+zen                        zen-browser.toml
+
+libreoffice                libreoffice.toml
+lobase                     libreoffice.toml
+localc                     libreoffice.toml
+lodraw                     libreoffice.toml
+loffice                    libreoffice.toml
+lofromtemplate             libreoffice.toml
+loimpress                  libreoffice.toml
+lomath                     libreoffice.toml
+loweb                      libreoffice.toml
+lowriter                   libreoffice.toml
+soffice                    libreoffice.toml
+desktopeditors             onlyoffice.toml
+onlyoffice-desktopeditors  onlyoffice.toml
+et                         wps-office.toml
+wpp                        wps-office.toml
+wps                        wps-office.toml
+wpspdf                     wps-office.toml
+
+asdf                       asdf.toml
+makepkg                    makepkg.toml
