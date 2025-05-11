@@ -22,12 +22,16 @@ echo_error() {
 
 
 install_hakoniwa_d() {
-  echo_info "Installing files /etc/hakoniwa.d..."
-  cp -r ./hakoniwa.d/. /etc/hakoniwa.d
+  echo_info "Installing files /etc/hakoniwa.d/..."
+  mkdir -p /etc/hakoniwa.d
+  cp -r ./hakoniwa.d/* /etc/hakoniwa.d
 
-  echo_info "Installing files /usr/lib/hakoniwa.d..."
+  echo_info "Installing files /usr/lib/hakoniwa.d/..."
+  mkdir -p /usr/lib/hakoniwa.d
+  mkdir -p /usr/lib/hakoniwa.d/scripts
   cp ./scripts/binwrapper.csv /usr/lib/hakoniwa.d/scripts/binwrapper.csv
   cp ./scripts/make-binwrapper.sh /usr/lib/hakoniwa.d/scripts/make-binwrapper.sh
+  cp ./stdlib.sh /usr/lib/hakoniwa.d/stdlib.sh
 }
 
 install_package_manager_hook() {

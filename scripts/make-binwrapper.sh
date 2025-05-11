@@ -22,7 +22,7 @@ echo_error() {
 
 
 install_binwrappers() {
-  echo_info "Generating binary wrappers in /usr/local/bin/"
+  echo_info "Generating binary wrappers in /usr/local/bin/..."
 
   while read -r bin profile
   do
@@ -31,9 +31,9 @@ install_binwrappers() {
 }
 
 install_binwrapper() {
-  bin="/usr/bin/$1"
-  binwrapper="/usr/local/bin/$1"
-  profile="/etc/hakoniwa.d/$2"
+  local bin="/usr/bin/$1"
+  local binwrapper="/usr/local/bin/$1"
+  local profile="/etc/hakoniwa.d/$2"
 
   if ! command_exists "$bin"; then
     if command_exists "$binwrapper" && grep -q "hakoniwa.*run.*$bin" "$binwrapper"; then
@@ -52,10 +52,12 @@ install_binwrapper() {
   cat <<EOT > "$binwrapper"
 #!/usr/bin/env bash
 
-exec /usr/bin/hakoniwa run -c $profile -- $bin "\$@"
+. /usr/lib/hakoniwa.d/stdlib.sh
+hakoniwa_run $bin $profile "\$@"
 EOT
   chmod +x "$binwrapper"
 }
+
 
 main() {
   if [ "$(id -u)" -ne 0 ]; then
