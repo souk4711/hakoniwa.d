@@ -72,6 +72,11 @@ name = "{{ name }}"
   {% endif %}
 {% endfor %}
 
+# Used to detect the command is running in hakoniwa
+[[envs]]
+name = "HAKONIWAD_NAME"
+value = "default"
+
 # Restrict ambient rights (e.g. global filesystem access) for the application
 [landlock]
 resources = [
@@ -86,7 +91,7 @@ path = "/"
 access = "r--"
 
 # Allow EXEC on binaries, libraries
-{% for entry in ["/bin", "/lib", "/lib64", "/lib32", "/sbin", "/opt"] %}
+{% for entry in ["/bin", "/lib", "/lib64", "/lib32", "/sbin", "/usr", "/opt"] %}
   {% if path_exists(entry) %}
 [[landlock.fs]]
 path = "{{ entry }}"

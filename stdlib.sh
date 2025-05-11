@@ -5,10 +5,18 @@ hakoniwa_run() {
   local profile="$2"
   shift; shift
 
-  if [ "$HAKONIWA" = "0" ]; then
+  # the command is already running in hakoniwa, donot wrap it
+  if [ -n "$HAKONIWAD_NAME" ]; then
     exec "$bin" "$@"
     return 0
   fi
 
+  # temporarily disabled by user
+  if [ "$HAKONIWAD" = "0" ]; then
+    exec "$bin" "$@"
+    return 0
+  fi
+
+  # wrap the command
   exec /usr/bin/hakoniwa run -c "$profile" -- "$bin" "$@"
 }
