@@ -27,7 +27,7 @@ install_binwrappers() {
   while read -r bin profile
   do
     install_binwrapper "$bin" "$profile"
-  done < <(sed '/^$/d' ./scripts/binwrapper.csv | tr -s '[:blank:]')
+  done < <(sed '/^$/d' ./scripts/binwrappers.csv | tr -s '[:blank:]')
 }
 
 install_binwrapper() {

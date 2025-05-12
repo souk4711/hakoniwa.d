@@ -12,13 +12,42 @@ of Hakoniwa profiles for the desktop application with following features:
 
 ```sh
 # Clone repository
-git clone https://github.com/souk4711/hakoniwa.d.git
+git clone https://github.com/souk4711/hakoniwa.d.git && cd hakoniwa.d
 
-# Install hakoniwa
+# Install hakoniwa to /usr/bin/hakoniwa
 sudo make install_hakoniwa
 
-# Install hakoniwa profiles
+# Install hakoniwa profiles to /etc/hakoniwa.d/
 sudo make install_hakoniwa_d
+
+# OPTIONAL: Generate binary wrappers in /usr/local/bin/
+sudo make binwrappers
+```
+
+## Usage
+
+Launch application `/usr/bin/firefox` with a hakoniwa.d profile:
+
+```sh
+hakoniwa run -c /etc/hakoniwa.d/firefox.toml -- /usr/bin/firefox
+```
+
+If you have installed binary wrappers, then use the binwrapper:
+
+```sh
+/usr/local/bin/firefox
+```
+
+Or just type `firefox` if the `/usr/local/bin` is set in the `PATH` environment:
+
+```sh
+firefox
+```
+
+You can temporarily disable the profile and run the original version of `firefox` with `HAKONIWAD=0`:
+
+```sh
+HAKONIWAD=0 firefox
 ```
 
 ## License
