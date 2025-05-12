@@ -56,6 +56,12 @@ Want to see what profiles are enabled, use `HAKONIWAD_LOG=debug` to display the 
 HAKONIWAD_LOG=DEBUG firefox
 ```
 
+Want to enter the sandbox interactively, use `HAKONIWAD_CONSOLE=1` to open a shell:
+
+```sh
+HAKONIWAD_LOG=DEBUG HAKONIWAD_CONSOLE=1 firefox
+```
+
 ## License
 
 Licensed under the [GPL-3.0-only](./LICENSE).

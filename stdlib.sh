@@ -30,5 +30,9 @@ hakoniwa_run() {
   esac
 
   # wrap the command
-  exec /usr/bin/hakoniwa run $logging -c "$profile" -- "$bin" "$@"
+  if [ "$HAKONIWAD_CONSOLE" = "1" ]; then
+    exec /usr/bin/hakoniwa run $logging -c "$profile" -- "$SHELL"
+  else
+    exec /usr/bin/hakoniwa run $logging -c "$profile" -- "$bin" "$@"
+  fi
 }
