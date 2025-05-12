@@ -74,7 +74,7 @@ name = "{{ name }}"
 
 # Used to detect the command is running in hakoniwa
 [[envs]]
-name = "HAKONIWAD_NAME"
+name = "HAKONIWAD_CONTAINER"
 value = "default"
 
 # Restrict ambient rights (e.g. global filesystem access) for the application

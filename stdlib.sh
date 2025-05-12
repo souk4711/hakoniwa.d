@@ -6,8 +6,8 @@ hakoniwa_run() {
   local profile="$2"
   shift; shift
 
-  # the command is already running in hakoniwa, donot wrap it
-  if [ -n "$HAKONIWAD_NAME" ]; then
+  # the command is already running in a hakoniwa.d container, donot create a nested container
+  if [ -n "$HAKONIWAD_CONTAINER" ]; then
     exec "$bin" "$@"
     return 0
   fi
