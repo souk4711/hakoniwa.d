@@ -44,10 +44,16 @@ Or just type `firefox` if the `/usr/local/bin` is set in the `PATH` environment:
 firefox
 ```
 
-You can temporarily disable the profile and run the original version of `firefox` with `HAKONIWAD=0`:
+You can temporarily disable the profile and run the original version with `HAKONIWAD=0`:
 
 ```sh
 HAKONIWAD=0 firefox
+```
+
+Want to see what profiles are enabled, use `HAKONIWAD_LOG=debug` to display the logging output:
+
+```sh
+HAKONIWAD_LOG=DEBUG firefox
 ```
 
 ## License

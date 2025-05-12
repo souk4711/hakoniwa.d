@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+
 hakoniwa_run() {
   local bin="$1"
   local profile="$2"
@@ -17,6 +18,17 @@ hakoniwa_run() {
     return 0
   fi
 
+  # enable logging
+  local logging=""
+  case "${HAKONIWAD_LOG,,}" in
+    "trace")
+      logging="-vv"
+    ;;
+    "debug")
+      logging="-v"
+    ;;
+  esac
+
   # wrap the command
-  exec /usr/bin/hakoniwa run -c "$profile" -- "$bin" "$@"
+  exec /usr/bin/hakoniwa run $logging -c "$profile" -- "$bin" "$@"
 }
