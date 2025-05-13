@@ -35,10 +35,10 @@ rw = true
 name = "FAKEROOTDONTTRYCHOWN"
 value = "1"
 
-# Allow READ-WRITE-EXEC on $HOME
-[[landlock.fs]]
-path = "{{ HOME }}"
-access = "rwx"
+# Donot impose FS restrictions
+[[landlock.resources]]
+type = "fs"
+unrestrict = true
 
 # Mount a separate HOME directory
 {% set homedir = os_env("HOME") + "/.local/share/hakoniwa/apps/makepkg" %}

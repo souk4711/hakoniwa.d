@@ -15,6 +15,8 @@
 ]
 
 # Mount asdf folders
+{% set _ = fs_touch(os_env("HOME") + "/.asdfrc") %}
+{% set _ = fs_touch(os_env("HOME") + "/.tool-versions") %}
 {% for entry in [
   os_env("HOME") + "/.asdf",
   os_env("HOME") + "/.asdfrc",
@@ -27,15 +29,10 @@ rw = true
   {% endif %}
 {% endfor %}
 
-# Allow READ-WRITE-EXEC on /tmp
-[[landlock.fs]]
-path = "/tmp"
-access = "rwx"
-
-# Allow READ-WRITE-EXEC on $HOME
-[[landlock.fs]]
-path = "{{ HOME }}"
-access = "rwx"
+# Donot impose FS restrictions
+[[landlock.resources]]
+type = "fs"
+unrestrict = true
 
 # Mount a separate HOME directory
 {% set homedir = os_env("HOME") + "/.local/share/hakoniwa/apps/asdf" %}

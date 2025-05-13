@@ -29,7 +29,7 @@ hakoniwa_run() {
     ;;
   esac
 
-  # wrap the command
+  # launch a SHELL or an application
   if [ "$HAKONIWAD_CONSOLE" = "1" ]; then
     exec /usr/bin/hakoniwa run $logging -c "$profile" -- "$SHELL"
   else
