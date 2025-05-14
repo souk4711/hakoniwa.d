@@ -1,8 +1,8 @@
 # Hakoniwa.d Application Profiles
 
 All profiles can be found in the [/etc/hakoniwa.d](./hakoniwa.d) directory. The
-following tables provide a summary. The meaning of the words used in the tables
-is explained here:
+following tables list all the features the application can access. The meaning
+of the features used in the tables is explained here:
 
 - **devices**
   - **dri:** Graphic cards, includes `/dev/dri`, `/dev/nvidia*`

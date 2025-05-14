@@ -13,8 +13,8 @@ of Hakoniwa profiles for the desktop application with following features:
 - network access restrictions
   - cannot connect to a remote TCP port by default
   - cannot bind a local TCP port by default
-- app-specific configuration
-  - current supported application profiles can be found [here](./applications.md)
+- unlock restrictions by configuring the app specifically
+  - currently supported application profiles can be found [here](./applications.md)
 
 ## Requirements
 
