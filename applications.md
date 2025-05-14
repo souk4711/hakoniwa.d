@@ -1,6 +1,8 @@
-# Hakoniwa.d Applications
+# Hakoniwa.d Application Profiles
 
-Explanation of the meaning of the words used in the following tables:
+All profiles can be found in the [/etc/hakoniwa.d](./hakoniwa.d) directory. The
+following tables provide a summary. The meaning of the words used in the tables
+is explained here:
 
 - **devices**
   - **dri:** Graphic cards, includes `/dev/dri`, `/dev/nvidia*`
@@ -17,28 +19,28 @@ Explanation of the meaning of the words used in the following tables:
 
 ## Internet
 
-| name           | devices    | sockets              | network        | filesystem     |
-| -------------- | ---------- | -------------------- | -------------- | -------------- |
-| Brave          | dri, sound | dbus, audio, display | CONNECT 80/443 | ~/Downloads:rw |
-| Chromium       | dri, sound | dbus, audio, display | CONNECT 80/443 | ~/Downloads:rw |
-| Firefox        | dri, sound | dbus, audio, display | CONNECT 80/443 | ~/Downloads:rw |
-| Google Chrome  | dri, sound | dbus, audio, display | CONNECT 80/443 | ~/Downloads:rw |
-| Microsoft Edge | dri, sound | dbus, audio, display | CONNECT 80/443 | ~/Downloads:rw |
-| Vivaldi        | dri, sound | dbus, audio, display | CONNECT 80/443 | ~/Downloads:rw |
-| Zen Browser    | dri, sound | dbus, audio, display | CONNECT 80/443 | ~/Downloads:rw |
+| name           | devices    | sockets              | network            | filesystem     |
+| -------------- | ---------- | -------------------- | ------------------ | -------------- |
+| Brave          | dri, sound | dbus, audio, display | CONNECT TCP 80/443 | ~/Downloads:rw |
+| Chromium       | dri, sound | dbus, audio, display | CONNECT TCP 80/443 | ~/Downloads:rw |
+| Firefox        | dri, sound | dbus, audio, display | CONNECT TCP 80/443 | ~/Downloads:rw |
+| Google Chrome  | dri, sound | dbus, audio, display | CONNECT TCP 80/443 | ~/Downloads:rw |
+| Microsoft Edge | dri, sound | dbus, audio, display | CONNECT TCP 80/443 | ~/Downloads:rw |
+| Vivaldi        | dri, sound | dbus, audio, display | CONNECT TCP 80/443 | ~/Downloads:rw |
+| Zen Browser    | dri, sound | dbus, audio, display | CONNECT TCP 80/443 | ~/Downloads:rw |
 
 ## Office
 
-| name        | devices    | sockets              | network        | filesystem     |
-| ----------- | ---------- | -------------------- | -------------- | -------------- |
-| LibreOffice | dri, sound | audio, display       |                | ~/Documents:rw |
-| ONLYOFFICE  | dri, sound | audio, display       |                | ~/Documents:rw |
-| WPS Office  | dri, sound | audio, display       |                | ~/Documents:rw |
-| Obsidian    | dri, sound | dbus, audio, display | CONNECT 80/443 | ~/Notes:rw     |
+| name        | devices    | sockets              | network            | filesystem     |
+| ----------- | ---------- | -------------------- | ------------------ | -------------- |
+| LibreOffice | dri, sound | audio, display       |                    | ~/Documents:rw |
+| ONLYOFFICE  | dri, sound | audio, display       |                    | ~/Documents:rw |
+| WPS Office  | dri, sound | audio, display       |                    | ~/Documents:rw |
+| Obsidian    | dri, sound | dbus, audio, display | CONNECT TCP 80/443 | ~/Notes:rw     |
 
 ## CLI
 
-| name    | devices | sockets | network        | filesystem     |
-| ------- | ------- | ------- | -------------- | -------------- |
-| asdf-vm |         |         | CONNECT 80/443 | ~/Code:rw, ... |
-| makepkg |         |         | CONNECT 80/443 | ~/Code:rw, ... |
+| name    | devices | sockets | network            | filesystem     |
+| ------- | ------- | ------- | ------------------ | -------------- |
+| asdf-vm |         |         | CONNECT TCP 80/443 | ~/Code:rw, ... |
+| makepkg |         |         | CONNECT TCP 80/443 | ~/Code:rw, ... |
