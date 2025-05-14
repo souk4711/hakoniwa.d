@@ -37,18 +37,18 @@ install_binwrapper() {
 
   if ! command_exists "$bin"; then
     if command_exists "$binwrapper" && grep -q "hakoniwa.*run.*$bin" "$binwrapper"; then
-      echo "removing $binwrapper"
+      echo "removing $binwrapper."
       rm "$binwrapper"
     fi
     return 0
   fi
 
   if [ ! -r "$profile" ]; then
-    echo_warn "Profile $profile for $bin is unreadable, SKIPPING"
+    echo_warn "Profile $profile for $bin is unreadable, SKIPPING."
     return 0
   fi
 
-  echo "creating $binwrapper"
+  echo "creating $binwrapper."
   cat <<EOT > "$binwrapper"
 #!/usr/bin/env bash
 
