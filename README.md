@@ -4,7 +4,7 @@
 environment based on your host os and run application in it. This repository provides a set
 of Hakoniwa profiles for the desktop application with following features:
 
-- a separate **HOME** directory for each application
+- a separate HOME directory for each application
   - the new HOME directory is located in `~/.local/share/hakoniwa/apps/`
 - filesystem access restrictions
   - the rootfs contains only `/bin`, `/etc`, `/lib`, `/lib64`, `/lib32`, `/sbin`, `/usr`, `/opt`, `/sys`
@@ -13,7 +13,7 @@ of Hakoniwa profiles for the desktop application with following features:
 - network access restrictions
   - cannot connect to a remote TCP port by default
   - cannot bind a local TCP port by default
-- application-specific configuration
+- app-specific configuration
   - current supported applications can be found [here](./applications.md)
 
 ## Requirements
