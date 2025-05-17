@@ -13,7 +13,7 @@ hakoniwa_run() {
   fi
 
   # temporarily disabled by user
-  if [ "$HAKONIWAD" = "0" ]; then
+  if [ "$HAKONIWAD" = 0 ]; then
     exec "$bin" "$@"
     return 0
   fi
@@ -30,7 +30,7 @@ hakoniwa_run() {
   esac
 
   # launch a SHELL or an application
-  if [ "$HAKONIWAD_CONSOLE" = "1" ]; then
+  if [ "$HAKONIWAD_CONSOLE" = 1 ]; then
     exec /usr/bin/hakoniwa run $logging -c "$profile" -- "$SHELL"
   else
     exec /usr/bin/hakoniwa run $logging -c "$profile" -- "$bin" "$@"

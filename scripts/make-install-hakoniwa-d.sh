@@ -29,9 +29,9 @@ install_hakoniwa_d() {
   echo_info "Installing files to /usr/lib/hakoniwa.d/..."
   mkdir -p /usr/lib/hakoniwa.d
   mkdir -p /usr/lib/hakoniwa.d/scripts
-  cp ./scripts/binwrappers.csv /usr/lib/hakoniwa.d/scripts/binwrappers.csv
-  cp ./scripts/make-binwrappers.sh /usr/lib/hakoniwa.d/scripts/make-binwrappers.sh
-  cp ./stdlib.sh /usr/lib/hakoniwa.d/stdlib.sh
+  cp ./stdlib.sh /usr/lib/hakoniwa.d/
+  cp ./scripts/binwrappers-*.csv /usr/lib/hakoniwa.d/scripts/
+  cp ./scripts/make-binwrappers.sh /usr/lib/hakoniwa.d/scripts/
 }
 
 install_package_manager_hook() {
