@@ -17,6 +17,6 @@ rw = true
 
 # List of environment variables exported to the application
 [[envs]]
-name = "{{ wayland_display }}"
+name = "WAYLAND_DISPLAY"
 
 {% endif %}
