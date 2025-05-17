@@ -80,6 +80,25 @@ Want to enter the sandbox interactively, use `HAKONIWAD_CONSOLE=1` to open a she
 HAKONIWAD_LOG=DEBUG HAKONIWAD_CONSOLE=1 firefox
 ```
 
+By default, the sandboxed firefox can only access ports `80` and `443`. To allow it access to extra ports,
+e.g. `8080`, you can create a file `/etc/hakoniwa.d/local/firefox.toml` with the following content:
+
+```toml
+[[landlock.net]]
+port = 8080
+access = "tcp.connect"
+```
+
+By default, the sandboxed firefox can only access folder `~/Downloads` with read-write permission. To allow
+it access extra folders, e.g. `Desktop`, you can create a file `/etc/hakoniwa.d/local/firefox.toml` with the
+following content:
+
+```toml
+[[mounts]]
+source = "{{ HOME }}/Desktop"
+rw = true
+```
+
 ## License
 
 Licensed under the [GPL-3.0-only](./LICENSE).
