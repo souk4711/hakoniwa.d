@@ -17,3 +17,8 @@ install_hakoniwa:				## Install hakoniwa to /usr/bin/hakoniwa
 .PHONY: install_hakoniwa_d
 install_hakoniwa_d:			## Install hakoniwa profiles to /etc/hakoniwa.d/
 	@./scripts/make-install-hakoniwa-d.sh
+
+.PHONY: lints
+lints:									## Run lints
+	shellcheck ./stdlib.sh
+	shellcheck ./scripts/*.sh
