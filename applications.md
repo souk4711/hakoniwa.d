@@ -43,4 +43,5 @@ of the features used in the tables is explained here:
 | name    | devices | sockets | network            | filesystem     |
 | ------- | ------- | ------- | ------------------ | -------------- |
 | asdf-vm |         |         | CONNECT TCP 80/443 | ~/Code:rw, ... |
+| mise    |         |         | CONNECT TCP 80/443 | ~/Code:rw, ... |
 | makepkg |         |         | CONNECT TCP 80/443 | ~/Code:rw, ... |

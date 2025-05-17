@@ -1,0 +1,56 @@
+# THIS FILE IS PART OF HAKONIWA.D
+#
+# HAKONIWA.D: https://github.com/souk4711/hakoniwa.d
+# SPDX-License-Identifier: GPL-3.0-only
+
+
+# Include a set of built-in configuration
+"@include" = [
+  "abstractions/os/linux.toml",                   # Base
+  "abstractions/network/mode/host.toml",          # Network Mode - Host
+  "abstractions/network/connect/autoproxy.toml",  # Allow outgoing $ALL_PROXY/... connections
+  "abstractions/network/connect/http.toml",       # Allow outgoing HTTP connections
+  "abstractions/network/connect/https.toml",      # Allow outgoing HTTPS connections
+  "abstractions/filesystem/xdg-code.toml",        # Share Folder - $HOME/Code
+]
+
+# Mount mise folders
+{% set _ = fs_mkdir(os_env("HOME") + "/.cache/mise") %}
+{% set _ = fs_mkdir(os_env("HOME") + "/.config/mise") %}
+{% set _ = fs_mkdir(os_env("HOME") + "/.local/share/mise") %}
+{% set _ = fs_mkdir(os_env("HOME") + "/.local/state/mise") %}
+{% set _ = fs_touch(os_env("HOME") + "/.tool-versions") %}
+{% for entry in [
+  os_env("HOME") + "/.cache/mise",
+  os_env("HOME") + "/.config/mise",
+  os_env("HOME") + "/.local/share/mise",
+  os_env("HOME") + "/.local/state/mise",
+  os_env("HOME") + "/.tool-versions",
+] %}
+  {% if path_exists(entry) %}
+[[mounts]]
+source = "{{ entry }}"
+rw = true
+  {% endif %}
+{% endfor %}
+
+# Donot impose FS restrictions
+[[landlock.resources]]
+type = "fs"
+unrestrict = true
+
+# Mount a separate HOME directory
+{% set homedir = os_env("HOME") + "/.local/share/hakoniwa/apps/mise" %}
+{% set _ = fs_mkdir(homedir) %}
+[[mounts]]
+source = "{{ homedir }}"
+destination = "{{ HOME }}"
+rw = true
+
+# COMMAND
+[command]
+cmdline = ["/usr/bin/mise"]
+cwd = "{{ PWD }}"
+
+# Embed user profile
+{% include "local/mise.toml" ignore missing %}

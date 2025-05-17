@@ -35,8 +35,11 @@ sudo make install_hakoniwa
 # Install hakoniwa profiles to /etc/hakoniwa.d/
 sudo make install_hakoniwa_d
 
-# OPTIONAL: Generate binary wrappers in /usr/local/bin/
+# OPTIONAL: Generate a set of default binary wrappers in /usr/local/bin/
 sudo make binwrappers
+
+# OPTIONAL: Generate a specified binary wrapper in /usr/local/bin/
+sudo make binwrapper bin=firefox
 ```
 
 ## Usage
