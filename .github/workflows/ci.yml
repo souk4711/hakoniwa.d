@@ -9,5 +9,21 @@ jobs:
     steps:
       - name: Checkout sources
         uses: actions/checkout@v4
-      - name: Run ShellCheck
-        run: make lints
+      - name: Run lint
+        run: make lint
+
+  test:
+    name: Test Suite
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v4
+      - name: Install libseccomp
+        run: |
+          sudo apt-get update
+          sudo apt install libseccomp-dev
+      - name: Install hakoniwa
+        run: |
+          sudo make install_hakoniwa
+      - name: Run test
+        run: make test

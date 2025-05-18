@@ -1,0 +1,23 @@
+# THIS FILE IS PART OF HAKONIWA.D
+#
+# HAKONIWA.D: https://github.com/souk4711/hakoniwa.d
+# SPDX-License-Identifier: GPL-3.0-only
+
+
+# Include a set of built-in configuration
+"@include" = [
+  "../../../hakoniwa.d/abstractions/os/linux.toml",                   # Base
+  "../../../hakoniwa.d/abstractions/network/mode/host.toml",          # Network Mode - Host
+  "../../../hakoniwa.d/abstractions/network/connect/autoproxy.toml",  # Allow outgoing $ALL_PROXY/... connections
+  "../../../hakoniwa.d/abstractions/network/connect/http.toml",       # Allow outgoing HTTP connections
+  "../../../hakoniwa.d/abstractions/network/connect/https.toml",      # Allow outgoing HTTPS connections
+  "../../../hakoniwa.d/abstractions/filesystem/xdg-code.toml",        # Share Folder - $HOME/Code
+]
+
+# COMMAND
+[command]
+cmdline = ["/usr/bin/ruby"]
+cwd = "{{ HOME }}"
+
+# Embed user profile
+{% include "local/ruby.toml" ignore missing %}
