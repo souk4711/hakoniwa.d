@@ -17,6 +17,14 @@
   [[ ! "$result" =~ "mnt"   ]]
   [[ ! "$result" =~ "root"  ]]
   [[ ! "$result" =~ "var"   ]]
+
+  result="$(./tests/fixtures/bin/ruby -e 'print %x{ ls /dev }')"
+  [[ "$result" =~ "null" ]]
+  [[ "$result" =~ "zero" ]]
+  [[ ! "$result" =~ "block" ]]
+  [[ ! "$result" =~ "char"  ]]
+  [[ ! "$result" =~ "dri"   ]]
+  [[ ! "$result" =~ "snd"   ]]
 }
 
 @test "os/linux - envs" {
