@@ -24,21 +24,36 @@ echo_error() {
 install_deps() {
   echo_info "Installing dependencies..."
   if command_exists "apt"; then
-    apt install -y libseccomp-dev passt cargo
+    apt install -y libseccomp-dev passt
   elif command_exists "dnf"; then
-    dnf install -y libseccomp-devel passt cargo
+    dnf install -y libseccomp-devel passt
   elif command_exists "pacman"; then
-    pacman -S --noconfirm libseccomp passt cargo
+    pacman -S --noconfirm libseccomp passt
   else
     echo_warn "Unsupported distro - Ubuntu, Fedora, Arch only."
     echo_warn "Please manually install following dependencies:"
-    echo_warn "  - cargo"
     echo_warn "  - passt"
     echo_warn "  - libseccomp (devel)"
   fi
 }
 
 install_hakoniwa() {
+  echo_info "Installing rust toolchains..."
+  if command_exists "cargo"; then
+    echo "rust toolchains found. SKIPPING."
+  else
+    if command_exists "apt"; then
+      apt install -y cargo
+    elif command_exists "dnf"; then
+      dnf install -y cargo
+    elif command_exists "pacman"; then
+      pacman -S --noconfirm cargo
+    else
+      echo_warn "Unsupported distro - Ubuntu, Fedora, Arch only."
+      echo_warn "Please manually install rust toolchains"
+    fi
+  fi
+
   echo_info "Compiling binary from source code and install to /usr/bin/hakoniwa..."
   cargo install hakoniwa-cli --root /usr --locked
 }

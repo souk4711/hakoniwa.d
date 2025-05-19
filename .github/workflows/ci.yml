@@ -18,12 +18,24 @@ jobs:
     steps:
       - name: Checkout sources
         uses: actions/checkout@v4
-      - name: Install libseccomp
+      - name: Install dependencies
         run: |
           sudo apt-get update
-          sudo apt install libseccomp-dev
+          sudo apt install -y libseccomp-dev passt
+      - name: Install rust toolchain
+        uses: dtolnay/rust-toolchain@stable
       - name: Install hakoniwa
         run: |
-          sudo make install_hakoniwa
+          cargo install hakoniwa-cli --locked
+          sudo mv ~/.cargo/bin/hakoniwa /usr/bin/hakoniwa
+      - name: Configure AppArmor
+        run: |
+          sudo cp ./etc/apparmor.d/hakoniwa /etc/apparmor.d/hakoniwa
+          sudo systemctl reload apparmor.service
+      - name: Setup Bats and bats libs
+        id: setup-bats
+        uses: bats-core/bats-action@3.0.0
       - name: Run test
-        run: make test
+        run: |
+          mkdir -p ~/Code
+          make test

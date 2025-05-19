@@ -18,10 +18,8 @@ of Hakoniwa profiles for the desktop application with following features:
 
 ## Requirements
 
-- Linux kernel 6.7 or later, e.g.
-  - Arch
-  - Fedora 41
-  - Ubuntu 24.04
+- Linux kernel 6.7 or later
+- Rust 1.85 or later
 
 ## Installation
 

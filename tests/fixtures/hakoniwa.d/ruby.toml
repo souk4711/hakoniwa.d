@@ -14,6 +14,14 @@
   "../../../hakoniwa.d/abstractions/filesystem/xdg-code.toml",        # Share Folder - $HOME/Code
 ]
 
+# Mount a separate HOME directory
+{% set homedir = os_env("HOME") + "/.local/share/hakoniwa/apps/ruby" %}
+{% set _ = fs_mkdir(homedir) %}
+[[mounts]]
+source = "{{ homedir }}"
+destination = "{{ HOME }}"
+rw = true
+
 # COMMAND
 [command]
 cmdline = ["/usr/bin/ruby"]
