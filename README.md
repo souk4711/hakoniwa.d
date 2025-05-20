@@ -1,20 +1,25 @@
 # Hakoniwa.d
 
 [Hakoniwa][hakoniwa] is an unprivileged sandboxing tool that allows you to build an isolated
-environment based on your host os and run application in it. This repository provides a set
-of Hakoniwa profiles for the desktop application with following features:
+environment based on your host os and run application in it. It can help you with:
+
+- Compile source code in a restricted sandbox, e.g. makepkg
+- Run browsers, or proprietary softwares in an isolated environment, e.g. Firefox
+
+This repository provides a set of profiles with following features:
 
 - a separate HOME directory for each application
   - the new HOME directory is located in `~/.local/share/hakoniwa/apps/`
 - filesystem access restrictions
-  - the rootfs contains only `/bin`, `/etc`, `/lib`, `/lib64`, `/lib32`, `/sbin`, `/usr`, `/opt`, `/sys`
-  - cannot access devices or sockets by default
-  - cannot run any SUID binaries
+  - the rootfs contains only `/bin`, `/etc`, `/lib`, `/lib64`, `/lib32`, `/sbin`, `/usr`, `/opt`, `/sys` by default
+  - the application cannot access devices or sockets by default
+  - the application cannot run any SUID binaries
 - network access restrictions
-  - cannot connect to a remote TCP port by default
-  - cannot bind a local TCP port by default
-- unlock restrictions by configuring the app specifically
-  - currently supported application profiles can be found [here](./applications.md)
+  - the application cannot connect to a remote TCP port by default
+  - the application cannot bind a local TCP port by default
+
+The [Application Profiles](./applications.md) document lists all the available applications
+and their respective permissions.
 
 ## Requirements
 
@@ -37,7 +42,7 @@ sudo make install_hakoniwa_d
 sudo make binwrappers
 
 # OPTIONAL: Generate a specified binary wrapper in /usr/local/bin/
-sudo make binwrapper bin=firefox
+sudo make binwrapper bin=makepkg
 ```
 
 ## Usage

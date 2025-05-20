@@ -84,7 +84,7 @@ configure_apparmor() {
     return 0
   fi
 
-  echo "writing file /etc/apparmor.d/hakoniwa."
+  echo "creating /etc/apparmor.d/hakoniwa."
   cp ./etc/apparmor.d/hakoniwa /etc/apparmor.d/hakoniwa
 
   if apparmor_status --enabled; then

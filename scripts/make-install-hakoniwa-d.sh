@@ -52,7 +52,7 @@ install_package_manager_hook() {
 install_apt_hook() {
   echo "package manager APT found."
 
-  echo "writing file /etc/apt/apt.conf.d/hakoniwa."
+  echo "creating /etc/apt/apt.conf.d/hakoniwa."
   cp ./etc/apt/apt.conf.d/hakoniwa /etc/apt/apt.conf.d/hakoniwa
 }
 
@@ -60,7 +60,8 @@ install_dnf_hook() {
   echo "package manager DNF found."
   dnf install -y libdnf5-plugin-actions
 
-  echo "writing file /etc/dnf/libdnf5-plugins/actions.d/hakoniwa.actions."
+  echo "creating /etc/dnf/libdnf5-plugins/actions.d/hakoniwa.actions."
+  echo "creating /etc/dnf/libdnf5-plugins/actions.d/hakoniwa.sh."
   cp ./etc/dnf/libdnf5-plugins/actions.d/hakoniwa.actions /etc/dnf/libdnf5-plugins/actions.d/hakoniwa.actions
   cp ./etc/dnf/libdnf5-plugins/actions.d/hakoniwa.sh /etc/dnf/libdnf5-plugins/actions.d/hakoniwa.sh
 }
@@ -68,7 +69,8 @@ install_dnf_hook() {
 install_pacman_hook() {
   echo "package manager PACMAN found."
 
-  echo "writing file /usr/share/libalpm/hooks/hakoniwa.hook."
+  echo "creating /usr/share/libalpm/hooks/hakoniwa.hook."
+  echo "creating /usr/share/libalpm/scripts/hakoniwa."
   cp ./etc/pacman/hooks/hakoniwa.hook /usr/share/libalpm/hooks/hakoniwa.hook
   cp ./etc/pacman/scripts/hakoniwa /usr/share/libalpm/scripts/hakoniwa
 }

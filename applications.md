@@ -1,47 +1,37 @@
-# Hakoniwa.d Application Profiles
+# Application Profiles
 
-All profiles can be found in the [/etc/hakoniwa.d](./hakoniwa.d) directory. The
-following tables list all the features the application can access. The meaning
-of the features used in the tables is explained here:
+A list of all the available applications and their respective permissions.
+
+## Current available applications
+
+| name           | category | devices    | sockets              | network            | filesystem     |
+| -------------- | -------- | ---------- | -------------------- | ------------------ | -------------- |
+| Brave          | Internet | dri, sound | dbus, audio, display | CONNECT TCP 80/443 | ~/Downloads:rw |
+| Chromium       | Internet | dri, sound | dbus, audio, display | CONNECT TCP 80/443 | ~/Downloads:rw |
+| Firefox        | Internet | dri, sound | dbus, audio, display | CONNECT TCP 80/443 | ~/Downloads:rw |
+| Google Chrome  | Internet | dri, sound | dbus, audio, display | CONNECT TCP 80/443 | ~/Downloads:rw |
+| Microsoft Edge | Internet | dri, sound | dbus, audio, display | CONNECT TCP 80/443 | ~/Downloads:rw |
+| Vivaldi        | Internet | dri, sound | dbus, audio, display | CONNECT TCP 80/443 | ~/Downloads:rw |
+| Zen Browser    | Internet | dri, sound | dbus, audio, display | CONNECT TCP 80/443 | ~/Downloads:rw |
+| LibreOffice    | Office   | dri, sound | audio, display       |                    | ~/Documents:rw |
+| ONLYOFFICE     | Office   | dri, sound | audio, display       |                    | ~/Documents:rw |
+| WPS Office     | Office   | dri, sound | audio, display       |                    | ~/Documents:rw |
+| Obsidian       | Office   | dri, sound | dbus, audio, display | CONNECT TCP 80/443 | ~/Notes:rw     |
+| asdf-vm        | CLI      |            |                      | CONNECT TCP 80/443 | ~/Code:rw, ... |
+| mise           | CLI      |            |                      | CONNECT TCP 80/443 | ~/Code:rw, ... |
+| makepkg        | CLI      |            |                      | CONNECT TCP 80/443 | ~/Code:rw, ... |
+
+The meaning of the permissions used in the tables:
 
 - **devices**
-  - **dri:** Graphic cards, includes `/dev/dri`, `/dev/nvidia*`
-  - **sound:** Sound cards, includes `/dev/snd`
+  - **dri:** Allow access graphic cards, includes `/dev/dri`, `/dev/nvidia*`
+  - **sound:** Allow acces sound cards, includes `/dev/snd`
 - **sockets**
-  - **dbus:** D-Bus buses, includes the system bus and the session bus
-  - **audio:** Audio servers, includes PipeWire, PulseAudio
-  - **display:** Display server, includes Wayland, X11
+  - **dbus:** Allow access D-Bus buses, includes the system bus and the session bus
+  - **audio:** Allow access audio servers, includes PipeWire, PulseAudio
+  - **display:** Allow access display server, includes Wayland, X11
 - **network**
   - **CONNECT:** Allow outgoing connections on PORT
   - **BIND:** Allow incoming connections on PORT
 - **filesystem**
   - **... :** Represents necessary hidden directories/files
-
-## Internet
-
-| name           | devices    | sockets              | network            | filesystem     |
-| -------------- | ---------- | -------------------- | ------------------ | -------------- |
-| Brave          | dri, sound | dbus, audio, display | CONNECT TCP 80/443 | ~/Downloads:rw |
-| Chromium       | dri, sound | dbus, audio, display | CONNECT TCP 80/443 | ~/Downloads:rw |
-| Firefox        | dri, sound | dbus, audio, display | CONNECT TCP 80/443 | ~/Downloads:rw |
-| Google Chrome  | dri, sound | dbus, audio, display | CONNECT TCP 80/443 | ~/Downloads:rw |
-| Microsoft Edge | dri, sound | dbus, audio, display | CONNECT TCP 80/443 | ~/Downloads:rw |
-| Vivaldi        | dri, sound | dbus, audio, display | CONNECT TCP 80/443 | ~/Downloads:rw |
-| Zen Browser    | dri, sound | dbus, audio, display | CONNECT TCP 80/443 | ~/Downloads:rw |
-
-## Office
-
-| name        | devices    | sockets              | network            | filesystem     |
-| ----------- | ---------- | -------------------- | ------------------ | -------------- |
-| LibreOffice | dri, sound | audio, display       |                    | ~/Documents:rw |
-| ONLYOFFICE  | dri, sound | audio, display       |                    | ~/Documents:rw |
-| WPS Office  | dri, sound | audio, display       |                    | ~/Documents:rw |
-| Obsidian    | dri, sound | dbus, audio, display | CONNECT TCP 80/443 | ~/Notes:rw     |
-
-## CLI
-
-| name    | devices | sockets | network            | filesystem     |
-| ------- | ------- | ------- | ------------------ | -------------- |
-| asdf-vm |         |         | CONNECT TCP 80/443 | ~/Code:rw, ... |
-| mise    |         |         | CONNECT TCP 80/443 | ~/Code:rw, ... |
-| makepkg |         |         | CONNECT TCP 80/443 | ~/Code:rw, ... |

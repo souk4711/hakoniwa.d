@@ -18,11 +18,15 @@ install_hakoniwa:				## Install hakoniwa to /usr/bin/hakoniwa
 install_hakoniwa_d:			## Install hakoniwa profiles to /etc/hakoniwa.d/
 	@./scripts/make-install-hakoniwa-d.sh
 
+.PHONY: uninstall
+uninstall:							## Uninstall hakoniwa stuff
+	@./scripts/make-uninstall.sh
+
 .PHONY: lint
-lint:
+lint:										## Run lints
 	shellcheck ./stdlib.sh
 	shellcheck ./scripts/*.sh
 
 .PHONY: test
-test:
+test:										## Run test suites
 	bats -r ./tests
