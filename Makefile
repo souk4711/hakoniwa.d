@@ -8,7 +8,11 @@ binwrapper:							## Generate a specified binary wrapper in /usr/local/bin/
 
 .PHONY: binwrappers
 binwrappers:						## Generate a set of default binary wrappers in /usr/local/bin/
+ifeq ($(extra), 1)
+	@./scripts/make-binwrappers.sh --defaults-extra
+else
 	@./scripts/make-binwrappers.sh --defaults
+endif
 
 .PHONY: install_hakoniwa
 install_hakoniwa:				## Install hakoniwa to /usr/bin/hakoniwa

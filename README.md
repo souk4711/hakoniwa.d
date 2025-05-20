@@ -6,7 +6,7 @@ environment based on your host os and run application in it. It can help you wit
 - Compile source code in a restricted sandbox, e.g. makepkg
 - Run browsers, or proprietary softwares in an isolated environment, e.g. Firefox
 
-This repository provides a set of profiles with following features:
+This repository provides a set of hakoniwa profiles with following features:
 
 - a separate HOME directory for each application
   - the new HOME directory is located in `~/.local/share/hakoniwa/apps/`
@@ -40,14 +40,11 @@ sudo make install_hakoniwa_d
 
 # OPTIONAL: Generate a set of default binary wrappers in /usr/local/bin/
 sudo make binwrappers
-
-# OPTIONAL: Generate a specified binary wrapper in /usr/local/bin/
-sudo make binwrapper bin=makepkg
 ```
 
 ## Usage
 
-Launch application `/usr/bin/firefox` with a hakoniwa.d profile:
+Launch application `/usr/bin/firefox` with a hakoniwa profile:
 
 ```sh
 hakoniwa run -c /etc/hakoniwa.d/firefox.toml -- /usr/bin/firefox
@@ -101,6 +98,21 @@ following content:
 source = "{{ HOME }}/Desktop"
 rw = true
 ```
+
+## Development
+
+### Makefile
+
+| Command                        | Description                                                    |
+| ------------------------------ | -------------------------------------------------------------- |
+| `sudo make binwrapper`         | Generate a specified binary wrapper in `/usr/local/bin/`       |
+| `sudo make binwrappers`        | Generate a set of default binary wrappers in `/usr/local/bin/` |
+| `sudo make install_hakoniwa`   | Install hakoniwa to `/usr/bin/hakoniwa`                        |
+| `sudo make install_hakoniwa_d` | Install hakoniwa profiles to `/etc/hakoniwa.d/`                |
+| `sudo make uninstall`          | Uninstall hakoniwa stuff                                       |
+| `make lint`                    | Run lints                                                      |
+| `make test`                    | Run test suites                                                |
+| `make help`                    | Print help                                                     |
 
 ## License
 
