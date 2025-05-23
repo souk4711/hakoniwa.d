@@ -4,15 +4,8 @@
 # SPDX-License-Identifier: GPL-3.0-only
 
 
-# Include a set of built-in configuration
-"@include" = [
-  "abstractions/os/linux.toml",                   # Base
-  "abstractions/network/mode/host.toml",          # Network Mode - Host
-  "abstractions/network/connect/autoproxy.toml",  # Allow outgoing $ALL_PROXY/... connections
-  "abstractions/network/connect/http.toml",       # Allow outgoing HTTP connections
-  "abstractions/network/connect/https.toml",      # Allow outgoing HTTPS connections
-  "abstractions/filesystem/xdg-code.toml",        # Share Folder - $HOME/Code
-]
+# Include a set of DEVKIT configuration
+{% include "groups/devkit.toml" %}
 
 # Mount /var/lib which stores application's data
 [[mounts]]
@@ -34,11 +27,6 @@ rw = true
 [[envs]]
 name = "FAKEROOTDONTTRYCHOWN"
 value = "1"
-
-# Donot impose FS restrictions
-[[landlock.resources]]
-type = "fs"
-unrestrict = true
 
 # Mount a separate HOME directory
 {% set homedir = os_env("HOME") + "/.local/share/hakoniwa/apps/makepkg" %}
