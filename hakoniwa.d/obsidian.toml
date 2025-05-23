@@ -7,8 +7,8 @@
 # Include a set of built-in configuration
 "@include" = [
   "abstractions/os/linux.toml",                   # Base
-  "abstractions/device/dri.toml",                 # Device - Graphic Card
-  "abstractions/device/sound.toml",               # Device - Sound Card
+  "abstractions/device/dri.toml",                 # Device - DRI
+  "abstractions/device/snd.toml",                 # Device - Sound input and output
   "abstractions/socket/dbus-session.toml",        # D-Bus session
   "abstractions/socket/dbus-system.toml",         # D-Bus system
   "abstractions/socket/pipewire.toml",            # Audio Server - PipeWire

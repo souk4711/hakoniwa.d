@@ -36,4 +36,4 @@ rw = true
 {% set binpath = "/usr/bin/" + _binname_ %}
 [command]
 cmdline = ["{{ binpath }}"]
-cwd = "{{ HOME }}"
+cwd = "{{ PWD }}"

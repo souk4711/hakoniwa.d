@@ -1,0 +1,20 @@
+# THIS FILE IS PART OF HAKONIWA.D
+#
+# HAKONIWA.D: https://github.com/souk4711/hakoniwa.d
+# SPDX-License-Identifier: GPL-3.0-only
+
+
+# Video for linux
+{% set device = "/dev/v4l" %}
+{% if path_exists(device) %}
+[[mounts]]
+source = "{{ device }}"
+rw = true
+{% endif %}
+
+# Video capture devices
+{% for device in fs_glob("/dev/video*") %}
+[[mounts]]
+source = "{{ device }}"
+rw = true
+{% endfor %}
