@@ -4,11 +4,16 @@
 # SPDX-License-Identifier: GPL-3.0-only
 
 
+# Constants
+{% set _pkgname_ = "asdf" %}
+{% set _binname_ = "asdf" %}
+
 # Include a set of DEVKIT configuration
 {% include "groups/devkit.toml" %}
 
 # Mount asdf folders
-{% set _ = fs_touch(os_env("HOME") + "/.asdfrc") %}
+{% set _ = fs_mkdir(os_env("HOME") + "/.asdf")          %}
+{% set _ = fs_touch(os_env("HOME") + "/.asdfrc")        %}
 {% set _ = fs_touch(os_env("HOME") + "/.tool-versions") %}
 {% for entry in [
   os_env("HOME") + "/.asdf",
@@ -22,18 +27,5 @@ rw = true
   {% endif %}
 {% endfor %}
 
-# Mount a separate HOME directory
-{% set homedir = os_env("HOME") + "/.local/share/hakoniwa/apps/asdf" %}
-{% set _ = fs_mkdir(homedir) %}
-[[mounts]]
-source = "{{ homedir }}"
-destination = "{{ HOME }}"
-rw = true
-
-# COMMAND
-[command]
-cmdline = ["/usr/bin/asdf"]
-cwd = "{{ PWD }}"
-
-# Embed user profile
-{% include "local/asdf.toml" ignore missing %}
+# Customized user profile
+{% include ("local/" + _pkgname_ + ".toml") ignore missing %}

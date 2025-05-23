@@ -4,21 +4,12 @@
 # SPDX-License-Identifier: GPL-3.0-only
 
 
+# Constants
+{% set _pkgname_ = "vivaldi" %}
+{% set _binname_ = "vivaldi" %}
+
 # Include a set of BROWSER configuration
 {% include "groups/browser.toml" %}
 
-# Mount a separate HOME directory
-{% set homedir = os_env("HOME") + "/.local/share/hakoniwa/apps/vivaldi" %}
-{% set _ = fs_mkdir(homedir) %}
-[[mounts]]
-source = "{{ homedir }}"
-destination = "{{ HOME }}"
-rw = true
-
-# COMMAND
-[command]
-cmdline = ["/usr/bin/vivaldi"]
-cwd = "{{ HOME }}"
-
-# Embed user profile
-{% include "local/vivaldi.toml" ignore missing %}
+# Customized user profile
+{% include ("local/" + _pkgname_ + ".toml") ignore missing %}

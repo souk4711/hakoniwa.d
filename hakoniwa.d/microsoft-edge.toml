@@ -4,21 +4,12 @@
 # SPDX-License-Identifier: GPL-3.0-only
 
 
+# Constants
+{% set _pkgname_ = "microsoft-edge" %}
+{% set _binname_ = "microsoft-edge-stable" %}
+
 # Include a set of BROWSER configuration
 {% include "groups/browser.toml" %}
 
-# Mount a separate HOME directory
-{% set homedir = os_env("HOME") + "/.local/share/hakoniwa/apps/microsoft-edge" %}
-{% set _ = fs_mkdir(homedir) %}
-[[mounts]]
-source = "{{ homedir }}"
-destination = "{{ HOME }}"
-rw = true
-
-# COMMAND
-[command]
-cmdline = ["/usr/bin/microsoft-edge-stable"]
-cwd = "{{ HOME }}"
-
-# Embed user profile
-{% include "local/microsoft-edge.toml" ignore missing %}
+# Customized user profile
+{% include ("local/" + _pkgname_ + ".toml") ignore missing %}

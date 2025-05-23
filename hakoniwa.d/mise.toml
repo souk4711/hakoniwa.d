@@ -4,15 +4,19 @@
 # SPDX-License-Identifier: GPL-3.0-only
 
 
+# Constants
+{% set _pkgname_ = "mise" %}
+{% set _binname_ = "mise" %}
+
 # Include a set of DEVKIT configuration
 {% include "groups/devkit.toml" %}
 
 # Mount mise folders
-{% set _ = fs_mkdir(os_env("HOME") + "/.cache/mise") %}
-{% set _ = fs_mkdir(os_env("HOME") + "/.config/mise") %}
-{% set _ = fs_mkdir(os_env("HOME") + "/.local/share/mise") %}
-{% set _ = fs_mkdir(os_env("HOME") + "/.local/state/mise") %}
-{% set _ = fs_touch(os_env("HOME") + "/.tool-versions") %}
+{% set _ = fs_mkdir(os_env("HOME") + "/.cache/mise")        %}
+{% set _ = fs_mkdir(os_env("HOME") + "/.config/mise")       %}
+{% set _ = fs_mkdir(os_env("HOME") + "/.local/share/mise")  %}
+{% set _ = fs_mkdir(os_env("HOME") + "/.local/state/mise")  %}
+{% set _ = fs_touch(os_env("HOME") + "/.tool-versions")     %}
 {% for entry in [
   os_env("HOME") + "/.cache/mise",
   os_env("HOME") + "/.config/mise",
@@ -27,18 +31,5 @@ rw = true
   {% endif %}
 {% endfor %}
 
-# Mount a separate HOME directory
-{% set homedir = os_env("HOME") + "/.local/share/hakoniwa/apps/mise" %}
-{% set _ = fs_mkdir(homedir) %}
-[[mounts]]
-source = "{{ homedir }}"
-destination = "{{ HOME }}"
-rw = true
-
-# COMMAND
-[command]
-cmdline = ["/usr/bin/mise"]
-cwd = "{{ PWD }}"
-
-# Embed user profile
-{% include "local/mise.toml" ignore missing %}
+# Customized user profile
+{% include ("local/" + _pkgname_ + ".toml") ignore missing %}

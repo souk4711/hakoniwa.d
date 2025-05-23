@@ -18,3 +18,17 @@
 [[landlock.resources]]
 type = "fs"
 unrestrict = true
+
+# Mount a separate HOME directory
+{% set homedir = os_env("HOME") + "/.local/share/hakoniwa/apps/" + _pkgname_ %}
+{% set _ = fs_mkdir(homedir) %}
+[[mounts]]
+source = "{{ homedir }}"
+destination = "{{ HOME }}"
+rw = true
+
+# COMMAND
+{% set binpath = "/usr/bin/" + _binname_ %}
+[command]
+cmdline = ["{{ binpath }}"]
+cwd = "{{ HOME }}"

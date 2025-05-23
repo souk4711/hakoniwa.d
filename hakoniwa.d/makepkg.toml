@@ -4,6 +4,10 @@
 # SPDX-License-Identifier: GPL-3.0-only
 
 
+# Constants
+{% set _pkgname_ = "makepkg" %}
+{% set _binname_ = "makepkg" %}
+
 # Include a set of DEVKIT configuration
 {% include "groups/devkit.toml" %}
 
@@ -28,18 +32,5 @@ rw = true
 name = "FAKEROOTDONTTRYCHOWN"
 value = "1"
 
-# Mount a separate HOME directory
-{% set homedir = os_env("HOME") + "/.local/share/hakoniwa/apps/makepkg" %}
-{% set _ = fs_mkdir(homedir) %}
-[[mounts]]
-source = "{{ homedir }}"
-destination = "{{ HOME }}"
-rw = true
-
-# COMMAND
-[command]
-cmdline = ["/usr/bin/makepkg"]
-cwd = "{{ PWD }}"
-
-# Embed user profile
-{% include "local/makepkg.toml" ignore missing %}
+# Customized user profile
+{% include ("local/" + _pkgname_ + ".toml") ignore missing %}
