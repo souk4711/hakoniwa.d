@@ -14,10 +14,15 @@
   "abstractions/filesystem/xdg-code.toml",        # Share Folder - $HOME/Code
 ]
 
-# Donot impose FS restrictions
-[[landlock.resources]]
-type = "fs"
-unrestrict = true
+# Donot impose FS restrictions on /tmp
+[[landlock.fs]]
+path = "/tmp"
+access = "rwx"
+
+# Donot impose FS restrictions on /home
+[[landlock.fs]]
+path = "/home"
+access = "rwx"
 
 # Mount a separate HOME directory
 {% set homedir = os_env("HOME") + "/.local/share/hakoniwa/apps/" + _pkgname_ %}

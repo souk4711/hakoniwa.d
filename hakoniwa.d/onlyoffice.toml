@@ -4,30 +4,12 @@
 # SPDX-License-Identifier: GPL-3.0-only
 
 
-# Include a set of built-in configuration
-"@include" = [
-  "abstractions/os/linux.toml",                   # Base
-  "abstractions/device/dri.toml",                 # Device - Graphic Card
-  "abstractions/device/sound.toml",               # Device - Sound Card
-  "abstractions/socket/pipewire.toml",            # Audio Server - PipeWire
-  "abstractions/socket/pulseaudio.toml",          # Audio Server - PulseAudio
-  "abstractions/socket/wayland.toml",             # Display Server - Wayland
-  "abstractions/socket/x11.toml",                 # Display Server - X11
-  "abstractions/filesystem/xdg-documents.toml",   # Share Folder - $HOME/Documents
-]
+# Constants
+{% set _pkgname_ = "onlyoffice" %}
+{% set _binname_ = "onlyoffice-desktopeditors" %}
 
-# Mount a separate HOME directory
-{% set homedir = os_env("HOME") + "/.local/share/hakoniwa/apps/onlyoffice" %}
-{% set _ = fs_mkdir(homedir) %}
-[[mounts]]
-source = "{{ homedir }}"
-destination = "{{ HOME }}"
-rw = true
+# Include a set of OFFICE configuration
+{% include "groups/office.toml" %}
 
-# COMMAND
-[command]
-cmdline = ["/usr/bin/onlyoffice-desktopeditors"]
-cwd = "{{ HOME }}"
-
-# Embed user profile
-{% include "local/onlyoffice.toml" ignore missing %}
+# Customized user profile
+{% include ("local/" + _pkgname_ + ".toml") ignore missing %}
