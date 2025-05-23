@@ -19,6 +19,7 @@
   "abstractions/network/connect/autoproxy.toml",  # Allow outgoing $ALL_PROXY/... connections
   "abstractions/network/connect/http.toml",       # Allow outgoing HTTP connections
   "abstractions/network/connect/https.toml",      # Allow outgoing HTTPS connections
+  "abstractions/filesystem/trash.toml",           # Share Folder - $HOME/.local/share/Trash
   "abstractions/filesystem/xdg-notes.toml",       # Share Folder - $HOME/Downloads
 ]
 
