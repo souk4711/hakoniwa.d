@@ -8,8 +8,8 @@
 {% set _pkgname_ = "google-chrome" %}
 {% set _binname_ = "google-chrome-stable" %}
 
-# Extend preset BROWSER
-{% extends "presets/browser.toml" %}
+# Include a preset configuration of Browser
+{% include "presets/browser.toml" %}
 
 # Customized user profile
 {% include ("local/" + _pkgname_ + ".toml") ignore missing %}

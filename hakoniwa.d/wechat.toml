@@ -8,8 +8,8 @@
 {% set _pkgname_ = "wechat" %}
 {% set _binname_ = "wechat" %}
 
-# Extend preset CHAT
-{% extends "presets/chat.toml" %}
+# Include a preset configuration of Chat
+{% include "presets/chat.toml" %}
 
 # Customized user profile
 {% include ("local/" + _pkgname_ + ".toml") ignore missing %}

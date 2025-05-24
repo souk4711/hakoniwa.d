@@ -8,8 +8,8 @@
 {% set _pkgname_ = "mise" %}
 {% set _binname_ = "mise" %}
 
-# Extend preset DEVKIT
-{% extends "presets/devkit.toml" %}
+# Include a preset configuration of Devkit
+{% include "presets/devkit.toml" %}
 
 # Mount mise folders
 {% set _ = fs_mkdir(os_env("HOME") + "/.cache/mise")        %}

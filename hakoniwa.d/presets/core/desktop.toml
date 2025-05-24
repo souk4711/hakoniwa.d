@@ -13,8 +13,11 @@
   "abstractions/socket/pulseaudio.toml",          # Audio Server - PulseAudio
   "abstractions/socket/wayland.toml",             # Display Server - Wayland
   "abstractions/socket/x11.toml",                 # Display Server - X11
-  {% block _include_ %}{% endblock %}
+  {% block _include_ %}{% endblock %}             # Customized @include
 ]
+
+# Customized
+{% block _main_ %}{% endblock %}
 
 # Mount a separate HOME directory
 {% set homedir = os_env("HOME") + "/.local/share/hakoniwa/apps/" + _pkgname_ %}

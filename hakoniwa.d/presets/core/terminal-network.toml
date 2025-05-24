@@ -11,8 +11,11 @@
   "abstractions/network/connect/autoproxy.toml",  # Allow outgoing $ALL_PROXY/... connections
   "abstractions/network/connect/http.toml",       # Allow outgoing HTTP connections
   "abstractions/network/connect/https.toml",      # Allow outgoing HTTPS connections
-  {% block _include_ %}{% endblock %}
+  {% block _include_ %}{% endblock %}             # Customized @include
 ]
+
+# Customized
+{% block _main_ %}{% endblock %}
 
 # Mount a separate HOME directory
 {% set homedir = os_env("HOME") + "/.local/share/hakoniwa/apps/" + _pkgname_ %}

@@ -8,8 +8,8 @@
 {% set _pkgname_ = "wps-office" %}
 {% set _binname_ = "wps" %}
 
-# Extend preset OFFICE
-{% extends "presets/office.toml" %}
+# Include a preset configuration of Office
+{% include "presets/office.toml" %}
 
 # Customized user profile
 {% include ("local/" + _pkgname_ + ".toml") ignore missing %}

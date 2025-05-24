@@ -8,8 +8,8 @@
 {% set _pkgname_ = "libreoffice" %}
 {% set _binname_ = "libreoffice" %}
 
-# Extend preset OFFICE
-{% extends "presets/office.toml" %}
+# Include a preset configuration of Office
+{% include "presets/office.toml" %}
 
 # Customized user profile
 {% include ("local/" + _pkgname_ + ".toml") ignore missing %}

@@ -8,8 +8,8 @@
 {% set _pkgname_ = "qbittorrent" %}
 {% set _binname_ = "qbittorrent" %}
 
-# Extend preset DOWNLOADER
-{% extends "presets/downloader.toml" %}
+# Include a preset configuration of Downloader
+{% include "presets/downloader.toml" %}
 
 # Customized user profile
 {% include ("local/" + _pkgname_ + ".toml") ignore missing %}

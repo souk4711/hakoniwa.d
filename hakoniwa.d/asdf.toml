@@ -8,8 +8,8 @@
 {% set _pkgname_ = "asdf" %}
 {% set _binname_ = "asdf" %}
 
-# Extend preset DEVKIT
-{% extends "presets/devkit.toml" %}
+# Include a preset configuration of Devkit
+{% include "presets/devkit.toml" %}
 
 # Mount asdf folders
 {% set _ = fs_mkdir(os_env("HOME") + "/.asdf")          %}

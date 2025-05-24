@@ -4,12 +4,16 @@
 # SPDX-License-Identifier: GPL-3.0-only
 
 
-# Extend preset TERMINAL-NETWORK
+# Use preset TERMINAL-NETWORK as base skeleton
 {% extends "presets/core/terminal-network.toml" %}
+
+# Customized @include
 {% block _include_ %}
   "abstractions/filesystem/xdg-code.toml",        # Share Folder - $HOME/Code
 {% endblock %}
 
+# Customized main contents
+{% block _main_ %}
 # Donot impose FS restrictions on /home
 [[landlock.fs]]
 path = "/home"
@@ -19,3 +23,4 @@ access = "rwx"
 [[landlock.fs]]
 path = "/tmp"
 access = "rwx"
+{% endblock %}

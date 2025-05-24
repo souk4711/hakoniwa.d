@@ -8,8 +8,8 @@
 {% set _pkgname_ = "obsidian" %}
 {% set _binname_ = "obsidian" %}
 
-# Extend preset PKMS
-{% extends "presets/pkms.toml" %}
+# Include a preset configuration of PKMS
+{% include "presets/pkms.toml" %}
 
 # Customized user profile
 {% include ("local/" + _pkgname_ + ".toml") ignore missing %}

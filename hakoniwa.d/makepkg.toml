@@ -8,8 +8,8 @@
 {% set _pkgname_ = "makepkg" %}
 {% set _binname_ = "makepkg" %}
 
-# Extend preset DEVKIT
-{% extends "presets/devkit.toml" %}
+# Include a preset configuration of Devkit
+{% include "presets/devkit.toml" %}
 
 # Mount /var/lib which stores application's data
 [[mounts]]

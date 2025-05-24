@@ -7,8 +7,11 @@
 # Include a set of built-in configuration
 "@include" = [
   "abstractions/os/linux.toml",                   # OS
-  {% block _include_ %}{% endblock %}
+  {% block _include_ %}{% endblock %}             # Customized @include
 ]
+
+# Customized
+{% block _main_ %}{% endblock %}
 
 # Mount a separate HOME directory
 {% set homedir = os_env("HOME") + "/.local/share/hakoniwa/apps/" + _pkgname_ %}

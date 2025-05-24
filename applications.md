@@ -4,26 +4,26 @@ A list of all the available applications and their respective permissions.
 
 ## Current available applications
 
-| name           | category | devices       | sockets              | network            | filesystem     |
-| -------------- | -------- | ------------- | -------------------- | ------------------ | -------------- |
-| Brave          | Internet | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |
-| Chromium       | Internet | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |
-| Firefox        | Internet | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |
-| Google Chrome  | Internet | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |
-| Microsoft Edge | Internet | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |
-| Vivaldi        | Internet | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |
-| Zen Browser    | Internet | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |
-| Tencent QQ     | Internet | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |
-| WeChat         | Internet | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |
-| KGet           | Internet | dri, snd      | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |
-| qBittorrent    | Internet | dri, snd      | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |
-| LibreOffice    | Office   | dri, snd      | audio, display       |                    | ~/Documents:rw |
-| ONLYOFFICE     | Office   | dri, snd      | audio, display       |                    | ~/Documents:rw |
-| WPS Office     | Office   | dri, snd      | audio, display       |                    | ~/Documents:rw |
-| Obsidian       | Office   | dri, snd      | audio, display, dbus | CONNECT TCP 80/443 | ~/Notes:rw     |
-| asdf-vm        | CLI      |               |                      | CONNECT TCP 80/443 | ~/Code:rw, ... |
-| mise           | CLI      |               |                      | CONNECT TCP 80/443 | ~/Code:rw, ... |
-| makepkg        | CLI      |               |                      | CONNECT TCP 80/443 | ~/Code:rw, ... |
+| name           | devices       | sockets              | network            | filesystem     |
+| -------------- | ------------- | -------------------- | ------------------ | -------------- |
+| Brave          | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |
+| Chromium       | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |
+| Firefox        | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |
+| Google Chrome  | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |
+| Microsoft Edge | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |
+| Vivaldi        | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |
+| Zen Browser    | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |
+| Tencent QQ     | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |
+| WeChat         | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |
+| KGet           | dri, snd      | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |
+| qBittorrent    | dri, snd      | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |
+| LibreOffice    | dri, snd      | audio, display       |                    | ~/Documents:rw |
+| ONLYOFFICE     | dri, snd      | audio, display       |                    | ~/Documents:rw |
+| WPS Office     | dri, snd      | audio, display       |                    | ~/Documents:rw |
+| Obsidian       | dri, snd      | audio, display, dbus | CONNECT TCP 80/443 | ~/Notes:rw     |
+| asdf-vm        |               |                      | CONNECT TCP 80/443 | ~/Code:rw, ... |
+| mise           |               |                      | CONNECT TCP 80/443 | ~/Code:rw, ... |
+| makepkg        |               |                      | CONNECT TCP 80/443 | ~/Code:rw, ... |
 
 The meaning of the permissions used in the tables:
 
