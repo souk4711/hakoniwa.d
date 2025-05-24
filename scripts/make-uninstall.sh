@@ -36,10 +36,10 @@ uninstall_hakoniwa_d() {
   echo_info "Uninstall hakoniwa.d..."
 
   echo "removing /etc/hakoniwa.d/abstractions/"
-  echo "removing /etc/hakoniwa.d/groups/"
+  echo "removing /etc/hakoniwa.d/presets/"
   echo "removing /etc/hakoniwa.d/*.toml"
   rm -rf /etc/hakoniwa.d/abstractions/
-  rm -rf /etc/hakoniwa.d/groups/
+  rm -rf /etc/hakoniwa.d/presets/
   rm -f /etc/hakoniwa.d/*.toml
 
   echo "removing /usr/lib/hakoniwa.d/"
