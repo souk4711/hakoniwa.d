@@ -14,7 +14,7 @@
   {% block _include_ %}{% endblock %}             # Customized @include
 ]
 
-# Customized
+# Customized main contents
 {% block _main_ %}{% endblock %}
 
 # Mount a separate HOME directory

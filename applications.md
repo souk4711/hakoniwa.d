@@ -17,9 +17,9 @@ A list of all the available applications and their respective permissions.
 | WeChat         | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |
 | KGet           | dri, snd      | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |
 | qBittorrent    | dri, snd      | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |
-| LibreOffice    | dri, snd      | audio, display       |                    | ~/Documents:rw |
-| ONLYOFFICE     | dri, snd      | audio, display       |                    | ~/Documents:rw |
-| WPS Office     | dri, snd      | audio, display       |                    | ~/Documents:rw |
+| LibreOffice    | dri, snd      | audio, display, dbus |                    | ~/Documents:rw |
+| ONLYOFFICE     | dri, snd      | audio, display, dbus |                    | ~/Documents:rw |
+| WPS Office     | dri, snd      | audio, display, dbus |                    | ~/Documents:rw |
 | Obsidian       | dri, snd      | audio, display, dbus | CONNECT TCP 80/443 | ~/Notes:rw     |
 | asdf-vm        |               |                      | CONNECT TCP 80/443 | ~/Code:rw, ... |
 | mise           |               |                      | CONNECT TCP 80/443 | ~/Code:rw, ... |

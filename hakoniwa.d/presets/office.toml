@@ -4,12 +4,10 @@
 # SPDX-License-Identifier: GPL-3.0-only
 
 
-# Use preset DESKTOP-NETWORK as base skeleton
-{% extends "presets/core/desktop-network.toml" %}
+# Use preset DESKTOP as base skeleton
+{% extends "presets/core/desktop.toml" %}
 
 # Customized @include
 {% block _include_ %}
-  "abstractions/socket/dbus-session.toml",        # D-Bus session
-  "abstractions/socket/dbus-system.toml",         # D-Bus system
   "abstractions/filesystem/xdg-documents.toml",   # Share Folder - $HOME/Documents
 {% endblock %}

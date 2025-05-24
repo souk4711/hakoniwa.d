@@ -9,6 +9,8 @@
   "abstractions/os/linux.toml",                   # OS
   "abstractions/device/dri.toml",                 # Device - DRI
   "abstractions/device/snd.toml",                 # Device - Sound input and output
+  "abstractions/socket/dbus-session.toml",        # D-Bus session
+  "abstractions/socket/dbus-system.toml",         # D-Bus system
   "abstractions/socket/pipewire.toml",            # Audio Server - PipeWire
   "abstractions/socket/pulseaudio.toml",          # Audio Server - PulseAudio
   "abstractions/socket/wayland.toml",             # Display Server - Wayland
@@ -16,7 +18,7 @@
   {% block _include_ %}{% endblock %}             # Customized @include
 ]
 
-# Customized
+# Customized main contents
 {% block _main_ %}{% endblock %}
 
 # Mount a separate HOME directory
