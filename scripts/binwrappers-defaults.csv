@@ -5,6 +5,10 @@ google-chrome-stable        google-chrome.toml
 microsoft-edge-stable       microsoft-edge.toml
 vivaldi                     vivaldi.toml
 zen                         zen-browser.toml
+
+kget                        kget.toml
+qbittorrent                 qbittorrent.toml
+
 linuxqq                     linuxqq.toml
 wechat                      wechat.toml
 
