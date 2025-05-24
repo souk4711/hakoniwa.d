@@ -27,11 +27,8 @@ usage() {
     echo "  # Generate a specified binary wrapper"
     echo "  $ sudo $0 --bin firefox"
     echo ""
-    echo "  # Generate a set of default binary wrappers"
-    echo "  $ sudo $0 --defaults"
-    echo ""
-    echo "  # Generate all available binary wrappers"
-    echo "  $ sudo $0 --defaults-extra"
+    echo "  # Generate a set of binary wrappers"
+    echo "  $ sudo $0 --group browser"
 }
 
 cleanup_binwrappers() {
@@ -40,7 +37,7 @@ cleanup_binwrappers() {
   while read -r bin profile
   do
     cleanup_binwrapper "$bin"
-  done < <(sed -e '/^$/d' -e '/^#.*/d' ./scripts/binwrappers-*.csv | tr -s '[:blank:]')
+  done < <(sed -e '/^$/d' -e '/^#.*/d' ./scripts/binwrappers.csv | tr -s '[:blank:]')
 }
 
 cleanup_binwrapper() {
@@ -59,13 +56,13 @@ install_binwrappers_bin() {
   echo_info "Generating binary wrappers in /usr/local/bin/..."
 
   local found=false
-  while read -r bin profile
+  while read -r group bin profile
   do
-    if [ "$bin" = "$1" ]; then
+    if [ "$bin" == "$1" ]; then
       install_binwrapper "$bin" "$profile"
       found=true
     fi
-  done < <(sed -e '/^$/d' -e '/^#.*/d' ./scripts/binwrappers-*.csv | tr -s '[:blank:]')
+  done < <(sed -e '/^$/d' -e '/^#.*/d' ./scripts/binwrappers.csv | tr -s '[:blank:]')
 
   if [ "$found" == false ]; then
     echo_warn "No builtin profile for '$1'. SKIPPING"
@@ -73,22 +70,32 @@ install_binwrappers_bin() {
   fi
 }
 
-install_binwrappers_defaults() {
+install_binwrappers_group() {
   echo_info "Generating binary wrappers in /usr/local/bin/..."
 
-  while read -r bin profile
+  local found=false
+  local groups=(browser)
+  while read -r group bin profile
   do
-    install_binwrapper "$bin" "$profile"
-  done < <(sed -e '/^$/d' -e '/^#.*/d' ./scripts/binwrappers-defaults.csv | tr -s '[:blank:]')
-}
+    if [ "$group" == "$1" ]; then
+      install_binwrapper "$bin" "$profile"
+      found=true
+    fi
 
-install_binwrappers_defaults_extra() {
-  echo_info "Generating binary wrappers in /usr/local/bin/..."
+    if [ "$group" != "${groups[-1]}" ]; then
+      groups+=("$group")
+    fi
+  done < <(sed -e '/^$/d' -e '/^#.*/d' ./scripts/binwrappers.csv | tr -s '[:blank:]')
 
-  while read -r bin profile
-  do
-    install_binwrapper "$bin" "$profile"
-  done < <(sed -e '/^$/d' -e '/^#.*/d' ./scripts/binwrappers-*.csv | tr -s '[:blank:]')
+  if [ "$found" == false ]; then
+    echo_warn "No such group '$1'. SKIPPING"
+    echo_warn "Please use one of the following groups:"
+    for group in "${groups[@]}"
+    do
+      echo_warn "  - $group"
+    done
+    return 0
+  fi
 }
 
 install_binwrapper() {
@@ -128,13 +135,9 @@ main() {
       cleanup_binwrappers
       install_binwrappers_bin "${2-}"
       ;;
-    "--defaults")
+    "--group")
       cleanup_binwrappers
-      install_binwrappers_defaults
-      ;;
-    "--defaults-extra")
-      cleanup_binwrappers
-      install_binwrappers_defaults_extra
+      install_binwrappers_group "${2-}"
       ;;
     *)
       usage

@@ -30,7 +30,7 @@ install_hakoniwa_d() {
   mkdir -p /usr/lib/hakoniwa.d
   mkdir -p /usr/lib/hakoniwa.d/scripts
   cp ./stdlib.sh /usr/lib/hakoniwa.d/
-  cp ./scripts/binwrappers-*.csv /usr/lib/hakoniwa.d/scripts/
+  cp ./scripts/binwrappers.csv /usr/lib/hakoniwa.d/scripts/
   cp ./scripts/make-binwrappers.sh /usr/lib/hakoniwa.d/scripts/
 }
 

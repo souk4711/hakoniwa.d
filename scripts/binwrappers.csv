@@ -1,0 +1,37 @@
+# Internet
+browser       brave                       brave.toml
+browser       chromium                    chromium.toml
+browser       firefox                     firefox.toml
+browser       google-chrome-stable        google-chrome.toml
+browser       microsoft-edge-stable       microsoft-edge.toml
+browser       vivaldi                     vivaldi.toml
+browser       zen                         zen-browser.toml
+chat          linuxqq                     linuxqq.toml
+chat          wechat                      wechat.toml
+downloader    kget                        kget.toml
+downloader    qbittorrent                 qbittorrent.toml
+
+# Office
+office        libreoffice                 libreoffice.toml
+office        lobase                      libreoffice.toml
+office        localc                      libreoffice.toml
+office        lodraw                      libreoffice.toml
+office        loffice                     libreoffice.toml
+office        lofromtemplate              libreoffice.toml
+office        loimpress                   libreoffice.toml
+office        lomath                      libreoffice.toml
+office        loweb                       libreoffice.toml
+office        lowriter                    libreoffice.toml
+office        soffice                     libreoffice.toml
+office        desktopeditors              onlyoffice.toml
+office        onlyoffice-desktopeditors   onlyoffice.toml
+office        et                          wps-office.toml
+office        wpp                         wps-office.toml
+office        wps                         wps-office.toml
+office        wpspdf                      wps-office.toml
+pkms          obsidian                    obsidian.toml
+
+# CLI
+devkit        asdf                        asdf.toml
+devkit        mise                        mise.toml
+devkit        makepkg                     makepkg.toml
