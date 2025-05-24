@@ -8,8 +8,11 @@
 {% set _pkgname_ = "qbittorrent" %}
 {% set _binname_ = "qbittorrent" %}
 
-# Include a set of DOWNLOADER configuration
-{% include "groups/downloader.toml" %}
+# Use preset desktop-network
+{% extends "presets/desktop-network.toml" %}
+{% block _include_ %}
+  "abstractions/filesystem/xdg-download.toml",
+{% endblock %}
 
 # Customized user profile
 {% include ("local/" + _pkgname_ + ".toml") ignore missing %}

@@ -8,8 +8,12 @@
 {% set _pkgname_ = "brave" %}
 {% set _binname_ = "brave" %}
 
-# Include a set of BROWSER configuration
-{% include "groups/browser.toml" %}
+# Use preset desktop-network
+{% extends "presets/desktop-network.toml" %}
+{% block _include_ %}
+  "abstractions/device/v4l.toml",                 # Device - Video capture
+  "abstractions/filesystem/xdg-download.toml",    # Share Folder - $HOME/Downloads
+{% endblock %}
 
 # Customized user profile
 {% include ("local/" + _pkgname_ + ".toml") ignore missing %}
