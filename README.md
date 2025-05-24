@@ -38,8 +38,11 @@ sudo make install_hakoniwa
 # Install hakoniwa profiles to /etc/hakoniwa.d/
 sudo make install_hakoniwa_d
 
-# OPTIONAL: Generate a set of default binary wrappers in /usr/local/bin/
-sudo make binwrappers
+# OPTIONAL: Generate a specified binary wrapper in /usr/local/bin/
+sudo make binwrapper bin=firefox
+
+# OPTIONAL: Generate a set of binary wrappers in /usr/local/bin/
+sudo make binwrappers group=browser
 ```
 
 ## Usage
@@ -68,16 +71,16 @@ You can temporarily disable the profile and run the original version with `HAKON
 HAKONIWAD=0 firefox
 ```
 
-Want to see what profiles are enabled, use `HAKONIWAD_LOG=DEBUG` to display the logging output:
+Want to see what profiles are enabled, use `HAKONIWAD_LOG=TRACE` to display the logging output:
 
 ```sh
-HAKONIWAD_LOG=DEBUG firefox
+HAKONIWAD_LOG=TRACE firefox
 ```
 
 Want to enter the sandbox interactively, use `HAKONIWAD_CONSOLE=1` to open a shell:
 
 ```sh
-HAKONIWAD_LOG=DEBUG HAKONIWAD_CONSOLE=1 firefox
+HAKONIWAD_LOG=TRACE HAKONIWAD_CONSOLE=1 firefox
 ```
 
 By default, the sandboxed firefox can only access ports `80` and `443`. To allow it access to extra ports,
