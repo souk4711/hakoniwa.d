@@ -1,9 +1,13 @@
 # Internet
 browser       brave                       brave.toml
 browser       chromium                    chromium.toml
+browser       falkon                      falkon.toml
 browser       firefox                     firefox.toml
+browser       firefox-developer-edition   firefox-developer-edition.toml
 browser       google-chrome-stable        google-chrome.toml
+browser       librewolf                   librewolf.toml
 browser       microsoft-edge-stable       microsoft-edge.toml
+browser       qutebrowser                 qutebrowser.toml
 browser       vivaldi                     vivaldi.toml
 browser       zen                         zen-browser.toml
 chat          linuxqq                     linuxqq.toml

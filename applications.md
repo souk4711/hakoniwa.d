@@ -8,9 +8,12 @@ A list of all the available applications and their respective permissions.
 | -------------- | ---------- | ------------- | -------------------- | ------------------ | -------------- |
 | Brave          | Browser    | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |
 | Chromium       | Browser    | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |
+| Falkon         | Browser    | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |
 | Firefox        | Browser    | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |
 | Google Chrome  | Browser    | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |
+| LibreWolf      | Browser    | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |
 | Microsoft Edge | Browser    | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |
+| qutebrowser    | Browser    | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |
 | Vivaldi        | Browser    | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |
 | Zen Browser    | Browser    | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |
 | Tencent QQ     | Chat       | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |

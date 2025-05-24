@@ -1,0 +1,15 @@
+# THIS FILE IS PART OF HAKONIWA.D
+#
+# HAKONIWA.D: https://github.com/souk4711/hakoniwa.d
+# SPDX-License-Identifier: GPL-3.0-only
+
+
+# Constants
+{% set _pkgname_ = "librewolf" %}
+{% set _binname_ = "librewolf" %}
+
+# Include a preset configuration of Browser
+{% include "presets/browser.toml" %}
+
+# Customized user profile
+{% include ("local/" + _pkgname_ + ".toml") ignore missing %}
