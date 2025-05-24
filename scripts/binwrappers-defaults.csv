@@ -1,3 +1,4 @@
+# Internet - Browser
 brave                       brave.toml
 chromium                    chromium.toml
 firefox                     firefox.toml
@@ -6,12 +7,15 @@ microsoft-edge-stable       microsoft-edge.toml
 vivaldi                     vivaldi.toml
 zen                         zen-browser.toml
 
-kget                        kget.toml
-qbittorrent                 qbittorrent.toml
-
+# Internet - Chat
 linuxqq                     linuxqq.toml
 wechat                      wechat.toml
 
+# Internet - Downloader
+kget                        kget.toml
+qbittorrent                 qbittorrent.toml
+
+# Office - Word/Excel/PowerPoint
 libreoffice                 libreoffice.toml
 lobase                      libreoffice.toml
 localc                      libreoffice.toml
@@ -29,4 +33,6 @@ et                          wps-office.toml
 wpp                         wps-office.toml
 wps                         wps-office.toml
 wpspdf                      wps-office.toml
+
+# Office - Personal Knowledge Management System
 obsidian                    obsidian.toml

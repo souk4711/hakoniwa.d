@@ -40,7 +40,7 @@ cleanup_binwrappers() {
   while read -r bin profile
   do
     cleanup_binwrapper "$bin"
-  done < <(sed '/^$/d' ./scripts/binwrappers-*.csv | tr -s '[:blank:]')
+  done < <(sed -e '/^$/d' -e '/^#.*/d' ./scripts/binwrappers-*.csv | tr -s '[:blank:]')
 }
 
 cleanup_binwrapper() {
@@ -65,7 +65,7 @@ install_binwrappers_bin() {
       install_binwrapper "$bin" "$profile"
       found=true
     fi
-  done < <(sed '/^$/d' ./scripts/binwrappers-*.csv | tr -s '[:blank:]')
+  done < <(sed -e '/^$/d' -e '/^#.*/d' ./scripts/binwrappers-*.csv | tr -s '[:blank:]')
 
   if [ "$found" == false ]; then
     echo_warn "No builtin profile for '$1'. SKIPPING"
@@ -79,7 +79,7 @@ install_binwrappers_defaults() {
   while read -r bin profile
   do
     install_binwrapper "$bin" "$profile"
-  done < <(sed '/^$/d' ./scripts/binwrappers-defaults.csv | tr -s '[:blank:]')
+  done < <(sed -e '/^$/d' -e '/^#.*/d' ./scripts/binwrappers-defaults.csv | tr -s '[:blank:]')
 }
 
 install_binwrappers_defaults_extra() {
@@ -88,7 +88,7 @@ install_binwrappers_defaults_extra() {
   while read -r bin profile
   do
     install_binwrapper "$bin" "$profile"
-  done < <(sed '/^$/d' ./scripts/binwrappers-*.csv | tr -s '[:blank:]')
+  done < <(sed -e '/^$/d' -e '/^#.*/d' ./scripts/binwrappers-*.csv | tr -s '[:blank:]')
 }
 
 install_binwrapper() {

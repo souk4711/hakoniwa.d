@@ -15,6 +15,8 @@ A list of all the available applications and their respective permissions.
 | Zen Browser    | Internet | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |
 | Tencent QQ     | Internet | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |
 | WeChat         | Internet | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |
+| KGet           | Internet | dri, snd      | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |
+| qBittorrent    | Internet | dri, snd      | audio, display, dbus | CONNECT TCP 80/443 | ~/Downloads:rw |
 | LibreOffice    | Office   | dri, snd      | audio, display       |                    | ~/Documents:rw |
 | ONLYOFFICE     | Office   | dri, snd      | audio, display       |                    | ~/Documents:rw |
 | WPS Office     | Office   | dri, snd      | audio, display       |                    | ~/Documents:rw |

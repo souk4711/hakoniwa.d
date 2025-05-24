@@ -1,3 +1,6 @@
+# CLI - Multiple Runtime Version Manager
 asdf              asdf.toml
 mise              mise.toml
+
+# CLI - Build utility
 makepkg           makepkg.toml
