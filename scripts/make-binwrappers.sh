@@ -58,7 +58,7 @@ install_binwrappers_bin() {
   local found=false
   while read -r group bin profile
   do
-    if [ "$bin" == "$1" ]; then
+    if [ "$1" == "$bin" ] || [ "$1" == "*" ]; then
       install_binwrapper "$bin" "$profile"
       found=true
     fi
@@ -77,7 +77,7 @@ install_binwrappers_group() {
   local groups=(browser)
   while read -r group bin profile
   do
-    if [ "$group" == "$1" ]; then
+    if [ "$1" == "$group" ] || [ "$1" == "*" ]; then
       install_binwrapper "$bin" "$profile"
       found=true
     fi

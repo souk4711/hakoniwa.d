@@ -39,7 +39,7 @@ sudo make install_hakoniwa
 sudo make install_hakoniwa_d
 
 # OPTIONAL: Generate a specified binary wrapper in /usr/local/bin/
-sudo make binwrapper bin=firefox
+sudo make binwrappers bin=firefox
 
 # OPTIONAL: Generate a set of binary wrappers in /usr/local/bin/
 sudo make binwrappers group=browser
@@ -106,16 +106,15 @@ rw = true
 
 ### Makefile
 
-| Command                        | Description                                                    |
-| ------------------------------ | -------------------------------------------------------------- |
-| `sudo make binwrapper`         | Generate a specified binary wrapper in `/usr/local/bin/`       |
-| `sudo make binwrappers`        | Generate a set of default binary wrappers in `/usr/local/bin/` |
-| `sudo make install_hakoniwa`   | Install hakoniwa to `/usr/bin/hakoniwa`                        |
-| `sudo make install_hakoniwa_d` | Install hakoniwa profiles to `/etc/hakoniwa.d/`                |
-| `sudo make uninstall`          | Uninstall hakoniwa stuff                                       |
-| `make lint`                    | Run lints                                                      |
-| `make test`                    | Run test suites                                                |
-| `make help`                    | Print help                                                     |
+| Command                        | Description                                     |
+| ------------------------------ | ----------------------------------------------- |
+| `sudo make binwrappers`        | Generate binary wrappers in `/usr/local/bin/`   |
+| `sudo make install_hakoniwa`   | Install hakoniwa to `/usr/bin/hakoniwa`         |
+| `sudo make install_hakoniwa_d` | Install hakoniwa profiles to `/etc/hakoniwa.d/` |
+| `sudo make uninstall`          | Uninstall hakoniwa stuff                        |
+| `make lint`                    | Run lints                                       |
+| `make test`                    | Run test suites                                 |
+| `make help`                    | Print help                                      |
 
 ## License
 

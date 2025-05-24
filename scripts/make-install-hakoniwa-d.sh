@@ -30,7 +30,7 @@ install_hakoniwa_d() {
   mkdir -p /usr/lib/hakoniwa.d
   mkdir -p /usr/lib/hakoniwa.d/scripts
   cp ./stdlib.sh /usr/lib/hakoniwa.d/
-  cp -r ./scripts/* /usr/lib/hakoniwa.d/scripts/
+  cp -r ./scripts/make-binwrappers.sh /usr/lib/hakoniwa.d/scripts/
 }
 
 install_package_manager_hook() {
