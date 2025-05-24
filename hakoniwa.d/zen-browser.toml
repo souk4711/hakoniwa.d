@@ -8,12 +8,8 @@
 {% set _pkgname_ = "zen-browser" %}
 {% set _binname_ = "zen" %}
 
-# Use preset desktop-network
-{% extends "presets/desktop-network.toml" %}
-{% block _include_ %}
-  "abstractions/device/v4l.toml",                 # Device - Video capture
-  "abstractions/filesystem/xdg-download.toml",    # Share Folder - $HOME/Downloads
-{% endblock %}
+# Extend preset BROWSER
+{% extends "presets/browser.toml" %}
 
 # Customized user profile
 {% include ("local/" + _pkgname_ + ".toml") ignore missing %}

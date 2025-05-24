@@ -8,12 +8,8 @@
 {% set _pkgname_ = "obsidian" %}
 {% set _binname_ = "obsidian" %}
 
-# Use preset desktop-network
-{% extends "presets/desktop-network.toml" %}
-{% block _include_ %}
-  "abstractions/filesystem/trash.toml",           # Share Folder - $HOME/.local/share/Trash
-  "abstractions/filesystem/xdg-notes.toml",       # Share Folder - $HOME/Downloads
-{% endblock %}
+# Extend preset PKMS
+{% extends "presets/pkms.toml" %}
 
 # Customized user profile
 {% include ("local/" + _pkgname_ + ".toml") ignore missing %}

@@ -8,11 +8,8 @@
 {% set _pkgname_ = "mise" %}
 {% set _binname_ = "mise" %}
 
-# Use preset terminal-network
-{% extends "presets/terminal-network.toml" %}
-{% block _include_ %}
-  "abstractions/filesystem/xdg-code.toml",        # Share Folder - $HOME/Code
-{% endblock %}
+# Extend preset DEVKIT
+{% extends "presets/devkit.toml" %}
 
 # Mount mise folders
 {% set _ = fs_mkdir(os_env("HOME") + "/.cache/mise")        %}
@@ -33,16 +30,6 @@ source = "{{ entry }}"
 rw = true
   {% endif %}
 {% endfor %}
-
-# Donot impose FS restrictions on /tmp
-[[landlock.fs]]
-path = "/tmp"
-access = "rwx"
-
-# Donot impose FS restrictions on /home
-[[landlock.fs]]
-path = "/home"
-access = "rwx"
 
 # Customized user profile
 {% include ("local/" + _pkgname_ + ".toml") ignore missing %}

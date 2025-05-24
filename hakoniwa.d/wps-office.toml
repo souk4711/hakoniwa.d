@@ -8,11 +8,8 @@
 {% set _pkgname_ = "wps-office" %}
 {% set _binname_ = "wps" %}
 
-# Use preset desktop
-{% extends "presets/desktop.toml" %}
-{% block _include_ %}
-  "abstractions/filesystem/xdg-documents.toml",
-{% endblock %}
+# Extend preset OFFICE
+{% extends "presets/office.toml" %}
 
 # Customized user profile
 {% include ("local/" + _pkgname_ + ".toml") ignore missing %}

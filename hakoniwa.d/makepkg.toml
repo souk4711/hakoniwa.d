@@ -8,11 +8,8 @@
 {% set _pkgname_ = "makepkg" %}
 {% set _binname_ = "makepkg" %}
 
-# Use preset terminal-network
-{% extends "presets/terminal-network.toml" %}
-{% block _include_ %}
-  "abstractions/filesystem/xdg-code.toml",        # Share Folder - $HOME/Code
-{% endblock %}
+# Extend preset DEVKIT
+{% extends "presets/devkit.toml" %}
 
 # Mount /var/lib which stores application's data
 [[mounts]]
@@ -34,16 +31,6 @@ rw = true
 [[envs]]
 name = "FAKEROOTDONTTRYCHOWN"
 value = "1"
-
-# Donot impose FS restrictions on /home
-{% for entry in [
-  "/home",
-  "/tmp",
-] %}
-[[landlock.fs]]
-path = "{{ entry }}"
-access = "rwx"
-{% endfor %}
 
 # Customized user profile
 {% include ("local/" + _pkgname_ + ".toml") ignore missing %}

@@ -7,7 +7,11 @@
 # Include a set of built-in configuration
 "@include" = [
   "abstractions/os/linux.toml",                   # OS
-  {% block include %}{% endblock %}
+  "abstractions/network/mode/host.toml",          # Network Mode - Pasta
+  "abstractions/network/connect/autoproxy.toml",  # Allow outgoing $ALL_PROXY/... connections
+  "abstractions/network/connect/http.toml",       # Allow outgoing HTTP connections
+  "abstractions/network/connect/https.toml",      # Allow outgoing HTTPS connections
+  {% block _include_ %}{% endblock %}
 ]
 
 # Mount a separate HOME directory
@@ -22,4 +26,4 @@ rw = true
 {% set binpath = "/usr/bin/" + _binname_ %}
 [command]
 cmdline = ["{{ binpath }}"]
-cwd = "{{ HOME }}"
+cwd = "{{ PWD }}"

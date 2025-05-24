@@ -1,0 +1,21 @@
+# THIS FILE IS PART OF HAKONIWA.D
+#
+# HAKONIWA.D: https://github.com/souk4711/hakoniwa.d
+# SPDX-License-Identifier: GPL-3.0-only
+
+
+# Extend preset TERMINAL-NETWORK
+{% extends "presets/core/terminal-network.toml" %}
+{% block _include_ %}
+  "abstractions/filesystem/xdg-code.toml",        # Share Folder - $HOME/Code
+{% endblock %}
+
+# Donot impose FS restrictions on /home
+[[landlock.fs]]
+path = "/home"
+access = "rwx"
+
+# Donot impose FS restrictions on /tmp
+[[landlock.fs]]
+path = "/tmp"
+access = "rwx"

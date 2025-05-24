@@ -8,12 +8,8 @@
 {% set _pkgname_ = "linuxqq" %}
 {% set _binname_ = "linuxqq" %}
 
-# Use preset desktop-network
-{% extends "presets/desktop-network.toml" %}
-{% block _include_ %}
-  "abstractions/device/v4l.toml",                 # Device - Video capture
-  "abstractions/filesystem/xdg-download.toml",    # Share Folder - $HOME/Downloads
-{% endblock %}
+# Extend preset CHAT
+{% extends "presets/chat.toml" %}
 
 # Customized user profile
 {% include ("local/" + _pkgname_ + ".toml") ignore missing %}

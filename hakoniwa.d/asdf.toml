@@ -8,11 +8,8 @@
 {% set _pkgname_ = "asdf" %}
 {% set _binname_ = "asdf" %}
 
-# Use preset terminal-network
-{% extends "presets/terminal-network.toml" %}
-{% block _include_ %}
-  "abstractions/filesystem/xdg-code.toml",        # Share Folder - $HOME/Code
-{% endblock %}
+# Extend preset DEVKIT
+{% extends "presets/devkit.toml" %}
 
 # Mount asdf folders
 {% set _ = fs_mkdir(os_env("HOME") + "/.asdf")          %}
@@ -28,16 +25,6 @@
 source = "{{ entry }}"
 rw = true
   {% endif %}
-{% endfor %}
-
-# Donot impose FS restrictions on /home
-{% for entry in [
-  "/home",
-  "/tmp",
-] %}
-[[landlock.fs]]
-path = "{{ entry }}"
-access = "rwx"
 {% endfor %}
 
 # Customized user profile
