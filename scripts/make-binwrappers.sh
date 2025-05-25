@@ -65,7 +65,7 @@ install_binwrappers_bin() {
   done < <(sed -e '/^$/d' -e '/^#.*/d' ./scripts/binwrappers.csv | tr -s '[:blank:]')
 
   if [ "$found" == false ]; then
-    echo_warn "No builtin profile for '$1'. SKIPPING"
+    echo_warn "No builtin profile for '$1'. SKIPPING."
     return 0
   fi
 }
@@ -88,7 +88,7 @@ install_binwrappers_group() {
   done < <(sed -e '/^$/d' -e '/^#.*/d' ./scripts/binwrappers.csv | tr -s '[:blank:]')
 
   if [ "$found" == false ]; then
-    echo_warn "No such group '$1'. SKIPPING"
+    echo_warn "No such group '$1'. SKIPPING."
     echo_warn "Please use one of the following groups:"
     for group in "${groups[@]}"
     do
