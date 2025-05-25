@@ -7,7 +7,7 @@
 # Create a user-mode networking stack using pasta
 [network]
 mode = "pasta"
-options = ["-T", "auto", "-t", "auto"]
+options = ["-T", "auto", "-t", "auto", "-U", "auto", "-u", "auto"]
 
 # Setting DNS servers
 {% if path_is_symlink("/etc/resolv.conf") %}

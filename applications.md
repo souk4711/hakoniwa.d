@@ -26,9 +26,9 @@ A list of all the available applications and their respective permissions.
 | ONLYOFFICE     | Office     | dri, snd      | audio, display, dbus |                                  | ~/Documents:rw |
 | WPS Office     | Office     | dri, snd      | audio, display, dbus |                                  | ~/Documents:rw |
 | Obsidian       | PKMS       | dri, snd      | audio, display, dbus | CONNECT TCP 80/443               | ~/Notes:rw     |
-| asdf-vm        | Devkit     |               |                      | CONNECT TCP 80/443               | ~/Code:rw, ... |
-| mise           | Devkit     |               |                      | CONNECT TCP 80/443               | ~/Code:rw, ... |
-| makepkg        | Devkit     |               |                      | CONNECT TCP 80/443               | ~/Code:rw, ... |
+| asdf-vm        | Devkit     |               |                      | CONNECT TCP 80/443, BIND TCP ANY | ~/Code:rw, ... |
+| mise           | Devkit     |               |                      | CONNECT TCP 80/443, BIND TCP ANY | ~/Code:rw, ... |
+| makepkg        | Devkit     |               |                      | CONNECT TCP 80/443, BIND TCP ANY | ~/Code:rw, ... |
 
 The meaning of the permissions used in the tables:
 
