@@ -5,8 +5,8 @@
 
 
 # Constants
-{% set _pkgname_ = "qbittorrent" %}
-{% set _binname_ = "qbittorrent" %}
+{% set _pkgname_ = "transmission-qt" %}
+{% set _binname_ = "transmission-qt" %}
 
 # Include a preset configuration of BitTorrent
 {% include "presets/bittorrent.toml" %}

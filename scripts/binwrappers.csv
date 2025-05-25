@@ -13,7 +13,10 @@ browser       zen                         zen-browser.toml
 chat          linuxqq                     linuxqq.toml
 chat          wechat                      wechat.toml
 downloader    kget                        kget.toml
-downloader    qbittorrent                 qbittorrent.toml
+bittorrent    ktorrent                    ktorrent.toml
+bittorrent    qbittorrent                 qbittorrent.toml
+bittorrent    transmission-gtk            transmission-gtk.toml
+bittorrent    transmission-qt             transmission-qt.toml
 
 # Office
 office        libreoffice                 libreoffice.toml
