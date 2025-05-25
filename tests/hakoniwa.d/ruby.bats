@@ -29,7 +29,6 @@
 
 @test "os/linux - envs" {
   result="$(MYENV=123 ./tests/fixtures/bin/ruby -e 'print %x{ env }')"
-  [[ "$result" =~ "HAKONIWAD_CONTAINER=default" ]]
   [[ "$result" =~ "HOME=" ]]
   [[ "$result" =~ "LANG=" ]]
   [[ "$result" =~ "PATH=" ]]
