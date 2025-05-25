@@ -26,7 +26,7 @@
 {% block _main_ %}{% endblock %}
 
 # Mount a separate HOME directory
-{% set homedir = os_env("HOME") + "/.local/share/hakoniwa/apps/" + _pkgname_ %}
+{% set homedir = os_env("HOME") + "/.local/share/hakoniwa/apps/" + _binname_ %}
 {% set _ = fs_mkdir(homedir) %}
 [[mounts]]
 source = "{{ homedir }}"

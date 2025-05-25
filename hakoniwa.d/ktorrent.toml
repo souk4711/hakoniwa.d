@@ -5,11 +5,10 @@
 
 
 # Constants
-{% set _pkgname_ = "ktorrent" %}
 {% set _binname_ = "ktorrent" %}
 
-# Include a preset configuration of BitTorrent
+# Include a preset configuration
 {% include "presets/bittorrent.toml" %}
 
 # Customized user profile
-{% include ("local/" + _pkgname_ + ".toml") ignore missing %}
+{% include ("local/" + _binname_ + ".toml") ignore missing %}

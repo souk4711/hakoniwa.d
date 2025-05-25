@@ -1,44 +1,39 @@
-# Internet
-browser       brave                       brave.toml
-browser       chromium                    chromium.toml
-browser       falkon                      falkon.toml
-browser       firefox                     firefox.toml
-browser       firefox-developer-edition   firefox-developer-edition.toml
-browser       google-chrome-stable        google-chrome.toml
-browser       librewolf                   librewolf.toml
-browser       microsoft-edge-stable       microsoft-edge.toml
-browser       qutebrowser                 qutebrowser.toml
-browser       vivaldi                     vivaldi.toml
-browser       zen                         zen-browser.toml
-chat          linuxqq                     linuxqq.toml
-chat          wechat                      wechat.toml
-downloader    kget                        kget.toml
-bittorrent    ktorrent                    ktorrent.toml
-bittorrent    qbittorrent                 qbittorrent.toml
-bittorrent    transmission-gtk            transmission-gtk.toml
-bittorrent    transmission-qt             transmission-qt.toml
-
-# Office
-office        libreoffice                 libreoffice.toml
-office        lobase                      libreoffice.toml
-office        localc                      libreoffice.toml
-office        lodraw                      libreoffice.toml
-office        loffice                     libreoffice.toml
-office        lofromtemplate              libreoffice.toml
-office        loimpress                   libreoffice.toml
-office        lomath                      libreoffice.toml
-office        loweb                       libreoffice.toml
-office        lowriter                    libreoffice.toml
-office        soffice                     libreoffice.toml
-office        desktopeditors              onlyoffice.toml
-office        onlyoffice-desktopeditors   onlyoffice.toml
-office        et                          wps-office.toml
-office        wpp                         wps-office.toml
-office        wps                         wps-office.toml
-office        wpspdf                      wps-office.toml
-pkms          obsidian                    obsidian.toml
-
-# CLI
-devkit        asdf                        asdf.toml
-devkit        mise                        mise.toml
-devkit        makepkg                     makepkg.toml
+asdf                        devkit
+brave                       browser
+chromium                    browser
+desktopeditors              office        
+et                          office        
+falkon                      browser
+firefox-developer-edition   browser
+firefox                     browser
+google-chrome-stable        browser
+kget                        downloader
+ktorrent                    bittorrent
+libreoffice                 office
+librewolf                   browser
+linuxqq                     messaging
+lobase                      office        
+localc                      office        
+lodraw                      office        
+loffice                     office        
+lofromtemplate              office        
+loimpress                   office        
+lomath                      office        
+loweb                       office        
+lowriter                    office        
+makepkg                     devkit
+microsoft-edge-stable       browser
+mise                        devkit
+obsidian                    pkm
+onlyoffice-desktopeditors   office
+qbittorrent                 bittorrent
+qutebrowser                 browser
+soffice                     office        
+transmission-gtk            bittorrent
+transmission-qt             bittorrent
+vivaldi                     browser
+wechat                      messaging
+wpp                         office        
+wps                         office
+wpspdf                      office        
+zen                         browser

@@ -5,10 +5,9 @@
 
 
 # Constants
-{% set _pkgname_ = "asdf" %}
 {% set _binname_ = "asdf" %}
 
-# Include a preset configuration of Devkit
+# Include a preset configuration
 {% include "presets/devkit.toml" %}
 
 # Mount asdf folders
@@ -28,4 +27,4 @@ rw = true
 {% endfor %}
 
 # Customized user profile
-{% include ("local/" + _pkgname_ + ".toml") ignore missing %}
+{% include ("local/" + _binname_ + ".toml") ignore missing %}

@@ -6,6 +6,9 @@ A list of all the available applications and their respective permissions.
 
 | name           | category          | devices       | sockets              | network                          | filesystem     |
 | -------------- | ----------------- | ------------- | -------------------- | -------------------------------- | -------------- |
+| KTorrent       | BitTorrent Client | dri, snd      | audio, display, dbus | CONNECT TCP 80/443, BIND TCP ANY | ~/Downloads:rw |
+| qBittorrent    | BitTorrent Client | dri, snd      | audio, display, dbus | CONNECT TCP 80/443, BIND TCP ANY | ~/Downloads:rw |
+| Transmission   | BitTorrent Client | dri, snd      | audio, display, dbus | CONNECT TCP 80/443, BIND TCP ANY | ~/Downloads:rw |
 | Brave          | Browser           | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443               | ~/Downloads:rw |
 | Chromium       | Browser           | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443               | ~/Downloads:rw |
 | Falkon         | Browser           | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443               | ~/Downloads:rw |
@@ -16,19 +19,16 @@ A list of all the available applications and their respective permissions.
 | qutebrowser    | Browser           | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443               | ~/Downloads:rw |
 | Vivaldi        | Browser           | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443               | ~/Downloads:rw |
 | Zen Browser    | Browser           | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443               | ~/Downloads:rw |
-| Tencent QQ     | Messaging         | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443               | ~/Downloads:rw |
-| WeChat         | Messaging         | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443               | ~/Downloads:rw |
 | KGet           | Download Manager  | dri, snd      | audio, display, dbus | CONNECT TCP 80/443               | ~/Downloads:rw |
-| KTorrent       | BitTorrent Client | dri, snd      | audio, display, dbus | CONNECT TCP 80/443, BIND TCP ANY | ~/Downloads:rw |
-| qBittorrent    | BitTorrent Client | dri, snd      | audio, display, dbus | CONNECT TCP 80/443, BIND TCP ANY | ~/Downloads:rw |
-| Transmission   | BitTorrent Client | dri, snd      | audio, display, dbus | CONNECT TCP 80/443, BIND TCP ANY | ~/Downloads:rw |
+| Tencent QQ     | Messaging App     | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443               | ~/Downloads:rw |
+| WeChat         | Messaging App     | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443               | ~/Downloads:rw |
 | LibreOffice    | Office Suite      | dri, snd      | audio, display, dbus |                                  | ~/Documents:rw |
 | ONLYOFFICE     | Office Suite      | dri, snd      | audio, display, dbus |                                  | ~/Documents:rw |
 | WPS Office     | Office Suite      | dri, snd      | audio, display, dbus |                                  | ~/Documents:rw |
-| Obsidian       | PKM               | dri, snd      | audio, display, dbus | CONNECT TCP 80/443               | ~/Notes:rw     |
-| asdf-vm        | Development Kits  |               |                      | CONNECT TCP 80/443, BIND TCP ANY | ~/Code:rw, ... |
-| mise           | Development Kits  |               |                      | CONNECT TCP 80/443, BIND TCP ANY | ~/Code:rw, ... |
-| makepkg        | Development Kits  |               |                      | CONNECT TCP 80/443, BIND TCP ANY | ~/Code:rw, ... |
+| Obsidian       | PKM Tools         | dri, snd      | audio, display, dbus | CONNECT TCP 80/443               | ~/Notes:rw     |
+| asdf-vm        | Development Kit   |               |                      | CONNECT TCP 80/443, BIND TCP ANY | ~/Code:rw, ... |
+| mise           | Development Kit   |               |                      | CONNECT TCP 80/443, BIND TCP ANY | ~/Code:rw, ... |
+| makepkg        | Development Kit   |               |                      | CONNECT TCP 80/443, BIND TCP ANY | ~/Code:rw, ... |
 
 The meaning of the permissions used in the tables:
 

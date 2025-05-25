@@ -5,11 +5,10 @@
 
 
 # Constants
-{% set _pkgname_ = "wechat" %}
 {% set _binname_ = "wechat" %}
 
-# Include a preset configuration of Chat
-{% include "presets/chat.toml" %}
+# Include a preset configuration
+{% include "presets/messaging.toml" %}
 
 # Customized user profile
-{% include ("local/" + _pkgname_ + ".toml") ignore missing %}
+{% include ("local/" + _binname_ + ".toml") ignore missing %}

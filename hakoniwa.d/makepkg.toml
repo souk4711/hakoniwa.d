@@ -5,10 +5,9 @@
 
 
 # Constants
-{% set _pkgname_ = "makepkg" %}
 {% set _binname_ = "makepkg" %}
 
-# Include a preset configuration of Devkit
+# Include a preset configuration
 {% include "presets/devkit.toml" %}
 
 # Mount /var/lib which stores application's data
@@ -33,4 +32,4 @@ name = "FAKEROOTDONTTRYCHOWN"
 value = "1"
 
 # Customized user profile
-{% include ("local/" + _pkgname_ + ".toml") ignore missing %}
+{% include ("local/" + _binname_ + ".toml") ignore missing %}

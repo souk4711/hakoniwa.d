@@ -5,10 +5,9 @@
 
 
 # Constants
-{% set _pkgname_ = "mise" %}
 {% set _binname_ = "mise" %}
 
-# Include a preset configuration of Devkit
+# Include a preset configuration
 {% include "presets/devkit.toml" %}
 
 # Mount mise folders
@@ -32,4 +31,4 @@ rw = true
 {% endfor %}
 
 # Customized user profile
-{% include ("local/" + _pkgname_ + ".toml") ignore missing %}
+{% include ("local/" + _binname_ + ".toml") ignore missing %}

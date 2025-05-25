@@ -5,11 +5,10 @@
 
 
 # Constants
-{% set _pkgname_ = "libreoffice" %}
 {% set _binname_ = "libreoffice" %}
 
-# Include a preset configuration of Office
+# Include a preset configuration
 {% include "presets/office.toml" %}
 
 # Customized user profile
-{% include ("local/" + _pkgname_ + ".toml") ignore missing %}
+{% include ("local/" + _binname_ + ".toml") ignore missing %}

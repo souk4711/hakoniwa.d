@@ -5,11 +5,10 @@
 
 
 # Constants
-{% set _pkgname_ = "firefox-developer-edition" %}
 {% set _binname_ = "firefox-developer-edition" %}
 
-# Include a preset configuration of Browser
+# Include a preset configuration
 {% include "presets/browser.toml" %}
 
 # Customized user profile
-{% include ("local/" + _pkgname_ + ".toml") ignore missing %}
+{% include ("local/" + _binname_ + ".toml") ignore missing %}

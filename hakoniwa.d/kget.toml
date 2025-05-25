@@ -5,11 +5,10 @@
 
 
 # Constants
-{% set _pkgname_ = "kget" %}
 {% set _binname_ = "kget" %}
 
-# Include a preset configuration of Downloader
+# Include a preset configuration
 {% include "presets/downloader.toml" %}
 
 # Customized user profile
-{% include ("local/" + _pkgname_ + ".toml") ignore missing %}
+{% include ("local/" + _binname_ + ".toml") ignore missing %}

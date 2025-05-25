@@ -34,10 +34,10 @@ usage() {
 cleanup_binwrappers() {
   echo_info "Cleaning up outdated binary wrappers in /usr/local/bin/..."
 
-  while read -r bin profile
+  while read -r bin group
   do
     cleanup_binwrapper "$bin"
-  done < <(sed -e '/^$/d' -e '/^#.*/d' ./scripts/binwrappers.csv | tr -s '[:blank:]')
+  done < <(sed -e '/[[:blank:]]*#.*$/d' ./scripts/binwrappers.csv | tr -s '[:blank:]')
 }
 
 cleanup_binwrapper() {
@@ -56,17 +56,16 @@ install_binwrappers_bin() {
   echo_info "Generating binary wrappers in /usr/local/bin/..."
 
   local found=false
-  while read -r group bin profile
+  while read -r bin group
   do
     if [ "$1" == "$bin" ] || [ "$1" == "*" ]; then
-      install_binwrapper "$bin" "$profile"
+      install_binwrapper "$bin"
       found=true
     fi
-  done < <(sed -e '/^$/d' -e '/^#.*/d' ./scripts/binwrappers.csv | tr -s '[:blank:]')
+  done < <(sed -e '/[[:blank:]]*#.*$/d' ./scripts/binwrappers.csv | tr -s '[:blank:]')
 
   if [ "$found" == false ]; then
     echo_warn "No builtin profile for '$1'. SKIPPING."
-    return 0
   fi
 }
 
@@ -74,34 +73,35 @@ install_binwrappers_group() {
   echo_info "Generating binary wrappers in /usr/local/bin/..."
 
   local found=false
-  local groups=(browser)
-  while read -r group bin profile
+  local groups=()
+  while read -r bin group
   do
     if [ "$1" == "$group" ] || [ "$1" == "*" ]; then
-      install_binwrapper "$bin" "$profile"
+      install_binwrapper "$bin"
       found=true
     fi
 
-    if [ "$group" != "${groups[-1]}" ]; then
+    if [[ "${groups[*]}" =~ $group ]]; then
+      continue
+    else
       groups+=("$group")
     fi
-  done < <(sed -e '/^$/d' -e '/^#.*/d' ./scripts/binwrappers.csv | tr -s '[:blank:]')
+  done < <(sed -e '/[[:blank:]]*#.*$/d' ./scripts/binwrappers.csv | tr -s '[:blank:]')
 
   if [ "$found" == false ]; then
     echo_warn "No such group '$1'. SKIPPING."
     echo_warn "Please use one of the following groups:"
-    for group in "${groups[@]}"
+    while read -r group
     do
       echo_warn "  - $group"
-    done
-    return 0
+    done < <(echo "${groups[@]}" | tr ' ' '\n' | sort)
   fi
 }
 
 install_binwrapper() {
   local bin="/usr/bin/$1"
   local binwrapper="/usr/local/bin/$1"
-  local profile="/etc/hakoniwa.d/$2"
+  local profile="/etc/hakoniwa.d/$1.toml"
 
   if ! command_exists "$bin"; then
     return 0
