@@ -43,6 +43,12 @@ source = ""
 destination = "/run"
 type = "tmpfs"
 
+# Mount an empty /run/hakoniwad folder, used to detect the command is running in hakoniwa
+[[mounts]]
+source = ""
+destination = "/run/hakoniwad"
+type = "tmpfs"
+
 # Mount an empty /tmp folder, used to store the short-lived temporary files
 [[mounts]]
 source = ""
@@ -81,11 +87,6 @@ type = "tmpfs"
 name = "{{ name }}"
   {% endif %}
 {% endfor %}
-
-# Used to detect the command is running in hakoniwa
-[[envs]]
-name = "HAKONIWAD_CONTAINER"
-value = "default"
 
 # Restrict ambient rights (e.g. global filesystem access) for the application
 [landlock]
