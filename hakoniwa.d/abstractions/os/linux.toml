@@ -61,16 +61,21 @@ source = ""
 destination = "/home"
 type = "tmpfs"
 
-# List of environment variables exported to the application
+# List of environment variables, most widely-used
 {% for name in [
   "HOME",
   "LANG",
   "PATH",
   "TERM",
-  "XDG_CONFIG_DIRS",
-  "XDG_CURRENT_DESKTOP",
-  "XDG_DATA_DIRS",
-  "XDG_MENU_PREFIX",
+] %}
+  {% if os_env(name) is ne "" %}
+[[envs]]
+name = "{{ name }}"
+  {% endif %}
+{% endfor %}
+
+# List of environment variables, described in systemd's PAM
+{% for name in [
   "XDG_RUNTIME_DIR",
   "XDG_SEAT_PATH",
   "XDG_SEAT",
@@ -80,6 +85,17 @@ type = "tmpfs"
   "XDG_SESSION_PATH",
   "XDG_SESSION_TYPE",
   "XDG_VTNR",
+] %}
+  {% if os_env(name) is ne "" %}
+[[envs]]
+name = "{{ name }}"
+  {% endif %}
+{% endfor %}
+
+# List of environment variables, described in Freedesktop.org Specifications
+{% for name in [
+  "XDG_CURRENT_DESKTOP",
+  "XDG_MENU_PREFIX",
   "KDE_SESSION_VERSION",
 ] %}
   {% if os_env(name) is ne "" %}
