@@ -46,14 +46,14 @@
 
 @test "os/linux - landlock.net" {
   result="$(./tests/fixtures/bin/ruby -e 'print %x{ aria2c https://www.example.com --dry-run }')"
-  [[ "$result" =~ "(OK):download completed." ]]
+  [[ "$result" == *"(OK):download completed"* ]]
 
   result="$(./tests/fixtures/bin/ruby -e 'print %x{ aria2c https://www.example.com --dry-run --all-proxy=http://127.0.0.1:403 }')"
   [[ "$result" =~ "Permission denied" ]]
 }
 
 @test "network/mode/host" {
-  [ true ]
+  true
 }
 
 @test "network/mode/autoproxy" {
@@ -63,12 +63,13 @@
 
 @test "network/mode/http" {
   result="$(./tests/fixtures/bin/ruby -e 'print %x{ aria2c  http://www.example.com --dry-run }')"
-  [[ "$result" =~ "(OK):download completed." ]]
+  [[ "$result" == *"(OK):download completed"* ]]
+
 }
 
 @test "network/mode/https" {
   result="$(./tests/fixtures/bin/ruby -e 'print %x{ aria2c https://www.example.com --dry-run }')"
-  [[ "$result" =~ "(OK):download completed." ]]
+  [[ "$result" == *"(OK):download completed"* ]]
 }
 
 @test "filesystem/xdg-code" {

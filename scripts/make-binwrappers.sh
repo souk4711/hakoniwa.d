@@ -37,7 +37,7 @@ cleanup_binwrappers() {
   while read -r bin group
   do
     cleanup_binwrapper "$bin"
-  done < <(sed -e '/[[:blank:]]*#.*$/d' ./scripts/binwrappers.csv | tr -s '[:blank:]')
+  done < <(sed -e '/[[:blank:]]*#.*$/d' ./scripts/binwrappers.txt | tr -s '[:blank:]')
 }
 
 cleanup_binwrapper() {
@@ -62,7 +62,7 @@ install_binwrappers_bin() {
       install_binwrapper "$bin"
       found=true
     fi
-  done < <(sed -e '/[[:blank:]]*#.*$/d' ./scripts/binwrappers.csv | tr -s '[:blank:]')
+  done < <(sed -e '/[[:blank:]]*#.*$/d' ./scripts/binwrappers.txt | tr -s '[:blank:]')
 
   if [ "$found" == false ]; then
     echo_warn "No builtin profile for '$1'. SKIPPING."
@@ -86,7 +86,7 @@ install_binwrappers_group() {
     else
       groups+=("$group")
     fi
-  done < <(sed -e '/[[:blank:]]*#.*$/d' ./scripts/binwrappers.csv | tr -s '[:blank:]')
+  done < <(sed -e '/[[:blank:]]*#.*$/d' ./scripts/binwrappers.txt | tr -s '[:blank:]')
 
   if [ "$found" == false ]; then
     echo_warn "No such group '$1'. SKIPPING."

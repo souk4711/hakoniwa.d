@@ -31,6 +31,7 @@ uninstall:							## Uninstall hakoniwa stuff
 lint:										## Run lints
 	shellcheck ./stdlib.sh
 	shellcheck ./scripts/*.sh
+	shellcheck ./tests/**/*.bats
 
 .PHONY: test
 test:										## Run test suites

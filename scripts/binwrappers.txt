@@ -1,0 +1,39 @@
+asdf                        devkit
+brave                       browser
+chromium                    browser
+desktopeditors              office          # -> onlyoffice-desktopeditors.toml
+et                          office          # -> wps.toml
+falkon                      browser
+firefox-developer-edition   browser
+firefox                     browser
+google-chrome-stable        browser
+kget                        downloader
+ktorrent                    bittorrent
+libreoffice                 office
+librewolf                   browser
+linuxqq                     messaging
+lobase                      office          # -> libreoffice.toml
+localc                      office          # -> libreoffice.toml
+lodraw                      office          # -> libreoffice.toml
+loffice                     office          # -> libreoffice.toml
+lofromtemplate              office          # -> libreoffice.toml
+loimpress                   office          # -> libreoffice.toml
+lomath                      office          # -> libreoffice.toml
+loweb                       office          # -> libreoffice.toml
+lowriter                    office          # -> libreoffice.toml
+makepkg                     devkit
+microsoft-edge-stable       browser
+mise                        devkit
+obsidian                    pkm
+onlyoffice-desktopeditors   office
+qbittorrent                 bittorrent
+qutebrowser                 browser
+soffice                     office          # -> libreoffice.toml
+transmission-gtk            bittorrent
+transmission-qt             bittorrent
+vivaldi                     browser
+wechat                      messaging
+wpp                         office          # -> wps.toml
+wps                         office
+wpspdf                      office          # -> wps.toml
+zen                         browser
