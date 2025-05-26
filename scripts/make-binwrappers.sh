@@ -34,10 +34,10 @@ usage() {
 cleanup_binwrappers() {
   echo_info "Cleaning up outdated binary wrappers in /usr/local/bin/..."
 
-  while read -r bin group
+  while read -r bin group _
   do
     cleanup_binwrapper "$bin"
-  done < <(sed -e '/[[:blank:]]*#.*$/d' ./scripts/binwrappers.txt | tr -s '[:blank:]')
+  done < <(tr -s '[:blank:]' < ./scripts/binwrappers.txt)
 }
 
 cleanup_binwrapper() {
@@ -56,13 +56,13 @@ install_binwrappers_bin() {
   echo_info "Generating binary wrappers in /usr/local/bin/..."
 
   local found=false
-  while read -r bin group
+  while read -r bin group _
   do
     if [ "$1" == "$bin" ] || [ "$1" == "*" ]; then
       install_binwrapper "$bin"
       found=true
     fi
-  done < <(sed -e '/[[:blank:]]*#.*$/d' ./scripts/binwrappers.txt | tr -s '[:blank:]')
+  done < <(tr -s '[:blank:]' < ./scripts/binwrappers.txt)
 
   if [ "$found" == false ]; then
     echo_warn "No builtin profile for '$1'. SKIPPING."
@@ -74,7 +74,7 @@ install_binwrappers_group() {
 
   local found=false
   local groups=()
-  while read -r bin group
+  while read -r bin group _
   do
     if [ "$1" == "$group" ] || [ "$1" == "*" ]; then
       install_binwrapper "$bin"
@@ -86,7 +86,7 @@ install_binwrappers_group() {
     else
       groups+=("$group")
     fi
-  done < <(sed -e '/[[:blank:]]*#.*$/d' ./scripts/binwrappers.txt | tr -s '[:blank:]')
+  done < <(tr -s '[:blank:]' < ./scripts/binwrappers.txt)
 
   if [ "$found" == false ]; then
     echo_warn "No such group '$1'. SKIPPING."

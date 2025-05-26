@@ -1,12 +1,12 @@
 @test "profiles - file exist" {
-  while read -r bin group
+  while read -r bin group _
   do
     [ -n "$bin" ]
     [ -n "$group" ]
 
     profile="./hakoniwa.d/$bin.toml"
     [ -f "$profile" ]
-  done < <(sed -e '/[[:blank:]]*#.*$/d' ./scripts/binwrappers.txt | tr -s '[:blank:]')
+  done < <(tr -s '[:blank:]' < ./scripts/binwrappers.txt)
 }
 
 @test "profiles - file format valid" {
