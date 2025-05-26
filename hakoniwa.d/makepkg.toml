@@ -11,8 +11,11 @@
 {% include "presets/devkit.toml" %}
 
 # Mount /var/lib which stores application's data
+{% set folder = "/var/lib/pacman" %}
+{% if path_exists(folder) %}
 [[mounts]]
-source = "/var/lib/pacman"
+source = "{{ folder }}"
+{% endif %}
 
 # Mount AUR folders
 {% for entry in [

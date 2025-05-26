@@ -28,3 +28,17 @@
     [[ "$profile_content" == *"include \"presets/$group.toml"* ]]   # biname belongs to a group
   done < <(tr -s '[:blank:]' < ./scripts/binwrappers.txt)
 }
+
+@test "profiles - runnable" {
+  if [ "$CI" != true ]; then
+    skip "This testcase will create folders under '~/.local/share/hakoniwa/apps/', set CI=true to allow it"
+  fi
+
+  repo="$PWD"; cd "$HOME"
+  while read -r bin group _
+  do
+    profile="$repo/hakoniwa.d/$bin.toml"
+    result=$(/usr/bin/hakoniwa run -c "$profile" -- echo "OK")
+    [[ "$result" == "OK" ]]
+  done < <(tr -s '[:blank:]' < "$repo/scripts/binwrappers.txt")
+}
