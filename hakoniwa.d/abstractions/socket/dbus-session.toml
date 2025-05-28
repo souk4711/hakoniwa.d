@@ -5,11 +5,21 @@
 
 
 # D-Bus socket
-{% set socket = os_env("XDG_RUNTIME_DIR") + "/bus" %}
-{% if path_exists(socket) %}
+{% set address = os_env("DBUS_SESSION_BUS_ADDRESS") %}
+{% if address is eq "" %}
+  {% set socket = os_env("XDG_RUNTIME_DIR") + "/bus" %}
+  {% if path_exists(socket) %}
 [[mounts]]
 source = "{{ socket }}"
 rw = true
+  {% endif %}
+{% elif address is startingwith "unix:path=" %}
+  {% set socket = address | replace("unix:path=", "") %}
+  {% if path_exists(socket) %}
+[[mounts]]
+source = "{{ socket }}"
+rw = true
+  {% endif %}
 {% endif %}
 
 # List of environment variables exported to the application

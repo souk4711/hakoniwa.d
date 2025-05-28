@@ -11,7 +11,7 @@
   "HTTP_PROXY",
   "HTTPS_PROXY",
 ] %}
-{% set port = os_env(name) | split(":") | list | last %}
+  {% set port = os_env(name) | split(":") | list | last %}
   {% if port is ne "" %}
 [[landlock.net]]
 port = {{ port | int }}

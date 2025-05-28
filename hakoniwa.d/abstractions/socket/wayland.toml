@@ -6,17 +6,21 @@
 
 {% set wayland_display = os_env("WAYLAND_DISPLAY")%}
 {% if wayland_display is ne "" %}
-
-# Wayland socket
-{% set socket = os_env("XDG_RUNTIME_DIR") + "/" +  wayland_display %}
-{% if path_exists(socket) %}
+  # Wayland socket
+  {% set socket = os_env("XDG_RUNTIME_DIR") + "/" +  wayland_display %}
+  {% if path_exists(socket) %}
 [[mounts]]
 source = "{{ socket }}"
 rw = true
-{% endif %}
+  {% endif %}
 
-# List of environment variables exported to the application
+  # List of environment variables exported to the application
+  {% for name in [
+    "WAYLAND_DISPLAY",
+  ] %}
+    {% if os_env(name) is ne "" %}
 [[envs]]
-name = "WAYLAND_DISPLAY"
-
+name = "{{ name }}"
+    {% endif %}
+  {% endfor %}
 {% endif %}

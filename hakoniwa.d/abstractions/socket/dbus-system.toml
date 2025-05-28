@@ -5,9 +5,29 @@
 
 
 # D-Bus socket
-{% set socket = "/run/dbus/system_bus_socket" %}
-{% if path_exists(socket) %}
+{% set address = os_env("DBUS_SYSTEM_BUS_ADDRESS") %}
+{% if address is eq "" %}
+  {% set socket = "/run/dbus/system_bus_socket" %}
+  {% if path_exists(socket) %}
 [[mounts]]
 source = "{{ socket }}"
 rw = true
+  {% endif %}
+{% elif address is startingwith "unix:path=" %}
+  {% set socket = address | replace("unix:path=", "") %}
+  {% if path_exists(socket) %}
+[[mounts]]
+source = "{{ socket }}"
+rw = true
+  {% endif %}
 {% endif %}
+
+# List of environment variables exported to the application
+{% for name in [
+  "DBUS_SYSTEM_BUS_ADDRESS",
+] %}
+  {% if os_env(name) is ne "" %}
+[[envs]]
+name = "{{ name }}"
+  {% endif %}
+{% endfor %}

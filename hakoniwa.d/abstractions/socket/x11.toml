@@ -4,29 +4,32 @@
 # SPDX-License-Identifier: GPL-3.0-only
 
 
-# X socket
-{% set socket = "/tmp/.X11-unix" %}
-{% if path_exists(socket) %}
+{% set display = os_env("DISPLAY")%}
+{% if display is ne "" %}
+  # X socket
+  {% set socket = "/tmp/.X11-unix" %}
+  {% if path_exists(socket) %}
 [[mounts]]
 source = "{{ socket }}"
 rw = true
-{% endif %}
+  {% endif %}
 
-# X authority file
-{% set xauthority = os_env("XAUTHORITY") %}
-{% if path_exists(xauthority) %}
+  # X authority file
+  {% set xauthority = os_env("XAUTHORITY") %}
+  {% if path_exists(xauthority) %}
 [[mounts]]
 source = "{{ xauthority }}"
 rw = true
-{% endif %}
+  {% endif %}
 
-# List of environment variables exported to the application
-{% for name in [
-  "DISPLAY",
-  "XAUTHORITY",
-] %}
-  {% if os_env(name) is ne "" %}
+  # List of environment variables exported to the application
+  {% for name in [
+    "DISPLAY",
+    "XAUTHORITY",
+  ] %}
+    {% if os_env(name) is ne "" %}
 [[envs]]
 name = "{{ name }}"
-  {% endif %}
-{% endfor %}
+    {% endif %}
+  {% endfor %}
+{% endif %}

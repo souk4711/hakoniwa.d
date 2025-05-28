@@ -1,0 +1,13 @@
+# THIS FILE IS PART OF HAKONIWA.D
+#
+# HAKONIWA.D: https://github.com/souk4711/hakoniwa.d
+# SPDX-License-Identifier: GPL-3.0-only
+
+
+# Folder
+{% set folder = fs_xdg_user_dir("MUSIC") %}
+{% if path_exists(folder) %}
+[[mounts]]
+source = "{{ folder }}"
+rw = true
+{% endif %}
