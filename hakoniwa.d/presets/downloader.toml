@@ -9,5 +9,7 @@
 
 # Customized @include
 {% block _include_ %}
+  "abstractions/socket/dbus-session.toml",        # D-Bus session
+  "abstractions/socket/dbus-system.toml",         # D-Bus system
   "abstractions/filesystem/xdg-download.toml",    # Share Folder - $HOME/Downloads
 {% endblock %}
