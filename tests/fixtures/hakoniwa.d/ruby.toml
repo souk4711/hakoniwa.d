@@ -19,13 +19,13 @@
 {% set _ = fs_mkdir(homedir) %}
 [[mounts]]
 source = "{{ homedir }}"
-destination = "{{ HOME }}"
+destination = "{{ os_env("HOME") }}"
 rw = true
 
 # COMMAND
 [command]
 cmdline = ["/usr/bin/ruby"]
-cwd = "{{ HOME }}"
+cwd = "{{ os_env("HOME") }}"
 
 # Embed user profile
 {% include "local/ruby.toml" ignore missing %}
