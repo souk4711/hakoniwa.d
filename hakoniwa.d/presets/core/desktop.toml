@@ -26,11 +26,11 @@
 {% set _ = fs_mkdir(homedir) %}
 [[mounts]]
 source = "{{ homedir }}"
-destination = "{{ HOME }}"
+destination = "{{ os_env("HOME") }}"
 rw = true
 
 # COMMAND
 {% set binpath = "/usr/bin/" + _binname_ %}
 [command]
 cmdline = ["{{ binpath }}"]
-cwd = "{{ HOME }}"
+cwd = "{{ os_env("HOME") }}"

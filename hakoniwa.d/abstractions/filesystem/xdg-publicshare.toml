@@ -5,7 +5,7 @@
 
 
 # Folder
-{% set folder = os_env("HOME") + "/Public" %}
+{% set folder = fs_xdg_user_dir("PUBLIC") %}
 {% if path_exists(folder) %}
 [[mounts]]
 source = "{{ folder }}"

@@ -5,7 +5,7 @@
 
 
 # Folder
-{% set folder = os_env("HOME") + "/Videos" %}
+{% set folder = fs_xdg_user_dir("VIDEOS") %}
 {% if path_exists(folder) %}
 [[mounts]]
 source = "{{ folder }}"
