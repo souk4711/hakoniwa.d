@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+#
+# THIS FILE IS PART OF HAKONIWA.D
+#
+# HAKONIWA.D: https://github.com/souk4711/hakoniwa.d
+# SPDX-License-Identifier: GPL-3.0-only
 
 
 set -euo pipefail
@@ -24,13 +29,13 @@ echo_error() {
 install_hakoniwa_d() {
   echo_info "Installing files to /etc/hakoniwa.d/..."
   mkdir -p /etc/hakoniwa.d
-  cp -r ./hakoniwa.d/* /etc/hakoniwa.d
+  cp -r ./hakoniwa.d/profiles/* /etc/hakoniwa.d
 
   echo_info "Installing files to /usr/lib/hakoniwa.d/..."
   mkdir -p /usr/lib/hakoniwa.d
-  mkdir -p /usr/lib/hakoniwa.d/scripts
-  cp ./stdlib.sh /usr/lib/hakoniwa.d/
-  cp -r ./scripts/make-binwrappers.sh /usr/lib/hakoniwa.d/scripts/
+  mkdir -p /usr/lib/hakoniwa.d/utils
+  cp ./hakoniwa.d/stdlib.sh /usr/lib/hakoniwa.d
+  cp ./hakoniwa.d/utils/* /usr/lib/hakoniwa.d/utils
 }
 
 install_package_manager_hook() {
@@ -60,18 +65,14 @@ install_dnf_hook() {
   dnf install -y libdnf5-plugin-actions
 
   echo "creating /etc/dnf/libdnf5-plugins/actions.d/hakoniwa.actions."
-  echo "creating /etc/dnf/libdnf5-plugins/actions.d/hakoniwa.sh."
   cp ./etc/dnf/libdnf5-plugins/actions.d/hakoniwa.actions /etc/dnf/libdnf5-plugins/actions.d/hakoniwa.actions
-  cp ./etc/dnf/libdnf5-plugins/actions.d/hakoniwa.sh /etc/dnf/libdnf5-plugins/actions.d/hakoniwa.sh
 }
 
 install_pacman_hook() {
   echo "package manager PACMAN found."
 
   echo "creating /usr/share/libalpm/hooks/hakoniwa.hook."
-  echo "creating /usr/share/libalpm/scripts/hakoniwa."
   cp ./etc/pacman/hooks/hakoniwa.hook /usr/share/libalpm/hooks/hakoniwa.hook
-  cp ./etc/pacman/scripts/hakoniwa /usr/share/libalpm/scripts/hakoniwa
 }
 
 

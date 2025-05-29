@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+#
+# THIS FILE IS PART OF HAKONIWA.D
+#
+# HAKONIWA.D: https://github.com/souk4711/hakoniwa.d
+# SPDX-License-Identifier: GPL-3.0-only
 
 
 set -euo pipefail
@@ -37,7 +42,7 @@ cleanup_binwrappers() {
   while read -r bin group _
   do
     cleanup_binwrapper "$bin"
-  done < <(tr -s '[:blank:]' < ./scripts/binwrappers.txt)
+  done < <(tr -s '[:blank:]' < ./binwrappers.txt)
 }
 
 cleanup_binwrapper() {
@@ -62,7 +67,7 @@ install_binwrappers_bin() {
       install_binwrapper "$bin"
       found=true
     fi
-  done < <(tr -s '[:blank:]' < ./scripts/binwrappers.txt)
+  done < <(tr -s '[:blank:]' < ./binwrappers.txt)
 
   if [ "$found" == false ]; then
     echo_warn "No builtin profile for '$1'. SKIPPING."
@@ -86,7 +91,7 @@ install_binwrappers_group() {
     else
       groups+=("$group")
     fi
-  done < <(tr -s '[:blank:]' < ./scripts/binwrappers.txt)
+  done < <(tr -s '[:blank:]' < ./binwrappers.txt)
 
   if [ "$found" == false ]; then
     echo_warn "No such group '$1'. SKIPPING."
@@ -129,7 +134,7 @@ main() {
     exit 1
   fi
 
-  cd "$(dirname -- "$0")/.."
+  cd "$(dirname -- "$0")"
   case "${1-}" in
     "--bin")
       cleanup_binwrappers

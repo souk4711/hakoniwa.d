@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
 
-cd "$(dirname -- "$0")/../../.."
-
-. ./stdlib.sh
-hakoniwa_run /usr/bin/ruby "./tests/fixtures/hakoniwa.d/ruby.toml" "$@"
+. "$(dirname -- "$0")/../../../hakoniwa.d/stdlib.sh"
+hakoniwa_run /usr/bin/ruby "$(dirname -- "$0")/../profiles/ruby.toml" "$@"

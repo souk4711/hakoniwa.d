@@ -1,2 +1,2 @@
 # Updating the desktop file...
-post_transaction:*:in::/etc/dnf/libdnf5-plugins/actions.d/hakoniwa.sh
+post_transaction:*:in::/usr/lib/hakoniwa.d/utils/update-desktop-files.sh

@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+#
+# THIS FILE IS PART OF HAKONIWA.D
+#
+# HAKONIWA.D: https://github.com/souk4711/hakoniwa.d
+# SPDX-License-Identifier: GPL-3.0-only
 
 
 set -euo pipefail
@@ -50,14 +55,10 @@ uninstall_hakoniwa_d() {
     rm -f /etc/apt/apt.conf.d/hakoniwa
   elif command_exists "dnf"; then
     echo "removing /etc/dnf/libdnf5-plugins/actions.d/hakoniwa.actions"
-    echo "removing /etc/dnf/libdnf5-plugins/actions.d/hakoniwa.sh"
     rm -f /etc/dnf/libdnf5-plugins/actions.d/hakoniwa.actions
-    rm -f /etc/dnf/libdnf5-plugins/actions.d/hakoniwa.sh
   elif command_exists "pacman"; then
     echo "removing /usr/share/libalpm/hooks/hakoniwa.hook"
-    echo "removing /usr/share/libalpm/scripts/hakoniwa"
     rm -f /usr/share/libalpm/hooks/hakoniwa.hook
-    rm -f /usr/share/libalpm/scripts/hakoniwa
   fi
 }
 

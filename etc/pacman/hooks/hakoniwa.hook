@@ -7,4 +7,4 @@ Target = usr/share/applications/*.desktop
 [Action]
 Description = Updating the desktop file...
 When = PostTransaction
-Exec = /usr/share/libalpm/scripts/hakoniwa
+Exec = /usr/lib/hakoniwa.d/utils/update-desktop-files.sh

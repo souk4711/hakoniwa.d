@@ -5,9 +5,9 @@ help:										## Print help
 .PHONY: binwrappers
 binwrappers:						## Generate binary wrappers in /usr/local/bin/
 ifneq ($(bin), )
-	@./scripts/make-binwrappers.sh --bin "$(bin)"
+	@./hakoniwa.d/utils/install-binwrappers.sh --bin "$(bin)"
 else ifneq ($(group), )
-	@./scripts/make-binwrappers.sh --group "$(group)"
+	@./hakoniwa.d/utils/install-binwrappers.sh --group "$(group)"
 else
 	@echo "Usage:"
 	@echo ""
@@ -29,9 +29,10 @@ uninstall:							## Uninstall hakoniwa stuff
 
 .PHONY: lint
 lint:										## Run lints
-	shellcheck ./stdlib.sh
-	shellcheck ./scripts/*.sh
-	shellcheck ./tests/**/*.bats
+	@while read -r filename; do						\
+		echo "shellcheck $$filename";				\
+		shellcheck "$$filename" || exit 1;	\
+	done < <(find . \( -name "*.sh" -o -name "*.bats" \))
 
 .PHONY: test
 test:										## Run test suites

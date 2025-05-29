@@ -35,7 +35,6 @@ jobs:
         uses: bats-core/bats-action@3.0.0
       - name: Run test
         run: |
-          mkdir -p ~/Code
           mkdir -p ~/.config
           touch ~/.config/user-dirs.dirs
           make test

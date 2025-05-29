@@ -1,4 +1,9 @@
 #!/usr/bin/env bash
+#
+# THIS FILE IS PART OF HAKONIWA.D
+#
+# HAKONIWA.D: https://github.com/souk4711/hakoniwa.d
+# SPDX-License-Identifier: GPL-3.0-only
 
 
 hakoniwa_run() {
