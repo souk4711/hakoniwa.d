@@ -1,3 +1,7 @@
+SHELL := /bin/bash
+.SHELLFLAGS := -euo pipefail -c
+
+
 .PHONY: help
 help:										## Print help
 	@grep -E '^[a-z.A-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
@@ -29,9 +33,9 @@ uninstall:							## Uninstall hakoniwa stuff
 
 .PHONY: lint
 lint:										## Run lints
-	@while read -r filename; do						\
-		echo "shellcheck $$filename";				\
-		shellcheck "$$filename" || exit 1;	\
+	@while read -r filename; do				\
+		echo "shellcheck $$filename";		\
+		shellcheck "$$filename";				\
 	done < <(find . \( -name "*.sh" -o -name "*.bats" \))
 
 .PHONY: test
