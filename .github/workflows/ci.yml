@@ -36,4 +36,6 @@ jobs:
       - name: Run test
         run: |
           mkdir -p ~/Code
+          mkdir -p ~/.config
+          touch ~/.config/user-dirs.dirs
           make test
