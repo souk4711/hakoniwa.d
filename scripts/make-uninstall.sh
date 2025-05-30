@@ -51,14 +51,14 @@ uninstall_hakoniwa_d() {
   rm -rf /usr/lib/hakoniwa.d/
 
   if command_exists "apt"; then
-    echo "removing /etc/apt/apt.conf.d/hakoniwa"
-    rm -f /etc/apt/apt.conf.d/hakoniwa
+    echo "removing /etc/apt/apt.conf.d/hakoniwa-update-desktop-files"
+    rm -f /etc/apt/apt.conf.d/hakoniwa-update-desktop-files
   elif command_exists "dnf"; then
-    echo "removing /etc/dnf/libdnf5-plugins/actions.d/hakoniwa.actions"
-    rm -f /etc/dnf/libdnf5-plugins/actions.d/hakoniwa.actions
+    echo "removing /etc/dnf/libdnf5-plugins/actions.d/hakoniwa-update-desktop-files.actions"
+    rm -f /etc/dnf/libdnf5-plugins/actions.d/hakoniwa-update-desktop-files.actions
   elif command_exists "pacman"; then
-    echo "removing /usr/share/libalpm/hooks/hakoniwa.hook"
-    rm -f /usr/share/libalpm/hooks/hakoniwa.hook
+    echo "removing /usr/share/libalpm/hooks/hakoniwa-update-desktop-files.hook"
+    rm -f /usr/share/libalpm/hooks/hakoniwa-update-desktop-files.hook
   fi
 }
 

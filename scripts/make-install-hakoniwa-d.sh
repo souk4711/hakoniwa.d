@@ -56,23 +56,23 @@ install_package_manager_hook() {
 install_apt_hook() {
   echo "package manager APT found."
 
-  echo "creating /etc/apt/apt.conf.d/hakoniwa."
-  cp ./etc/apt/apt.conf.d/hakoniwa /etc/apt/apt.conf.d/hakoniwa
+  echo "creating /etc/apt/apt.conf.d/hakoniwa-update-desktop-files."
+  cp ./etc/apt/apt.conf.d/hakoniwa-update-desktop-files /etc/apt/apt.conf.d
 }
 
 install_dnf_hook() {
   echo "package manager DNF found."
   dnf install -y libdnf5-plugin-actions
 
-  echo "creating /etc/dnf/libdnf5-plugins/actions.d/hakoniwa.actions."
-  cp ./etc/dnf/libdnf5-plugins/actions.d/hakoniwa.actions /etc/dnf/libdnf5-plugins/actions.d/hakoniwa.actions
+  echo "creating /etc/dnf/libdnf5-plugins/actions.d/hakoniwa-update-desktop-files.actions."
+  cp ./etc/dnf/libdnf5-plugins/actions.d/hakoniwa-update-desktop-files.actions /etc/dnf/libdnf5-plugins/actions.d
 }
 
 install_pacman_hook() {
   echo "package manager PACMAN found."
 
-  echo "creating /usr/share/libalpm/hooks/hakoniwa.hook."
-  cp ./etc/pacman/hooks/hakoniwa.hook /usr/share/libalpm/hooks/hakoniwa.hook
+  echo "creating /usr/share/libalpm/hooks/hakoniwa-update-desktop-files.hook."
+  cp ./etc/pacman/hooks/hakoniwa-update-desktop-files.hook /usr/share/libalpm/hooks
 }
 
 
