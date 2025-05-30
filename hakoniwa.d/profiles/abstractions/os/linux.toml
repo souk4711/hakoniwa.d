@@ -43,12 +43,6 @@ source = ""
 destination = "/run"
 type = "tmpfs"
 
-# Mount an empty /run/hakoniwad folder, used to detect the command is running in hakoniwa
-[[mounts]]
-source = ""
-destination = "/run/hakoniwad"
-type = "tmpfs"
-
 # Mount an empty /tmp folder, used to store the short-lived temporary files
 [[mounts]]
 source = ""
@@ -141,3 +135,8 @@ access = "rw-"
 [[filesystem.dirs]]
 destination = "{{ folder }}"
 {% endif %}
+
+# Mount /.hakoniwaenv file, used to detect the command is running in hakoniwa
+[[filesystem.files]]
+destination = "/.hakoniwaenv"
+contents = ""

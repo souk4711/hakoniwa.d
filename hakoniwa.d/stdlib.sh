@@ -12,7 +12,7 @@ hakoniwa_run() {
   shift; shift
 
   # the command is already running in a hakoniwa.d container, donot create a nested container
-  if [ -d "/run/hakoniwad" ]; then
+  if [ -e "/.hakoniwaenv" ]; then
     exec "$bin" "$@"
     return 0
   fi
