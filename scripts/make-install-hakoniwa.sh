@@ -60,7 +60,7 @@ install_hakoniwa() {
   fi
 
   echo_info "Compiling binary from source code and install to /usr/bin/hakoniwa..."
-  cargo install hakoniwa-cli --root /usr --locked
+  cargo install hakoniwa-cli --root /usr --locked --git https://github.com/souk4711/hakoniwa.git
 }
 
 configure_selinux() {
