@@ -8,6 +8,6 @@
 {% for entry in fs_glob(os_env("HOME") + "/[!.]*") %}
   {% if path_is_dir(entry) %}
 [[mounts]]
-source = "{{ folder }}"
+source = "{{ entry }}"
   {% endif %}
 {% endfor %}
