@@ -8,7 +8,7 @@
 {% set _binname_ = "wechat" %}
 
 # Include a preset configuration
-{% include "presets/messaging.toml" %}
+{% include "presets/messager" %}
 
 # Customized user profile
 {% include ("local/" + _binname_ + ".toml") ignore missing %}

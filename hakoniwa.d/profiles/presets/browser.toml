@@ -9,8 +9,7 @@
 
 # Customized @include
 {% block _include_ %}
-  "abstractions/socket/dbus-session.toml",        # D-Bus session
-  "abstractions/socket/dbus-system.toml",         # D-Bus system
-  "abstractions/device/v4l.toml",                 # Device - Video capture
-  "abstractions/filesystem/xdg-download.toml",    # Share Folder - $HOME/Downloads
+  "abstractions/device/v4l.toml",                     # Device - Video capture
+  "abstractions/filesystem/rdonly/home-slim.toml",    # Share Folder - $HOME/[!.]*
+  "abstractions/filesystem/xdg-download.toml",        # Share Folder - $HOME/Downloads
 {% endblock %}

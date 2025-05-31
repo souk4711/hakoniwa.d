@@ -9,6 +9,7 @@
 
 # Customized @include
 {% block _include_ %}
-  "abstractions/filesystem/xdg-documents.toml",   # Share Folder - $HOME/Documents
-  "abstractions/filesystem/xdg-download.toml",    # Share Folder - $HOME/Downloads
+  "abstractions/filesystem/rdonly/home-slim.toml",    # Share Folder - $HOME/[!.]*
+  "abstractions/filesystem/xdg-documents.toml",       # Share Folder - $HOME/Documents
+  "abstractions/filesystem/xdg-download.toml",        # Share Folder - $HOME/Downloads
 {% endblock %}

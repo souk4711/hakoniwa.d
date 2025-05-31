@@ -34,7 +34,7 @@ name = "{{ name }}"
   {% endfor %}
 
   # Required by MIT Shared Memory Extension
-  [[namespaces]]
-  type = "ipc"
-  share = true
+[[namespaces]]
+type = "ipc"
+share = true
 {% endif %}

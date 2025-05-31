@@ -9,8 +9,9 @@
 
 # Customized @include
 {% block _include_ %}
-  "abstractions/network/bind/any.toml",           # Allow incoming connections
-  "abstractions/filesystem/xdg-code.toml",        # Share Folder - $HOME/Code
+  "abstractions/network/bind/any.toml",               # Allow incoming connections
+  "abstractions/filesystem/rdonly/home-slim.toml",    # Share Folder - $HOME/[!.]*
+  "abstractions/filesystem/xdg-code.toml",            # Share Folder - $HOME/Code
 {% endblock %}
 
 # Customized main contents
