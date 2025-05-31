@@ -12,6 +12,7 @@
   "abstractions/network/bind/any.toml",               # Allow incoming connections
   "abstractions/filesystem/rdonly/home-slim.toml",    # Share Folder - $HOME/[!.]*
   "abstractions/filesystem/xdg-code.toml",            # Share Folder - $HOME/Code
+  "abstractions/filesystem/xdg-download.toml",        # Share Folder - $HOME/Downloads
 {% endblock %}
 
 # Customized main contents
