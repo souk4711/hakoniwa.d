@@ -20,11 +20,13 @@ A list of all the available applications and their respective permissions.
 | Vivaldi        | Browser           | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443               | ~/Downloads:rw                 |
 | Zen Browser    | Browser           | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443               | ~/Downloads:rw                 |
 | KGet           | Download Manager  | dri, snd      | audio, display, dbus | CONNECT TCP 80/443               | ~/Downloads:rw                 |
+| VLC            | Media Player      | dri, snd      | audio, display       | CONNECT TCP 80/443               | ~/Downloads:rw, ~/Videos:rw    |
+| SMPlayer       | Media Player      | dri, snd      | audio, display       | CONNECT TCP 80/443               | ~/Downloads:rw, ~/Videos:rw    |
 | Tencent QQ     | Messaging App     | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443               | ~/Downloads:rw                 |
 | WeChat         | Messaging App     | dri, snd, v4l | audio, display, dbus | CONNECT TCP 80/443               | ~/Downloads:rw                 |
-| LibreOffice    | Office Suite      | dri, snd      | audio, display       |                                  | ~/Documents:rw, ~/Downloads:rw |
-| ONLYOFFICE     | Office Suite      | dri, snd      | audio, display       |                                  | ~/Documents:rw, ~/Downloads:rw |
-| WPS Office     | Office Suite      | dri, snd      | audio, display       |                                  | ~/Documents:rw, ~/Downloads:rw |
+| LibreOffice    | Office Suite      | dri, snd      | audio, display       | CONNECT TCP 80/443               | ~/Documents:rw, ~/Downloads:rw |
+| ONLYOFFICE     | Office Suite      | dri, snd      | audio, display       | CONNECT TCP 80/443               | ~/Documents:rw, ~/Downloads:rw |
+| WPS Office     | Office Suite      | dri, snd      | audio, display       | CONNECT TCP 80/443               | ~/Documents:rw, ~/Downloads:rw |
 | Obsidian       | PKM Tools         | dri, snd      | audio, display, dbus | CONNECT TCP 80/443               | ~/Notes:rw                     |
 | asdf-vm        | Development Kit   |               |                      | CONNECT TCP 80/443, BIND TCP ANY | ~/Code:rw, ...                 |
 | mise           | Development Kit   |               |                      | CONNECT TCP 80/443, BIND TCP ANY | ~/Code:rw, ...                 |

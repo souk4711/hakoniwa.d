@@ -1,0 +1,14 @@
+# THIS FILE IS PART OF HAKONIWA.D
+#
+# HAKONIWA.D: https://github.com/souk4711/hakoniwa.d
+# SPDX-License-Identifier: GPL-3.0-only
+
+
+# Constants
+{% set _binname_ = "vlc" %}
+
+# Include a preset configuration
+{% include "presets/media-player.toml" %}
+
+# Customized user profile
+{% include ("local/" + _binname_ + ".toml") ignore missing %}

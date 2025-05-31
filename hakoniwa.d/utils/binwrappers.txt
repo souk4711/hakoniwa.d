@@ -1,6 +1,7 @@
 asdf                        devkit
 brave                       browser
 chromium                    browser
+cvlc                        media-player    # -> vlc.toml
 desktopeditors              office          # -> onlyoffice-desktopeditors.toml
 et                          office          # -> wps.toml
 falkon                      browser
@@ -24,14 +25,20 @@ lowriter                    office          # -> libreoffice.toml
 makepkg                     devkit
 microsoft-edge-stable       browser
 mise                        devkit
+nvlc                        media-player    # -> vlc.toml
 obsidian                    pkm
 onlyoffice-desktopeditors   office
 qbittorrent                 bittorrent
 qutebrowser                 browser
+qvlc                        media-player    # -> vlc.toml
+rvlc                        media-player    # -> vlc.toml
+smplayer                    media-player
 soffice                     office          # -> libreoffice.toml
+svlc                        media-player    # -> vlc.toml
 transmission-gtk            bittorrent
 transmission-qt             bittorrent
 vivaldi                     browser
+vlc                         media-player
 wechat                      messaging
 wpp                         office          # -> wps.toml
 wps                         office
