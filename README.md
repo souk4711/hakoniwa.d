@@ -6,20 +6,8 @@ environment based on your host os and run application in it. It can help you wit
 - Compile source code in a restricted sandbox, e.g. makepkg
 - Run browsers, or proprietary softwares in an isolated environment, e.g. Firefox
 
-This repository provides a set of hakoniwa profiles with following features:
-
-- a separate HOME directory for each application
-  - the new HOME directory is located in `~/.local/share/hakoniwa/apps/`
-- filesystem access restrictions
-  - the rootfs contains only `/bin`, `/etc`, `/lib`, `/lib64`, `/lib32`, `/sbin`, `/usr`, `/opt`, `/sys` by default
-  - the application cannot access devices or sockets by default
-  - the application cannot run any SUID binaries
-- network access restrictions
-  - the application cannot connect to a remote TCP port by default
-  - the application cannot bind a local TCP port by default
-
-The [Application Profiles](./applications.md) document lists all the available applications
-and their respective permissions.
+> [!WARNING]
+> Running untrusted code is never safe, sandboxing cannot change this.
 
 ## Requirements
 
@@ -83,25 +71,6 @@ Want to enter the sandbox interactively, use `HAKONIWAD_CONSOLE=1` to open a she
 HAKONIWAD_LOG=TRACE HAKONIWAD_CONSOLE=1 firefox
 ```
 
-By default, the sandboxed firefox can only access ports `80` and `443`. To allow it access to extra ports,
-e.g. `8080`, you can create a file `/etc/hakoniwa.d/local/firefox.toml` with the following content:
-
-```toml
-[[landlock.net]]
-port = 8080
-access = "tcp.connect"
-```
-
-By default, the sandboxed firefox can only access folder `~/Downloads` with read-write permission. To allow
-it access extra folders, e.g. `Desktop`, you can create a file `/etc/hakoniwa.d/local/firefox.toml` with the
-following content:
-
-```toml
-[[mounts]]
-source = "{{ HOME }}/Desktop"
-rw = true
-```
-
 ## Development
 
 ### Makefile
@@ -121,4 +90,3 @@ rw = true
 Licensed under the [GPL-3.0-only](./LICENSE).
 
 [hakoniwa]: https://github.com/souk4711/hakoniwa
-[troubleshooting-apparmor]: https://github.com/souk4711/hakoniwa/blob/main/hakoniwa-cli/docs/troubleshooting-apparmor
