@@ -9,5 +9,6 @@
 
 # Customized @include
 {% block _include_ %}
-  "abstractions/filesystem/rdonly/home-slim.toml",    # Share Folder - $HOME/[!.]*
+  "abstractions/filesystem/home-slim.toml",           # Share Folder - $HOME/[!.]*
+  "abstractions/filesystem/trash.toml",               # Share Folder - $HOME/.local/share/Trash
 {% endblock %}

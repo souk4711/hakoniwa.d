@@ -29,6 +29,7 @@ mise                        devkit
 nvlc                        media-player        # -> vlc.toml
 obsidian                    pkm
 onlyoffice-desktopeditors   office
+okular                      document-viewer
 qbittorrent                 bittorrent-client
 qutebrowser                 browser
 qvlc                        media-player        # -> vlc.toml
