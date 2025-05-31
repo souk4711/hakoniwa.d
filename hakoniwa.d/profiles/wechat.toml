@@ -8,7 +8,12 @@
 {% set _binname_ = "wechat" %}
 
 # Include a preset configuration
-{% include "presets/messager" %}
+{% include "presets/messager.toml" %}
+
+# HiDPI
+[[envs]]
+name = "QT_AUTO_SCREEN_SCALE_FACTOR"
+value = "1"
 
 # Customized user profile
 {% include ("local/" + _binname_ + ".toml") ignore missing %}
