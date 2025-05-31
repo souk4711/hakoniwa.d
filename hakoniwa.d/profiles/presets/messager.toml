@@ -10,5 +10,6 @@
 # Customized @include
 {% block _include_ %}
   "abstractions/device/v4l.toml",                     # Device - Video capture
+  "abstractions/filesystem/rdonly/home-slim.toml",    # Share Folder - $HOME/[!.]*
   "abstractions/filesystem/xdg-download.toml",        # Share Folder - $HOME/Downloads
 {% endblock %}
