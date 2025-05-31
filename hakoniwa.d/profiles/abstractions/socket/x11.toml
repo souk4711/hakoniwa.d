@@ -32,4 +32,9 @@ rw = true
 name = "{{ name }}"
     {% endif %}
   {% endfor %}
+
+  # Required by MIT Shared Memory Extension
+  [[namespaces]]
+  type = "ipc"
+  share = true
 {% endif %}
