@@ -16,6 +16,7 @@ zen                         browser
 okular                      document-viewer
 kget                        downloader
 gwenview                    image-viewer
+mplayer                     media-player
 mpv                         media-player
 smplayer                    media-player
 vlc                         media-player
