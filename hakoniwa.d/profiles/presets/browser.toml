@@ -12,5 +12,6 @@
   "abstractions/device/v4l.toml",                     # Device - Video capture
   "abstractions/filesystem/rdonly/media.toml",        # Share Folder - /run/media
   "abstractions/filesystem/rdonly/home-slim.toml",    # Share Folder - $HOME/[!.]*
+  "abstractions/filesystem/rdonly/trash.toml",        # Share Folder - $HOME/.local/share/Trash
   "abstractions/filesystem/xdg-download.toml",        # Share Folder - $HOME/Downloads
 {% endblock %}
