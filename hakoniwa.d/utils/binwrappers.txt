@@ -16,6 +16,7 @@ zen                         browser
 okular                      document-viewer
 kget                        downloader
 gwenview                    image-viewer
+mpv                         media-player
 smplayer                    media-player
 vlc                         media-player
 cvlc                        media-player        # -> vlc.toml
