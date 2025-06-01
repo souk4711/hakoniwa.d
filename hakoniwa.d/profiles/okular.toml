@@ -8,7 +8,7 @@
 {% set _binname_ = "okular" %}
 
 # Include a preset configuration
-{% include "presets/pdf-viewer.toml" %}
+{% include "presets/document-viewer.toml" %}
 
 # Customized user profile
 {% include ("local/" + _binname_ + ".toml") ignore missing %}
