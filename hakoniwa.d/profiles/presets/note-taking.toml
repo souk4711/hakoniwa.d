@@ -10,5 +10,4 @@
 # Customized @include
 {% block _include_ %}
   "abstractions/filesystem/xdg-notes.toml",           # Share Folder - $HOME/Notes
-  "abstractions/filesystem/u-trash.toml",             # Share Folder - $HOME/.local/share/Trash
 {% endblock %}

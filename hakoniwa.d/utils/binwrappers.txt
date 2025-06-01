@@ -16,16 +16,14 @@ zen                         browser
 okular                      document-viewer
 kget                        downloader
 gwenview                    image-viewer
+smplayer                    media-player
+vlc                         media-player
 cvlc                        media-player        # -> vlc.toml
 nvlc                        media-player        # -> vlc.toml
 qvlc                        media-player        # -> vlc.toml
 rvlc                        media-player        # -> vlc.toml
-smplayer                    media-player
 svlc                        media-player        # -> vlc.toml
-vlc                         media-player
 obsidian                    note-taking
-desktopeditors              office              # -> onlyoffice-desktopeditors.toml
-et                          office              # -> wps.toml
 libreoffice                 office
 lobase                      office              # -> libreoffice.toml
 localc                      office              # -> libreoffice.toml
@@ -36,10 +34,12 @@ loimpress                   office              # -> libreoffice.toml
 lomath                      office              # -> libreoffice.toml
 loweb                       office              # -> libreoffice.toml
 lowriter                    office              # -> libreoffice.toml
-onlyoffice-desktopeditors   office
 soffice                     office              # -> libreoffice.toml
-wpp                         office              # -> wps.toml
+onlyoffice-desktopeditors   office
+desktopeditors              office              # -> onlyoffice-desktopeditors.toml
 wps                         office
+et                          office              # -> wps.toml
+wpp                         office              # -> wps.toml
 wpspdf                      office              # -> wps.toml
 linuxqq                     messager
 wechat                      messager
