@@ -10,6 +10,6 @@
 # Customized @include
 {% block _include_ %}
   "abstractions/filesystem/rdonly/media.toml",        # Share Folder - /run/media
-  "abstractions/filesystem/rdonly/home-slim.toml",    # Share Folder - $HOME/[!.]*
-  "abstractions/filesystem/rdonly/trash.toml",        # Share Folder - $HOME/.local/share/Trash
+  "abstractions/filesystem/rdonly/u-home-slim.toml",  # Share Folder - $HOME/[!.]*
+  "abstractions/filesystem/rdonly/u-trash.toml",      # Share Folder - $HOME/.local/share/Trash
 {% endblock %}
