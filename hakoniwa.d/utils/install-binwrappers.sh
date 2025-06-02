@@ -8,7 +8,6 @@
 
 set -euo pipefail
 
-
 command_exists() {
   type "${1}" > /dev/null 2>&1
 }
@@ -24,7 +23,6 @@ echo_warn() {
 echo_error() {
   echo -e "\e[1;31mERROR: $* \e[m"
 }
-
 
 usage() {
     echo "Usage:"
@@ -127,7 +125,6 @@ EOT
   chmod +x "$binwrapper"
 }
 
-
 main() {
   if [ "$(id -u)" -ne 0 ]; then
     echo_error "Please run this script as sudo or root."
@@ -149,4 +146,5 @@ main() {
       ;;
   esac
 }
+
 main "$@"

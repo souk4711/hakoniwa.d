@@ -8,7 +8,6 @@
 
 set -euo pipefail
 
-
 command_exists() {
   type "${1}" > /dev/null 2>&1
 }
@@ -24,7 +23,6 @@ echo_warn() {
 echo_error() {
   echo -e "\e[1;31mERROR: $* \e[m"
 }
-
 
 install_hakoniwa_d() {
   echo_info "Installing files to /etc/hakoniwa.d/..."
@@ -86,4 +84,5 @@ main() {
   install_hakoniwa_d
   install_package_manager_hook
 }
+
 main "$@"

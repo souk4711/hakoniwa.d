@@ -8,7 +8,6 @@
 
 set -euo pipefail
 
-
 command_exists() {
   type "${1}" > /dev/null 2>&1
 }
@@ -24,7 +23,6 @@ echo_warn() {
 echo_error() {
   echo -e "\e[1;31mERROR: $* \e[m"
 }
-
 
 install_deps() {
   echo_info "Installing dependencies..."
@@ -116,4 +114,5 @@ main() {
   configure_selinux
   configure_apparmor
 }
+
 main "$@"

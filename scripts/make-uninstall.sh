@@ -8,7 +8,6 @@
 
 set -euo pipefail
 
-
 command_exists() {
   type "${1}" > /dev/null 2>&1
 }
@@ -24,7 +23,6 @@ echo_warn() {
 echo_error() {
   echo -e "\e[1;31mERROR: $* \e[m"
 }
-
 
 uninstall_binwrappers() {
   echo_info "Uninstall binary wrappers..."
@@ -69,7 +67,6 @@ uninstall_hakoniwa() {
   rm -f /usr/bin/hakoniwa
 }
 
-
 main() {
   if [ "$(id -u)" -ne 0 ]; then
     echo_error "Please run this script as sudo or root."
@@ -81,4 +78,5 @@ main() {
   uninstall_hakoniwa_d
   uninstall_hakoniwa
 }
+
 main "$@"

@@ -10,7 +10,7 @@
 # Include a preset configuration
 {% include "presets/messager.toml" %}
 
-# HiDPI
+# Enables automatic scaling, based on the monitor's pixel density
 [[envs]]
 name = "QT_AUTO_SCREEN_SCALE_FACTOR"
 value = "1"
