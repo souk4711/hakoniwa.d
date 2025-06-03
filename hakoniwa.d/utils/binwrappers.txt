@@ -5,11 +5,16 @@ transmission-qt             bittorrent-client
 brave                       browser
 chromium                    browser
 falkon                      browser
-firefox-developer-edition   browser
 firefox                     browser
+firefox-developer-edition   browser
+floorp                      browser
 google-chrome-stable        browser
+google-chrome-unstable      browser
+konqueror                   browser
 librewolf                   browser
 microsoft-edge-stable       browser
+microsoft-edge-dev          browser
+palemoon                    browser
 qutebrowser                 browser
 vivaldi                     browser
 zen                         browser
