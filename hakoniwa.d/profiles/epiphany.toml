@@ -11,7 +11,7 @@
 {% include "presets/browser.toml" %}
 {% include "abstractions/socket/at-spi-bus.toml" %}
 
-# Donot impose Filesystem restrictions. Required by WebKitGTK (bwrap -> WebKitWebProcess)
+# Donot impose Filesystem restrictions, required by WebKitGTK (bwrap -> WebKitWebProcess)
 [[landlock.resources]]
 type = "fs"
 unrestrict = true

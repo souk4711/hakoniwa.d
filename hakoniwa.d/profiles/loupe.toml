@@ -10,7 +10,7 @@
 # Include a preset configuration
 {% include "presets/image-viewer.toml" %}
 
-# Donot impose Filesystem restrictions. Required by Gio
+# Donot impose Filesystem restrictions, required by Gio
 [[landlock.resources]]
 type = "fs"
 unrestrict = true

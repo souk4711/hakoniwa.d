@@ -19,13 +19,8 @@
 
 # Customized main contents
 {% block _main_ %}
-# Donot impose FS restrictions on /home
-[[landlock.fs]]
-path = "/home"
-access = "rwx"
-
-# Donot impose FS restrictions on /tmp
-[[landlock.fs]]
-path = "/tmp"
-access = "rwx"
+  # Donot impose Filesystem restrictions
+[[landlock.resources]]
+type = "fs"
+unrestrict = true
 {% endblock %}
