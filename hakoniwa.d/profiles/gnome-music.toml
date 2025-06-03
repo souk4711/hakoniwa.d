@@ -5,10 +5,10 @@
 
 
 # Constants
-{% set _binname_ = "smplayer" %}
+{% set _binname_ = "gnome-music" %}
 
 # Include a preset configuration
-{% include "presets/video-player.toml" %}
+{% include "presets/music-player.toml" %}
 
 # Customized user profile
 {% include ("local/" + _binname_ + ".toml") ignore missing %}

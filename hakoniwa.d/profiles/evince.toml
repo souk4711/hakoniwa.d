@@ -5,10 +5,10 @@
 
 
 # Constants
-{% set _binname_ = "smplayer" %}
+{% set _binname_ = "evince" %}
 
 # Include a preset configuration
-{% include "presets/video-player.toml" %}
+{% include "presets/document-viewer.toml" %}
 
 # Customized user profile
 {% include ("local/" + _binname_ + ".toml") ignore missing %}

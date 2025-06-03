@@ -5,10 +5,16 @@
 
 
 # Constants
-{% set _binname_ = "smplayer" %}
+{% set _binname_ = "epiphany" %}
 
 # Include a preset configuration
-{% include "presets/video-player.toml" %}
+{% include "presets/browser.toml" %}
+{% include "abstractions/socket/at-spi-bus.toml" %}
+
+# Donot impose Filesystem restrictions. Required by WebKitGTK (bwrap -> WebKitWebProcess)
+[[landlock.resources]]
+type = "fs"
+unrestrict = true
 
 # Customized user profile
 {% include ("local/" + _binname_ + ".toml") ignore missing %}

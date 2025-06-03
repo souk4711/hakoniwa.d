@@ -1,9 +1,24 @@
-ktorrent                    bittorrent-client
-qbittorrent                 bittorrent-client
-transmission-gtk            bittorrent-client
-transmission-qt             bittorrent-client
+arianna                     document-viewer
+evince                      document-viewer
+okular                      document-viewer
+gwenview                    image-viewer
+loupe                       image-viewer
+amberol                     music-player
+decibels                    music-player
+gnome-music                 music-player
+mplayer                     video-player
+mpv                         video-player
+smplayer                    video-player
+totem                       video-player
+vlc                         video-player
+cvlc                        video-player        # -> vlc.toml
+nvlc                        video-player        # -> vlc.toml
+qvlc                        video-player        # -> vlc.toml
+rvlc                        video-player        # -> vlc.toml
+svlc                        video-player        # -> vlc.toml
 brave                       browser
 chromium                    browser
+epiphany                    browser
 falkon                      browser
 firefox                     browser
 firefox-developer-edition   browser
@@ -18,22 +33,14 @@ palemoon                    browser
 qutebrowser                 browser
 vivaldi                     browser
 zen                         browser
-eusoft-eudic                dictionary
-goldendict                  dictionary
-arianna                     document-viewer
-okular                      document-viewer
+fragments                   bittorrent-client
+ktorrent                    bittorrent-client
+qbittorrent                 bittorrent-client
+transmission-gtk            bittorrent-client
+transmission-qt             bittorrent-client
 kget                        downloader
-gwenview                    image-viewer
-mplayer                     media-player
-mpv                         media-player
-smplayer                    media-player
-vlc                         media-player
-cvlc                        media-player        # -> vlc.toml
-nvlc                        media-player        # -> vlc.toml
-qvlc                        media-player        # -> vlc.toml
-rvlc                        media-player        # -> vlc.toml
-svlc                        media-player        # -> vlc.toml
-obsidian                    note-taking
+linuxqq                     messager
+wechat                      messager
 libreoffice                 office
 lobase                      office              # -> libreoffice.toml
 localc                      office              # -> libreoffice.toml
@@ -51,8 +58,9 @@ wps                         office
 et                          office              # -> wps.toml
 wpp                         office              # -> wps.toml
 wpspdf                      office              # -> wps.toml
-linuxqq                     messager
-wechat                      messager
+eusoft-eudic                dictionary
+goldendict                  dictionary
+obsidian                    note-taking
 asdf                        devkit
 makepkg                     devkit
 mise                        devkit

@@ -5,10 +5,15 @@
 
 
 # Constants
-{% set _binname_ = "smplayer" %}
+{% set _binname_ = "loupe" %}
 
 # Include a preset configuration
-{% include "presets/video-player.toml" %}
+{% include "presets/image-viewer.toml" %}
+
+# Donot impose Filesystem restrictions. Required by Gio
+[[landlock.resources]]
+type = "fs"
+unrestrict = true
 
 # Customized user profile
 {% include ("local/" + _binname_ + ".toml") ignore missing %}

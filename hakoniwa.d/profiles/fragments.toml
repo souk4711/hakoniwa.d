@@ -5,10 +5,11 @@
 
 
 # Constants
-{% set _binname_ = "smplayer" %}
+{% set _binname_ = "fragments" %}
 
 # Include a preset configuration
-{% include "presets/video-player.toml" %}
+{% include "presets/bittorrent-client.toml" %}
+{% include "abstractions/network/connect/transmission.toml" %}
 
 # Customized user profile
 {% include ("local/" + _binname_ + ".toml") ignore missing %}

@@ -5,7 +5,7 @@
 
 
 # Constants
-{% set _binname_ = "smplayer" %}
+{% set _binname_ = "totem" %}
 
 # Include a preset configuration
 {% include "presets/video-player.toml" %}

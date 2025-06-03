@@ -8,7 +8,7 @@
 {% set _binname_ = "mpv" %}
 
 # Include a preset configuration
-{% include "presets/media-player.toml" %}
+{% include "presets/video-player.toml" %}
 
 # Customized user profile
 {% include ("local/" + _binname_ + ".toml") ignore missing %}
