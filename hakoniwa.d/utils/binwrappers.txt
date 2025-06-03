@@ -13,6 +13,8 @@ microsoft-edge-stable       browser
 qutebrowser                 browser
 vivaldi                     browser
 zen                         browser
+eusoft-eudic                dictionary
+goldendict                  dictionary
 arianna                     document-viewer
 okular                      document-viewer
 kget                        downloader

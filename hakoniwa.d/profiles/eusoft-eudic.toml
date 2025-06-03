@@ -5,10 +5,10 @@
 
 
 # Constants
-{% set _binname_ = "wechat" %}
+{% set _binname_ = "eusoft-eudic" %}
 
 # Include a preset configuration
-{% include "presets/messager.toml" %}
+{% include "presets/dictionary.toml" %}
 
 # Customized user profile
 {% include ("local/" + _binname_ + ".toml") ignore missing %}
