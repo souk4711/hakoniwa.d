@@ -5,10 +5,10 @@
 
 
 # Constants
-{% set _binname_ = "obsidian" %}
+{% set _appname_ = "obsidian" %}
 
 # Include a preset configuration
 {% include "presets/note-taking.toml" %}
 
 # Customized user profile
-{% include ("local/" + _binname_ + ".toml") ignore missing %}
+{% include ("local/" + _appname_ + ".toml") ignore missing %}

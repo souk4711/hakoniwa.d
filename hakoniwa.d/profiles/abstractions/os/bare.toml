@@ -49,18 +49,13 @@ source = ""
 destination = "/tmp"
 type = "tmpfs"
 
-# Mount an empty /home folder
-[[mounts]]
-source = ""
-destination = "/home"
-type = "tmpfs"
-
 # List of environment variables, most widely-used
 {% for name in [
   "HOME",
   "LANG",
   "PATH",
   "TERM",
+  "USER",
 ] %}
   {% if os_env(name) is ne "" %}
 [[envs]]
@@ -124,7 +119,7 @@ access = "rw-"
 destination = "{{ folder }}"
 {% endif %}
 
-# Mount /.hakoniwaenv file, used to detect the command is running in hakoniwa
+# Create /.hakoniwaenv file, used to detect the command is running in hakoniwa
 [[filesystem.files]]
 destination = "/.hakoniwaenv"
 contents = ""

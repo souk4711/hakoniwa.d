@@ -7,22 +7,23 @@
 # Include a set of built-in configuration
 "@include" = [
   "abstractions/os/bare.toml",                    # OS - Bare
+  "abstractions/os/freedesktop.toml",             # OS - Freedesktop
   {% block _include_ %}{% endblock %}             # Customized @include
 ]
 
+# Persist XDG base directories
+{% set _apphome_ = os_env("HOME") + "/.local/share/hakoniwa/apps/" + _appname_ + "/persist" %}
+{% for (source, destination) in [
+  ( _apphome_ + "/.cache" , os_env("HOME") + "/.cache" ),
+  ( _apphome_ + "/.config", os_env("HOME") + "/.config"),
+  ( _apphome_ + "/.local" , os_env("HOME") + "/.local" ),
+] %}
+  {% set _ = fs_mkdir(source) %}
+[[mounts]]
+source = "{{ source }}"
+destination = "{{ destination }}"
+rw = true
+{% endfor %}
+
 # Customized main contents
 {% block _main_ %}{% endblock %}
-
-# Mount a separate HOME directory
-{% set homedir = os_env("HOME") + "/.local/share/hakoniwa/apps/" + _binname_ %}
-{% set _ = fs_mkdir(homedir) %}
-[[mounts]]
-source = "{{ homedir }}"
-destination = "{{ os_env("HOME") }}"
-rw = true
-
-# COMMAND
-{% set binpath = "/usr/bin/" + _binname_ %}
-[command]
-cmdline = ["{{ binpath }}"]
-cwd = "{{ os_env("PWD") }}"

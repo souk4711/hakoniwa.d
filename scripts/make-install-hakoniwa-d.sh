@@ -31,9 +31,9 @@ install_hakoniwa_d() {
 
   echo_info "Installing files to /usr/lib/hakoniwa.d/..."
   mkdir -p /usr/lib/hakoniwa.d
-  mkdir -p /usr/lib/hakoniwa.d/utils
+  mkdir -p /usr/lib/hakoniwa.d/tools
   cp ./hakoniwa.d/stdlib.sh /usr/lib/hakoniwa.d
-  cp ./hakoniwa.d/utils/* /usr/lib/hakoniwa.d/utils
+  cp ./hakoniwa.d/tools/* /usr/lib/hakoniwa.d/tools
 }
 
 install_package_manager_hook() {

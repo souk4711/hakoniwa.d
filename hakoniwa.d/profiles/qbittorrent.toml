@@ -5,10 +5,10 @@
 
 
 # Constants
-{% set _binname_ = "qbittorrent" %}
+{% set _appname_ = "qbittorrent" %}
 
 # Include a preset configuration
 {% include "presets/bittorrent-client.toml" %}
 
 # Customized user profile
-{% include ("local/" + _binname_ + ".toml") ignore missing %}
+{% include ("local/" + _appname_ + ".toml") ignore missing %}

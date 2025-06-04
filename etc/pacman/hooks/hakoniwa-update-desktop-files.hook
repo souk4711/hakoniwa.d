@@ -7,4 +7,4 @@ Target = usr/share/applications/*.desktop
 [Action]
 Description = Updating the desktop file Exec line...
 When = PostTransaction
-Exec = /usr/lib/hakoniwa.d/utils/update-desktop-files.sh
+Exec = /usr/lib/hakoniwa.d/tools/update-desktop-files.sh

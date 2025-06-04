@@ -5,10 +5,10 @@
 
 
 # Constants
-{% set _binname_ = "mpv" %}
+{% set _appname_ = "mpv" %}
 
 # Include a preset configuration
 {% include "presets/video-player.toml" %}
 
 # Customized user profile
-{% include ("local/" + _binname_ + ".toml") ignore missing %}
+{% include ("local/" + _appname_ + ".toml") ignore missing %}

@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: GPL-3.0-only
 
 
-# Folder
+# xdg-user-dir DOCUMENTS
 {% set folder = fs_xdg_user_dir("DOCUMENTS") %}
 {% if path_exists(folder) %}
 [[mounts]]

@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: GPL-3.0-only
 
 
-# Folder
+# Media folder
 {% set folder = "/run/media" %}
 {% if path_exists(folder) %}
 [[mounts]]

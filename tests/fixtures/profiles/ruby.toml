@@ -6,26 +6,25 @@
 
 # Include a set of built-in configuration
 "@include" = [
-  "../../../hakoniwa.d/profiles/abstractions/os/linux.toml",                   # Base
-  "../../../hakoniwa.d/profiles/abstractions/network/mode/host.toml",          # Network Mode - Host
-  "../../../hakoniwa.d/profiles/abstractions/network/connect/autoproxy.toml",  # Allow outgoing $ALL_PROXY/... connections
-  "../../../hakoniwa.d/profiles/abstractions/network/connect/http.toml",       # Allow outgoing HTTP connections
-  "../../../hakoniwa.d/profiles/abstractions/network/connect/https.toml",      # Allow outgoing HTTPS connections
-  "../../../hakoniwa.d/profiles/abstractions/filesystem/xdg-code.toml",        # Share Folder - $HOME/Code
+  "../../../hakoniwa.d/profiles/abstractions/os/bare.toml",                     # OS - Bare
+  "../../../hakoniwa.d/profiles/abstractions/os/freedesktop.toml",              # OS - Freedesktop
+  "../../../hakoniwa.d/profiles/abstractions/network/mode/host.toml",           # Network Mode - Host
+  "../../../hakoniwa.d/profiles/abstractions/network/connect/autoproxy.toml",   # Allow outgoing $ALL_PROXY/... connections
+  "../../../hakoniwa.d/profiles/abstractions/network/connect/http.toml",        # Allow outgoing HTTP connections
+  "../../../hakoniwa.d/profiles/abstractions/network/connect/https.toml",       # Allow outgoing HTTPS connections
 ]
 
-# Mount a separate HOME directory
-{% set homedir = os_env("HOME") + "/.local/share/hakoniwa/apps/ruby" %}
-{% set _ = fs_mkdir(homedir) %}
+# Persist XDG base directories
+{% set _appname_ = "ruby" %}
+{% set _apphome_ = os_env("HOME") + "/.local/share/hakoniwa/apps/" + _appname_ + "/persist" %}
+{% for (source, destination) in [
+  ( _apphome_ + "/.cache" , os_env("HOME") + "/.cache" ),
+  ( _apphome_ + "/.config", os_env("HOME") + "/.config"),
+  ( _apphome_ + "/.local" , os_env("HOME") + "/.local" ),
+] %}
+  {% set _ = fs_mkdir(source) %}
 [[mounts]]
-source = "{{ homedir }}"
-destination = "{{ os_env("HOME") }}"
+source = "{{ source }}"
+destination = "{{ destination }}"
 rw = true
-
-# COMMAND
-[command]
-cmdline = ["/usr/bin/ruby"]
-cwd = "{{ os_env("HOME") }}"
-
-# Embed user profile
-{% include "local/ruby.toml" ignore missing %}
+{% endfor %}

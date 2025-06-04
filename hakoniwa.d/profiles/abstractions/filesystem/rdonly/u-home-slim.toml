@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: GPL-3.0-only
 
 
-# Mount unhidden folders
+# Nonhidden folders in HOME
 {% for entry in fs_glob(os_env("HOME") + "/[!.]*") %}
   {% if path_is_dir(entry) %}
 [[mounts]]

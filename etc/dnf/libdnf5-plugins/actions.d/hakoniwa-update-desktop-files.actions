@@ -1,2 +1,2 @@
 # Updating the desktop file Exec line...
-post_transaction:*:in::/usr/lib/hakoniwa.d/utils/update-desktop-files.sh
+post_transaction:*:in::/usr/lib/hakoniwa.d/tools/update-desktop-files.sh

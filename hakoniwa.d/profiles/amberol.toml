@@ -5,10 +5,10 @@
 
 
 # Constants
-{% set _binname_ = "amberol" %}
+{% set _appname_ = "amberol" %}
 
 # Include a preset configuration
 {% include "presets/music-player.toml" %}
 
 # Customized user profile
-{% include ("local/" + _binname_ + ".toml") ignore missing %}
+{% include ("local/" + _appname_ + ".toml") ignore missing %}

@@ -5,7 +5,7 @@
 
 
 # Constants
-{% set _binname_ = "asdf" %}
+{% set _appname_ = "asdf" %}
 
 # Include a preset configuration
 {% include "presets/devkit.toml" %}
@@ -52,4 +52,4 @@ name = "{{ name }}"
 {% endfor %}
 
 # Customized user profile
-{% include ("local/" + _binname_ + ".toml") ignore missing %}
+{% include ("local/" + _appname_ + ".toml") ignore missing %}

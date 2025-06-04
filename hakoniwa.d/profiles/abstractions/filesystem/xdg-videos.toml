@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: GPL-3.0-only
 
 
-# Folder
+# xdg-user-dir VIDEOS
 {% set folder = fs_xdg_user_dir("VIDEOS") %}
 {% if path_exists(folder) %}
 [[mounts]]

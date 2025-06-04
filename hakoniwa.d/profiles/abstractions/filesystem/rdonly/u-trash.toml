@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: GPL-3.0-only
 
 
-# Folder
+# Trash folder
 {% set folder = os_env("HOME") + "/.local/share/Trash" %}
 {% if path_exists(folder) %}
 [[mounts]]

@@ -5,10 +5,10 @@
 
 
 # Constants
-{% set _binname_ = "arianna" %}
+{% set _appname_ = "arianna" %}
 
 # Include a preset configuration
 {% include "presets/document-viewer.toml" %}
 
 # Customized user profile
-{% include ("local/" + _binname_ + ".toml") ignore missing %}
+{% include ("local/" + _appname_ + ".toml") ignore missing %}

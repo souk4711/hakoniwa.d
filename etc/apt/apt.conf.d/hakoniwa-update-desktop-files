@@ -1,2 +1,2 @@
 # Updating the desktop file Exec line...
-DPkg::Post-Invoke { "/usr/lib/hakoniwa.d/utils/update-desktop-files.sh" }
+DPkg::Post-Invoke { "/usr/lib/hakoniwa.d/tools/update-desktop-files.sh" }

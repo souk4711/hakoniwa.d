@@ -6,7 +6,7 @@
 
     profile="./hakoniwa.d/profiles/$bin.toml"
     [ -f "$profile" ]
-  done < <(tr -s '[:blank:]' < ./hakoniwa.d/utils/binwrappers.txt)
+  done < <(tr -s '[:blank:]' < ./hakoniwa.d/tools/binwrappers.txt)
 }
 
 @test "profiles - file format valid" {
@@ -16,17 +16,17 @@
     profile_content=$(cat "$profile")
 
     if [ -L "$profile" ]; then
-      binname=$(readlink "$profile")
-      binname=${binname%".toml"}
-      [[ "$comment" == "# -> $binname.toml" ]]
+      appname=$(readlink "$profile")
+      appname=${appname%".toml"}
+      [[ "$comment" == "# -> $appname.toml" ]]
     else
-      binname="$bin"
+      appname="$bin"
       [ -z "$comment" ]
     fi
 
-    [[ "$profile_content" == *"set _binname_ = \"$binname\""* ]]    # biname equals to filename
-    [[ "$profile_content" == *"include \"presets/$group.toml"* ]]   # biname belongs to a group
-  done < <(tr -s '[:blank:]' < ./hakoniwa.d/utils/binwrappers.txt)
+    [[ "$profile_content" == *"set _appname_ = \"$appname\""* ]]    # appname equals to filename
+    [[ "$profile_content" == *"include \"presets/$group.toml"* ]]   # appname belongs to a group
+  done < <(tr -s '[:blank:]' < ./hakoniwa.d/tools/binwrappers.txt)
 }
 
 @test "profiles - runnable" {
@@ -40,5 +40,5 @@
     profile="$repo/hakoniwa.d/profiles/$bin.toml"
     result=$(/usr/bin/hakoniwa run -c "$profile" -- echo "OK")
     [[ "$result" == "OK" ]]
-  done < <(tr -s '[:blank:]' < "$repo/hakoniwa.d/utils/binwrappers.txt")
+  done < <(tr -s '[:blank:]' < "$repo/hakoniwa.d/tools/binwrappers.txt")
 }

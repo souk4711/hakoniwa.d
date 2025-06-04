@@ -13,3 +13,10 @@
   "abstractions/filesystem/rdonly/u-home-slim.toml",  # Share Folder - $HOME/[!.]*
   "abstractions/filesystem/rdonly/u-trash.toml",      # Share Folder - $HOME/.local/share/Trash
 {% endblock %}
+
+# Customized main contents
+{% block _main_ %}
+[command]
+cmdline = ["{{ "/usr/bin/" + _appname_ }}"]
+cwd = "{{ os_env("PWD") }}"
+{% endblock %}

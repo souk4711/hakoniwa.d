@@ -5,7 +5,7 @@
 
 
 # Constants
-{% set _binname_ = "mise" %}
+{% set _appname_ = "mise" %}
 
 # Include a preset configuration
 {% include "presets/devkit.toml" %}
@@ -31,4 +31,4 @@ rw = true
 {% endfor %}
 
 # Customized user profile
-{% include ("local/" + _binname_ + ".toml") ignore missing %}
+{% include ("local/" + _appname_ + ".toml") ignore missing %}

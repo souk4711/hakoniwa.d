@@ -5,10 +5,10 @@
 
 
 # Constants
-{% set _binname_ = "linuxqq" %}
+{% set _appname_ = "linuxqq" %}
 
 # Include a preset configuration
 {% include "presets/messager.toml" %}
 
 # Customized user profile
-{% include ("local/" + _binname_ + ".toml") ignore missing %}
+{% include ("local/" + _appname_ + ".toml") ignore missing %}

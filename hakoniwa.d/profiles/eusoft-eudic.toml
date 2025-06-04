@@ -5,10 +5,10 @@
 
 
 # Constants
-{% set _binname_ = "eusoft-eudic" %}
+{% set _appname_ = "eusoft-eudic" %}
 
 # Include a preset configuration
 {% include "presets/dictionary.toml" %}
 
 # Customized user profile
-{% include ("local/" + _binname_ + ".toml") ignore missing %}
+{% include ("local/" + _appname_ + ".toml") ignore missing %}

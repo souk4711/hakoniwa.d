@@ -1,4 +1,4 @@
-@test "os/linux - rootfs" {
+@test "os/bare - rootfs" {
   result="$(./tests/fixtures/bin/ruby -e 'print %x{ ls / }')"
   [[ "$result" =~ "bin"   ]]
   [[ "$result" =~ "etc"   ]]
@@ -27,7 +27,7 @@
   [[ ! "$result" =~ "snd"   ]]
 }
 
-@test "os/linux - envs" {
+@test "os/bare - envs" {
   result="$(MYENV=123 ./tests/fixtures/bin/ruby -e 'print %x{ env }')"
   [[ "$result" =~ "HOME=" ]]
   [[ "$result" =~ "LANG=" ]]
@@ -36,15 +36,15 @@
   [[ ! "$result" =~ "MYENV=" ]]
 }
 
-@test "os/linux - landlock.fs" {
-  result="$(./tests/fixtures/bin/ruby -e 'print %x{ cp -p /usr/bin/true ~/true && stat -c "%a" ~/true }')"
+@test "os/bare - landlock.fs" {
+  result="$(./tests/fixtures/bin/ruby -e 'print %x{ cp -p /usr/bin/true /tmp/true && stat -c "%a" /tmp/true }')"
   [[ "$result" =~ "755" ]]
 
-  result="$(./tests/fixtures/bin/ruby -e 'print %x{ cp -p /usr/bin/true ~/true && ~/true 2>&1 }')"
+  result="$(./tests/fixtures/bin/ruby -e 'print %x{ cp -p /usr/bin/true /tmp/true && /tmp/true 2>&1 }')"
   [[ "$result" =~ "Permission denied" ]]
 }
 
-@test "os/linux - landlock.net" {
+@test "os/bare - landlock.net" {
   result="$(./tests/fixtures/bin/ruby -e 'print %x{ aria2c https://www.example.com --dry-run }')"
   [[ "$result" == *"(OK):download completed"* ]]
 
@@ -70,8 +70,4 @@
 @test "network/mode/https" {
   result="$(./tests/fixtures/bin/ruby -e 'print %x{ aria2c https://www.example.com --dry-run }')"
   [[ "$result" == *"(OK):download completed"* ]]
-}
-
-@test "filesystem/xdg-code" {
-  true
 }

@@ -11,3 +11,10 @@
 {% block _include_ %}
   "abstractions/filesystem/xdg-notes.toml",           # Share Folder - $HOME/Notes
 {% endblock %}
+
+# Customized main contents
+{% block _main_ %}
+[command]
+cmdline = ["{{ "/usr/bin/" + _appname_ }}"]
+cwd = "{{ os_env("HOME") }}"
+{% endblock %}

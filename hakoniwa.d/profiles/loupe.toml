@@ -5,7 +5,7 @@
 
 
 # Constants
-{% set _binname_ = "loupe" %}
+{% set _appname_ = "loupe" %}
 
 # Include a preset configuration
 {% include "presets/image-viewer.toml" %}
@@ -16,4 +16,4 @@ type = "fs"
 unrestrict = true
 
 # Customized user profile
-{% include ("local/" + _binname_ + ".toml") ignore missing %}
+{% include ("local/" + _appname_ + ".toml") ignore missing %}

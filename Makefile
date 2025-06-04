@@ -9,9 +9,9 @@ help:										## Print help
 .PHONY: binwrappers
 binwrappers:						## Generate binary wrappers in /usr/local/bin/
 ifneq ($(bin), )
-	@./hakoniwa.d/utils/install-binwrappers.sh --bin "$(bin)"
+	@./hakoniwa.d/tools/install-binwrappers.sh --bin "$(bin)"
 else ifneq ($(group), )
-	@./hakoniwa.d/utils/install-binwrappers.sh --group "$(group)"
+	@./hakoniwa.d/tools/install-binwrappers.sh --group "$(group)"
 else
 	@echo "Usage:"
 	@echo ""

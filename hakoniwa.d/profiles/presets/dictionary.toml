@@ -6,3 +6,10 @@
 
 # Use preset DESKTOP-NETWORK as base skeleton
 {% extends "presets/core/desktop-network.toml" %}
+
+# Customized main contents
+{% block _main_ %}
+[command]
+cmdline = ["{{ "/usr/bin/" + _appname_ }}"]
+cwd = "{{ os_env("HOME") }}"
+{% endblock %}

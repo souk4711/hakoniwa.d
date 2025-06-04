@@ -28,3 +28,15 @@ name = "{{ name }}"
 name = "{{ name }}"
   {% endif %}
 {% endfor %}
+
+# The XDG base directories should use standard locations which will persist later
+{% for (name, value) in [
+  ( "XDG_CACHE_HOME", os_env("HOME") + "/.cache"      ),
+  ("XDG_CONFIG_HOME", os_env("HOME") + "/.config"     ),
+  (  "XDG_DATA_HOME", os_env("HOME") + "/.local/share"),
+  ( "XDG_STATE_HOME", os_env("HOME") + "/.local/state"),
+] %}
+[[envs]]
+name = "{{ name }}"
+value = "{{ value }}"
+{% endfor %}

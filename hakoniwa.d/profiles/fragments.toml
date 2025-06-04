@@ -5,11 +5,11 @@
 
 
 # Constants
-{% set _binname_ = "fragments" %}
+{% set _appname_ = "fragments" %}
 
 # Include a preset configuration
 {% include "presets/bittorrent-client.toml" %}
 {% include "abstractions/network/connect/transmission.toml" %}
 
 # Customized user profile
-{% include ("local/" + _binname_ + ".toml") ignore missing %}
+{% include ("local/" + _appname_ + ".toml") ignore missing %}
