@@ -6,7 +6,7 @@
 
 # Include a set of built-in configuration
 "@include" = [
-  "abstractions/os/linux.toml",                   # OS
+  "abstractions/os/bare.toml",                    # OS - Bare
   "abstractions/network/mode/host.toml",          # Network Mode - Host
   "abstractions/network/connect/autoproxy.toml",  # Allow outgoing $ALL_PROXY/... connections
   "abstractions/network/connect/http.toml",       # Allow outgoing HTTP connections

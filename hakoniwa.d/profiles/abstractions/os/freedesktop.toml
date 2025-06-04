@@ -1,0 +1,30 @@
+# THIS FILE IS PART OF HAKONIWA.D
+#
+# HAKONIWA.D: https://github.com/souk4711/hakoniwa.d
+# SPDX-License-Identifier: GPL-3.0-only
+
+
+# List of environment variables, described in Freedesktop.org Specifications
+{% for name in [
+  "XDG_CURRENT_DESKTOP",
+  "XDG_MENU_PREFIX",
+] %}
+  {% if os_env(name) is ne "" %}
+[[envs]]
+name = "{{ name }}"
+  {% endif %}
+{% endfor %}
+
+# List of environment variables, described in KDE Frameworks
+{% for name in [
+  "QT_AUTO_SCREEN_SCALE_FACTOR",
+  "QT_SCALE_FACTOR",
+  "QT_SCREEN_SCALE_FACTORS",
+  "KDE_FULL_SESSION",
+  "KDE_SESSION_VERSION",
+] %}
+  {% if os_env(name) is ne "" %}
+[[envs]]
+name = "{{ name }}"
+  {% endif %}
+{% endfor %}

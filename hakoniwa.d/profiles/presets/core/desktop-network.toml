@@ -6,7 +6,8 @@
 
 # Include a set of built-in configuration
 "@include" = [
-  "abstractions/os/linux.toml",                   # OS
+  "abstractions/os/bare.toml",                    # OS - Bare
+  "abstractions/os/freedesktop.toml",             # OS - Freedesktop
   "abstractions/device/dri.toml",                 # Device - DRI
   "abstractions/device/snd.toml",                 # Device - Sound input and output
   "abstractions/socket/dbus-session.toml",        # D-Bus session
