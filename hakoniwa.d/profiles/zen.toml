@@ -10,5 +10,17 @@
 # Include a preset configuration
 {% include "presets/browser.toml" %}
 
+# Persist HOME subdirs
+{% for (source, destination) in [
+  ( _apphome_ + "/.mozilla", os_env("HOME") + "/.mozilla"),
+  ( _apphome_ + "/.zen", os_env("HOME") + "/.zen"),
+] %}
+  {% set _ = fs_mkdir(source) %}
+[[mounts]]
+source = "{{ source }}"
+destination = "{{ destination }}"
+rw = true
+{% endfor %}
+
 # Customized user profile
 {% include ("local/" + _appname_ + ".toml") ignore missing %}

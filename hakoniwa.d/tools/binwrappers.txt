@@ -1,4 +1,3 @@
-arianna                     document-viewer
 evince                      document-viewer
 okular                      document-viewer
 gwenview                    image-viewer

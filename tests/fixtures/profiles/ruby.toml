@@ -13,3 +13,17 @@
   "../../../hakoniwa.d/profiles/abstractions/network/connect/http.toml",        # Allow outgoing HTTP connections
   "../../../hakoniwa.d/profiles/abstractions/network/connect/https.toml",       # Allow outgoing HTTPS connections
 ]
+
+# Persist XDG base directories
+{% set _apphome_ = os_env("HOME") + "/.local/share/hakoniwa/apps/" + _appname_ + "/persist" %}
+{% for (source, destination) in [
+  ( _apphome_ + "/.cache" , os_env("HOME") + "/.cache" ),
+  ( _apphome_ + "/.config", os_env("HOME") + "/.config"),
+  ( _apphome_ + "/.local" , os_env("HOME") + "/.local" ),
+] %}
+  {% set _ = fs_mkdir(source) %}
+[[mounts]]
+source = "{{ source }}"
+destination = "{{ destination }}"
+rw = true
+{% endfor %}

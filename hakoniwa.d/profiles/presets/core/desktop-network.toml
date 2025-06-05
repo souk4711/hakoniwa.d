@@ -37,5 +37,14 @@ destination = "{{ destination }}"
 rw = true
 {% endfor %}
 
+# Persist $HOME/.pki/nssdb, required by Network Security Services
+{% set source = _apphome_ + "/.pki" %}
+{% set destination = os_env("HOME") + "/.pki" %}
+{% set _ = fs_mkdir(source) %}
+[[mounts]]
+source = "{{ source }}"
+destination = "{{ destination }}"
+rw = true
+
 # Customized main contents
 {% block _main_ %}{% endblock %}
