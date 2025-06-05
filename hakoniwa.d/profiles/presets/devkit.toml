@@ -14,7 +14,7 @@
   "abstractions/filesystem/rdonly/u-home-slim.toml",  # Share Folder - $HOME/[!.]*
   "abstractions/filesystem/rdonly/u-trash.toml",      # Share Folder - $HOME/.local/share/Trash
   "abstractions/filesystem/xdg-code.toml",            # Share Folder - $HOME/Code
-  "abstractions/filesystem/xdg-download.toml",        # Share Folder - $HOME/Downloads
+  "abstractions/filesystem/xdg-downloads.toml",       # Share Folder - $HOME/Downloads
 {% endblock %}
 
 # Customized main contents

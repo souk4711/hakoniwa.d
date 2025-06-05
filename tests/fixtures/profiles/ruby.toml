@@ -15,7 +15,7 @@
 ]
 
 # Persist XDG base directories
-{% set _apphome_ = os_env("HOME") + "/.local/share/hakoniwa/apps/" + _appname_ + "/persist" %}
+{% set _apphome_ = os_env("HOME") + "/.local/share/hakoniwa/apps/ruby/persist" %}
 {% for (source, destination) in [
   ( _apphome_ + "/.cache" , os_env("HOME") + "/.cache" ),
   ( _apphome_ + "/.config", os_env("HOME") + "/.config"),

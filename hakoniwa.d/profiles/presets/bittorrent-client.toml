@@ -10,7 +10,7 @@
 # Customized @include
 {% block _include_ %}
   "abstractions/network/bind/any.toml",               # Allow incoming connections
-  "abstractions/filesystem/xdg-download.toml",        # Share Folder - $HOME/Downloads
+  "abstractions/filesystem/xdg-downloads.toml",       # Share Folder - $HOME/Downloads
 {% endblock %}
 
 # Customized main contents
