@@ -29,7 +29,7 @@ name = "{{ name }}"
   {% endif %}
 {% endfor %}
 
-# The XDG base directories should use standard locations which will persist later
+# List of environment variables, XDG base directories should use standard locations which will persist later
 {% for (name, value) in [
   ( "XDG_CACHE_HOME", os_env("HOME") + "/.cache"      ),
   ("XDG_CONFIG_HOME", os_env("HOME") + "/.config"     ),
@@ -40,3 +40,10 @@ name = "{{ name }}"
 name = "{{ name }}"
 value = "{{ value }}"
 {% endfor %}
+
+# XDG user-dirs.dirs
+{% set file = os_env("HOME") + "/.config/user-dirs.dirs" %}
+{% if path_exists(file) %}
+[[mounts]]
+source = "{{ file }}"
+{% endif %}

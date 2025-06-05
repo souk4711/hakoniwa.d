@@ -9,6 +9,7 @@
 
 # Include a preset configuration
 {% include "presets/document-viewer.toml" %}
+{% include "abstractions/socket/at-spi.toml" %}
 
 # Customized user profile
 {% include ("local/" + _appname_ + ".toml") ignore missing %}
