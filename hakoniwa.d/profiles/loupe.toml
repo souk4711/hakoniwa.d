@@ -9,7 +9,7 @@
 
 # Include a preset configuration
 {% include "presets/image-viewer.toml" %}
-{% include "abstractions/filesystem/u-run-gvfsd.toml" %}
+{% include "abstractions/filesystem/x-run-gvfsd.toml" %}
 {% include "abstractions/socket/at-spi.toml" %}
 
 # Donot impose Filesystem restrictions, required by Gio

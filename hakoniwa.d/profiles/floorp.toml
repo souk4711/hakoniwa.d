@@ -9,7 +9,7 @@
 
 # Include a preset configuration
 {% include "presets/browser.toml" %}
-{% include "abstractions/filesystem/u-run-gvfsd.toml" %}
+{% include "abstractions/filesystem/x-run-gvfsd.toml" %}
 
 # Persist HOME subdirs
 {% set source = _apphome_ + "/.floorp" %}

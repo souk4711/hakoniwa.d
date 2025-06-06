@@ -11,7 +11,7 @@
 {% include "presets/bittorrent-client.toml" %}
 {% include "abstractions/socket/at-spi.toml" %}
 {% include "abstractions/network/connect/transmission.toml" %}
-{% include "abstractions/filesystem/u-run-gvfsd.toml" %}
+{% include "abstractions/filesystem/x-run-gvfsd.toml" %}
 
 # Customized user profile
 {% include ("local/" + _appname_ + ".toml") ignore missing %}
