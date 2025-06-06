@@ -1,5 +1,7 @@
 arianna                     document-viewer
 evince                      document-viewer
+foliate                     document-viewer
+mupdf                       document-viewer
 okular                      document-viewer
 gwenview                    image-viewer
 loupe                       image-viewer

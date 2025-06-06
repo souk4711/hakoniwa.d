@@ -5,10 +5,10 @@
 
 
 # Constants
-{% set _appname_ = "loupe" %}
+{% set _appname_ = "foliate" %}
 
 # Include a preset configuration
-{% include "presets/image-viewer.toml" %}
+{% include "presets/document-viewer.toml" %}
 {% include "abstractions/socket/at-spi.toml" %}
 {% include "abstractions/filesystem/x-run-gvfsd.toml" %}
 

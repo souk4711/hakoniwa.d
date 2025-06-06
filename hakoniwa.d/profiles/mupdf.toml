@@ -1,0 +1,14 @@
+# THIS FILE IS PART OF HAKONIWA.D
+#
+# HAKONIWA.D: https://github.com/souk4711/hakoniwa.d
+# SPDX-License-Identifier: GPL-3.0-only
+
+
+# Constants
+{% set _appname_ = "mupdf" %}
+
+# Include a preset configuration
+{% include "presets/document-viewer.toml" %}
+
+# Customized user profile
+{% include ("local/" + _appname_ + ".toml") ignore missing %}
