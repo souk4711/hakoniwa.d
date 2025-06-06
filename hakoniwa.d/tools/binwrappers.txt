@@ -9,6 +9,10 @@ loupe                       image-viewer
 amberol                     music-player
 decibels                    music-player
 gnome-music                 music-player
+gnome-podcasts              podcast-client
+gpodder                     podcast-client
+kasts                       podcast-client
+mplayer                     video-player
 mplayer                     video-player
 mpv                         video-player
 smplayer                    video-player
