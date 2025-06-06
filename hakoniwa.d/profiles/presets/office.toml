@@ -9,9 +9,9 @@
 
 # Customized @include
 {% block _include_ %}
-  "abstractions/filesystem/media.toml",               # Share Folder - /run/media
-  "abstractions/filesystem/u-home-slim.toml",         # Share Folder - $HOME/[!.]*
-  "abstractions/filesystem/u-trash.toml",             # Share Folder - $HOME/.local/share/Trash
+  "abstractions/filesystem/rdonly/media.toml",        # Share Folder - /run/media
+  "abstractions/filesystem/rdonly/u-home-slim.toml",  # Share Folder - $HOME/[!.]*
+  "abstractions/filesystem/rdonly/u-trash.toml",      # Share Folder - $HOME/.local/share/Trash
 {% endblock %}
 
 # Customized main contents
