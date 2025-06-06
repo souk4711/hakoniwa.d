@@ -3,6 +3,7 @@ evince                      document-viewer
 foliate                     document-viewer
 mupdf                       document-viewer
 okular                      document-viewer
+zathura                     document-viewer
 gwenview                    image-viewer
 loupe                       image-viewer
 amberol                     music-player
