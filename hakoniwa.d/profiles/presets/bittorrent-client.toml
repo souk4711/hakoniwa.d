@@ -12,10 +12,3 @@
   "abstractions/network/bind/any.toml",               # Allow incoming connections
   "abstractions/filesystem/xdg-downloads.toml",       # Share Folder - $HOME/Downloads
 {% endblock %}
-
-# Customized main contents
-{% block _main_ %}
-[command]
-cmdline = ["{{ "/usr/bin/" + _appname_ }}"]
-cwd = "{{ os_env("HOME") }}"
-{% endblock %}

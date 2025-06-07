@@ -19,8 +19,4 @@
 [[landlock.resources]]
 type = "fs"
 unrestrict = true
-
-[command]
-cmdline = ["{{ "/usr/bin/" + _appname_ }}"]
-cwd = "{{ os_env("PWD") }}"
 {% endblock %}

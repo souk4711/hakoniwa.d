@@ -35,3 +35,8 @@ rw = true
 
 # Customized main contents
 {% block _main_ %}{% endblock %}
+
+# COMMAND
+[command]
+cmdline = ["{{ "/usr/bin/" + _appname_ }}"]
+cwd = "{{ os_env("HOME") }}"

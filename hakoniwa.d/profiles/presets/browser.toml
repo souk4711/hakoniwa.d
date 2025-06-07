@@ -12,10 +12,3 @@
   "abstractions/device/v4l.toml",                     # Device - Video capture
   "abstractions/filesystem/xdg-downloads.toml",       # Share Folder - $HOME/Downloads
 {% endblock %}
-
-# Customized main contents
-{% block _main_ %}
-[command]
-cmdline = ["{{ "/usr/bin/" + _appname_ }}"]
-cwd = "{{ os_env("HOME") }}"
-{% endblock %}
