@@ -1,0 +1,8 @@
+# THIS FILE IS PART OF HAKONIWA.D
+#
+# HAKONIWA.D: https://github.com/souk4711/hakoniwa.d
+# SPDX-License-Identifier: GPL-3.0-only
+
+
+# Use preset DESKTOP as base skeleton
+{% extends "presets/core/desktop.toml" %}

@@ -1,15 +1,1 @@
-# THIS FILE IS PART OF HAKONIWA.D
-#
-# HAKONIWA.D: https://github.com/souk4711/hakoniwa.d
-# SPDX-License-Identifier: GPL-3.0-only
-
-
-# Use preset DESKTOP as base skeleton
-{% extends "presets/core/desktop.toml" %}
-
-# Customized @include
-{% block _include_ %}
-  "abstractions/filesystem/rdonly/media.toml",        # Share Folder - /run/media
-  "abstractions/filesystem/rdonly/u-home-slim.toml",  # Share Folder - $HOME/[!.]*
-  "abstractions/filesystem/rdonly/u-trash.toml",      # Share Folder - $HOME/.local/share/Trash
-{% endblock %}
+extra/desktop-standalone-rdonly.toml
