@@ -7,7 +7,6 @@
 # Include a set of built-in configuration
 "@include" = [
   "abstractions/os/bare.toml",                    # OS - Bare
-  "abstractions/os/freedesktop.toml",             # OS - Freedesktop
   {% block _include_ %}{% endblock %}             # Customized @include
 ]
 
