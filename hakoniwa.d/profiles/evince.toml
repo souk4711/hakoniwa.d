@@ -9,8 +9,6 @@
 
 # Include a preset configuration
 {% include "presets/document-viewer.toml" %}
-{% include "abstractions/socket/at-spi.toml" %}
-{% include "abstractions/filesystem/x-run-gvfsd.toml" %}
 
 # Customized user profile
 {% include ("local/" + _appname_ + ".toml") ignore missing %}
