@@ -8,10 +8,13 @@ gwenview                    image-viewer
 loupe                       image-viewer
 amberol                     music-player
 decibels                    music-player
+elisa                       music-player
 gnome-music                 music-player
+juk                         music-player
 gnome-podcasts              podcast-client
 gpodder                     podcast-client
 kasts                       podcast-client
+dragon                      video-player
 mplayer                     video-player
 mplayer                     video-player
 mpv                         video-player
