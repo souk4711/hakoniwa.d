@@ -10,5 +10,10 @@
 # Include a preset configuration
 {% include "presets/video-player.toml" %}
 
+# Donot impose Filesystem restrictions, required by mp.command_native (thumbfast.lua -> mp.command_native)
+[[landlock.resources]]
+type = "fs"
+unrestrict = true
+
 # Customized user profile
 {% include ("local/" + _appname_ + ".toml") ignore missing %}
