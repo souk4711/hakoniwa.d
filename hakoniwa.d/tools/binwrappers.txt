@@ -4,15 +4,12 @@ foliate                     document-viewer
 mupdf                       document-viewer
 okular                      document-viewer
 zathura                     document-viewer
-gwenview                    image-editor
-loupe                       image-editor
 amberol                     music-player
 decibels                    music-player
 elisa                       music-player
 gnome-music                 music-player
 juk                         music-player
 dragon                      video-player
-mplayer                     video-player
 mplayer                     video-player
 mpv                         video-player
 smplayer                    video-player
@@ -23,6 +20,8 @@ nvlc                        video-player        # -> vlc.toml
 qvlc                        video-player        # -> vlc.toml
 rvlc                        video-player        # -> vlc.toml
 svlc                        video-player        # -> vlc.toml
+gwenview                    image-editor
+loupe                       image-editor
 libreoffice                 office
 lobase                      office              # -> libreoffice.toml
 localc                      office              # -> libreoffice.toml
@@ -40,6 +39,10 @@ wps                         office
 et                          office              # -> wps.toml
 wpp                         office              # -> wps.toml
 wpspdf                      office              # -> wps.toml
+eusoft-eudic                dictionary
+goldendict                  dictionary
+obsidian                    note-taking
+feeluown                    music-player
 gnome-podcasts              podcast-client
 gpodder                     podcast-client
 kasts                       podcast-client
@@ -60,17 +63,14 @@ palemoon                    browser
 qutebrowser                 browser
 vivaldi                     browser
 zen                         browser
+kget                        downloader
 fragments                   bittorrent-client
 ktorrent                    bittorrent-client
 qbittorrent                 bittorrent-client
 transmission-gtk            bittorrent-client
 transmission-qt             bittorrent-client
-kget                        downloader
 linuxqq                     messager
 wechat                      messager
-eusoft-eudic                dictionary
-goldendict                  dictionary
-obsidian                    note-taking
 asdf                        devkit
 makepkg                     devkit
 mise                        devkit

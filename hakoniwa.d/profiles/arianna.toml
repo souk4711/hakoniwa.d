@@ -9,7 +9,7 @@
 
 # Include a preset configuration
 {% include "presets/desktop-standalone/document-viewer.toml" %}
-{% include "abstractions/network/mode/pasta.toml" %}
+{% include "abstractions/network/mode/host.toml" %}
 
 # https://github.com/KDE/arianna/blob/559a94b43a6e778cd45cdc8165fcfc1caf0414c2/src/bookserver.cpp#L40
 [[landlock.net]]
