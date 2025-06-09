@@ -8,7 +8,7 @@
 {% set _appname_ = "mpv" %}
 
 # Include a preset configuration
-{% include "presets/video-player.toml" %}
+{% include "presets/desktop-standalone/video-player.toml" %}
 
 # Donot impose Filesystem restrictions, required by mp.command_native (thumbfast.lua -> mp.command_native)
 [[landlock.resources]]

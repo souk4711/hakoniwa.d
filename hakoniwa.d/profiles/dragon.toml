@@ -8,7 +8,7 @@
 {% set _appname_ = "dragon" %}
 
 # Include a preset configuration
-{% include "presets/video-player.toml" %}
+{% include "presets/desktop-standalone/video-player.toml" %}
 
 # Customized user profile
 {% include ("local/" + _appname_ + ".toml") ignore missing %}

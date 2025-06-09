@@ -8,7 +8,7 @@
 {% set _appname_ = "onlyoffice-desktopeditors" %}
 
 # Include a preset configuration
-{% include "presets/office.toml" %}
+{% include "presets/desktop-standalone/office.toml" %}
 
 # Customized user profile
 {% include ("local/" + _appname_ + ".toml") ignore missing %}

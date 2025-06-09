@@ -4,16 +4,13 @@ foliate                     document-viewer
 mupdf                       document-viewer
 okular                      document-viewer
 zathura                     document-viewer
-gwenview                    image-viewer
-loupe                       image-viewer
+gwenview                    image-editor
+loupe                       image-editor
 amberol                     music-player
 decibels                    music-player
 elisa                       music-player
 gnome-music                 music-player
 juk                         music-player
-gnome-podcasts              podcast-client
-gpodder                     podcast-client
-kasts                       podcast-client
 dragon                      video-player
 mplayer                     video-player
 mplayer                     video-player
@@ -26,6 +23,26 @@ nvlc                        video-player        # -> vlc.toml
 qvlc                        video-player        # -> vlc.toml
 rvlc                        video-player        # -> vlc.toml
 svlc                        video-player        # -> vlc.toml
+libreoffice                 office
+lobase                      office              # -> libreoffice.toml
+localc                      office              # -> libreoffice.toml
+lodraw                      office              # -> libreoffice.toml
+loffice                     office              # -> libreoffice.toml
+lofromtemplate              office              # -> libreoffice.toml
+loimpress                   office              # -> libreoffice.toml
+lomath                      office              # -> libreoffice.toml
+loweb                       office              # -> libreoffice.toml
+lowriter                    office              # -> libreoffice.toml
+soffice                     office              # -> libreoffice.toml
+onlyoffice-desktopeditors   office
+desktopeditors              office              # -> onlyoffice-desktopeditors.toml
+wps                         office
+et                          office              # -> wps.toml
+wpp                         office              # -> wps.toml
+wpspdf                      office              # -> wps.toml
+gnome-podcasts              podcast-client
+gpodder                     podcast-client
+kasts                       podcast-client
 brave                       browser
 chromium                    browser
 epiphany                    browser
@@ -51,23 +68,6 @@ transmission-qt             bittorrent-client
 kget                        downloader
 linuxqq                     messager
 wechat                      messager
-libreoffice                 office
-lobase                      office              # -> libreoffice.toml
-localc                      office              # -> libreoffice.toml
-lodraw                      office              # -> libreoffice.toml
-loffice                     office              # -> libreoffice.toml
-lofromtemplate              office              # -> libreoffice.toml
-loimpress                   office              # -> libreoffice.toml
-lomath                      office              # -> libreoffice.toml
-loweb                       office              # -> libreoffice.toml
-lowriter                    office              # -> libreoffice.toml
-soffice                     office              # -> libreoffice.toml
-onlyoffice-desktopeditors   office
-desktopeditors              office              # -> onlyoffice-desktopeditors.toml
-wps                         office
-et                          office              # -> wps.toml
-wpp                         office              # -> wps.toml
-wpspdf                      office              # -> wps.toml
 eusoft-eudic                dictionary
 goldendict                  dictionary
 obsidian                    note-taking

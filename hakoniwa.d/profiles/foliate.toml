@@ -8,7 +8,7 @@
 {% set _appname_ = "foliate" %}
 
 # Include a preset configuration
-{% include "presets/document-viewer.toml" %}
+{% include "presets/desktop-standalone/document-viewer.toml" %}
 {% include "abstractions/socket/at-spi.toml" %}
 
 # Donot impose Filesystem restrictions, required by Gio

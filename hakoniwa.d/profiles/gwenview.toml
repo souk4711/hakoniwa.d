@@ -8,7 +8,7 @@
 {% set _appname_ = "gwenview" %}
 
 # Include a preset configuration
-{% include "presets/image-viewer.toml" %}
+{% include "presets/desktop-standalone/image-editor.toml" %}
 
 # Customized user profile
 {% include ("local/" + _appname_ + ".toml") ignore missing %}

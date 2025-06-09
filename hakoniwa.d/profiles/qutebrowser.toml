@@ -8,7 +8,7 @@
 {% set _appname_ = "qutebrowser" %}
 
 # Include a preset configuration
-{% include "presets/browser.toml" %}
+{% include "presets/desktop-web/browser.toml" %}
 
 # Customized user profile
 {% include ("local/" + _appname_ + ".toml") ignore missing %}

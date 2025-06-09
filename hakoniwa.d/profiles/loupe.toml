@@ -8,7 +8,7 @@
 {% set _appname_ = "loupe" %}
 
 # Include a preset configuration
-{% include "presets/image-viewer.toml" %}
+{% include "presets/desktop-standalone/image-editor.toml" %}
 
 # Donot impose Filesystem restrictions, required by Gio
 [[landlock.resources]]

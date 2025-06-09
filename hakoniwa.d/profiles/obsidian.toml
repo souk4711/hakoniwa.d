@@ -8,7 +8,7 @@
 {% set _appname_ = "obsidian" %}
 
 # Include a preset configuration
-{% include "presets/note-taking.toml" %}
+{% include "presets/desktop-web/note-taking.toml" %}
 
 # Customized user profile
 {% include ("local/" + _appname_ + ".toml") ignore missing %}

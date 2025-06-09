@@ -8,7 +8,7 @@
 {% set _appname_ = "gpodder" %}
 
 # Include a preset configuration
-{% include "presets/podcast-client.toml" %}
+{% include "presets/desktop-web/podcast-client.toml" %}
 
 # Persist HOME subdirs
 {% set source = _apphome_ + "/gPodder" %}

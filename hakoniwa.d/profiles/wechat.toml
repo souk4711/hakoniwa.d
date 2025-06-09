@@ -8,7 +8,7 @@
 {% set _appname_ = "wechat" %}
 
 # Include a preset configuration
-{% include "presets/messager.toml" %}
+{% include "presets/desktop-web/messager.toml" %}
 
 # Persist HOME subdirs
 {% set source = _apphome_ + "/.xwechat" %}

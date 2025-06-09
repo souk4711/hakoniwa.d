@@ -25,7 +25,7 @@
     fi
 
     [[ "$profile_content" == *"set _appname_ = \"$appname\""* ]]    # appname equals to filename
-    [[ "$profile_content" == *"include \"presets/$group.toml"* ]]   # appname belongs to a group
+    [[ "$profile_content" == *"/$group.toml"*                 ]]    # appname belongs to a group
   done < <(tr -s '[:blank:]' < ./hakoniwa.d/tools/binwrappers.txt)
 }
 

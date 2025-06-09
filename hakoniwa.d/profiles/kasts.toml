@@ -8,7 +8,7 @@
 {% set _appname_ = "kasts" %}
 
 # Include a preset configuration
-{% include "presets/podcast-client.toml" %}
+{% include "presets/desktop-web/podcast-client.toml" %}
 
 # Customized user profile
 {% include ("local/" + _appname_ + ".toml") ignore missing %}

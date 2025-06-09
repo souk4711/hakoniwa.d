@@ -8,7 +8,7 @@
 {% set _appname_ = "transmission-qt" %}
 
 # Include a preset configuration
-{% include "presets/bittorrent-client.toml" %}
+{% include "presets/desktop-web/bittorrent-client.toml" %}
 
 # Customized user profile
 {% include ("local/" + _appname_ + ".toml") ignore missing %}

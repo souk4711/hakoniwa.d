@@ -8,7 +8,7 @@
 {% set _appname_ = "zen" %}
 
 # Include a preset configuration
-{% include "presets/browser.toml" %}
+{% include "presets/desktop-web/browser.toml" %}
 
 # Persist HOME subdirs
 {% for (source, destination) in [

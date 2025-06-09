@@ -5,10 +5,10 @@
 
 
 # Constants
-{% set _appname_ = "gnome-podcasts" %}
+{% set _appname_ = "feeluown" %}
 
 # Include a preset configuration
-{% include "presets/desktop-web/podcast-client.toml" %}
+{% include "presets/desktop-web/music-player.toml" %}
 
 # Customized user profile
 {% include ("local/" + _appname_ + ".toml") ignore missing %}

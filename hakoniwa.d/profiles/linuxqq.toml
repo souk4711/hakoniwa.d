@@ -8,7 +8,7 @@
 {% set _appname_ = "linuxqq" %}
 
 # Include a preset configuration
-{% include "presets/messager.toml" %}
+{% include "presets/desktop-web/messager.toml" %}
 
 # Customized user profile
 {% include ("local/" + _appname_ + ".toml") ignore missing %}

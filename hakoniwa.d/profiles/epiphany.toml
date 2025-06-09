@@ -8,7 +8,7 @@
 {% set _appname_ = "epiphany" %}
 
 # Include a preset configuration
-{% include "presets/browser.toml" %}
+{% include "presets/desktop-web/browser.toml" %}
 {% include "abstractions/socket/at-spi.toml" %}
 
 # Donot impose Filesystem restrictions, required by WebKitGTK (bwrap -> WebKitWebProcess)

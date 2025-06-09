@@ -8,7 +8,7 @@
 {% set _appname_ = "floorp" %}
 
 # Include a preset configuration
-{% include "presets/browser.toml" %}
+{% include "presets/desktop-web/browser.toml" %}
 
 # Persist HOME subdirs
 {% set source = _apphome_ + "/.floorp" %}
