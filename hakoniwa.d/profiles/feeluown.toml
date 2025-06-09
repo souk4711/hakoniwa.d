@@ -10,5 +10,24 @@
 # Include a preset configuration
 {% include "presets/desktop-web/music-player.toml" %}
 
+# Persist HOME subdirs
+{% set source = _apphome_ + "/.FeelUOwn" %}
+{% set destination = os_env("HOME") + "/.FeelUOwn" %}
+{% set _ = fs_mkdir(source) %}
+[[mounts]]
+source = "{{ source }}"
+destination = "{{ destination }}"
+rw = true
+
+# RPC 服务端口
+[[landlock.net]]
+port = 23333
+access = "tcp.bind"
+
+# PUBSUB 服务端口
+[[landlock.net]]
+port = 23334
+access = "tcp.bind"
+
 # Customized user profile
 {% include ("local/" + _appname_ + ".toml") ignore missing %}

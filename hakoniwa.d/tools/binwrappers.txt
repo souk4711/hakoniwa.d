@@ -43,6 +43,7 @@ eusoft-eudic                dictionary
 goldendict                  dictionary
 obsidian                    note-taking
 feeluown                    music-player
+fuo                         music-player        # -> feeluown.toml
 gnome-podcasts              podcast-client
 gpodder                     podcast-client
 kasts                       podcast-client
