@@ -1,0 +1,14 @@
+# THIS FILE IS PART OF HAKONIWA.DAdd commentMore actions
+#
+# HAKONIWA.D: https://github.com/souk4711/hakoniwa.d
+# SPDX-License-Identifier: GPL-3.0-only
+
+
+# Constants
+{% set _appname_ = "ark" %}
+
+# Include a preset configuration
+{% include "presets/desktop-standalone/archive-manager.toml" %}
+
+# Customized user profile
+{% include ("local/" + _appname_ + ".toml") ignore missing %}

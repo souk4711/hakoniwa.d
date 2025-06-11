@@ -20,6 +20,7 @@ nvlc                        video-player        # -> vlc.toml
 qvlc                        video-player        # -> vlc.toml
 rvlc                        video-player        # -> vlc.toml
 svlc                        video-player        # -> vlc.toml
+ark                         archive-manager
 gwenview                    image-editor
 loupe                       image-editor
 libreoffice                 office
