@@ -18,9 +18,9 @@ name = "{{ name }}"
 # List of environment variables, described in KDE Frameworks
 {% for name in [
   "QT_QPA_PLATFORMTHEME",
-  "QT_AUTO_SCREEN_SCALE_FACTOR",
   "QT_SCALE_FACTOR",
   "QT_SCREEN_SCALE_FACTORS",
+  "QT_AUTO_SCREEN_SCALE_FACTOR",
   "KDE_FULL_SESSION",
   "KDE_SESSION_VERSION",
 ] %}
@@ -34,6 +34,7 @@ name = "{{ name }}"
 {% for name in [
   "GTK_THEME",
   "GTK_USE_PORTAL",
+  "GDK_SCALE",
   "GDK_DEBUG",
 ] %}
   {% if os_env(name) is ne "" %}
