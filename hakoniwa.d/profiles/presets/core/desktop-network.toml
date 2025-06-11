@@ -16,7 +16,7 @@
   "abstractions/socket/pulseaudio.toml",          # Audio Server - PulseAudio
   "abstractions/socket/wayland.toml",             # Display Server - Wayland
   "abstractions/socket/x11.toml",                 # Display Server - X11
-  "abstractions/network/mode/pasta.toml",         # Network Mode - Pasta
+  "abstractions/network/mode/host.toml",          # Network Mode - Host
   "abstractions/network/connect/autoproxy.toml",  # Allow outgoing $ALL_PROXY/... connections
   "abstractions/network/connect/http.toml",       # Allow outgoing HTTP connections
   "abstractions/network/connect/https.toml",      # Allow outgoing HTTPS connections
