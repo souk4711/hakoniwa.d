@@ -1,0 +1,10 @@
+# THIS FILE IS PART OF HAKONIWA.D
+#
+# HAKONIWA.D: https://github.com/souk4711/hakoniwa.d
+# SPDX-License-Identifier: GPL-3.0-only
+
+
+# Donot impose Network TCP CONNECT restrictions
+[[landlock.resources]]
+type = "tcp.connect"
+unrestrict = true
