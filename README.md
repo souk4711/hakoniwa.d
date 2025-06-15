@@ -1,10 +1,19 @@
 # Hakoniwa.d
 
-[Hakoniwa][hakoniwa] is an unprivileged sandboxing tool that allows you to build an isolated
-environment based on your host os and run application in it. It can help you with:
+Hakoniwa profiles for the desktop applications. It uses container-type sandboxes
+to isolate applications and increase desktop system security. By default, the
+applications have limited access to the host resources. This includes:
 
-- Compile source code in a restricted sandbox, e.g. makepkg
-- Run browsers, or proprietary softwares in an isolated environment, e.g. Firefox
+- A slimmed-down host file system with read-only access.
+- A separate HOME directory only contains the application's data.
+- No access to the network.
+- No access to unnecessary devices.
+- No access to unnecessary host services.
+
+Most desktop applications require access to some host resources to function properly.
+For example, they need X11 for the user interface, PulseAudio for audio playback, and
+D-Bus to send notifications. Document [applications.md](./applications.md) lists all
+available applications and their respective permissions.
 
 > [!WARNING]
 > Running untrusted code is never safe, sandboxing cannot change this.
@@ -69,6 +78,22 @@ Want to enter the sandbox interactively, use `HAKONIWAD_CONSOLE=1` to open a she
 
 ```sh
 HAKONIWAD_LOG=TRACE HAKONIWAD_CONSOLE=1 firefox
+```
+
+By default, the sandboxed browser can only access ports `80` and `443`, as well as the folder `~/Downloads`.
+To allow access to more host resources, create a file called `/etc/hakoniwa.d/local/firefox.toml` with
+the following contents:
+
+```jinja
+# Allow connections on HTTP-ALT/8080, FTP/22, etc.
+{% include "abstractions/network/connect/any.toml" %}
+
+# Grant  read-only permission to HOME directory.
+# Grant read-write permission to Downloads directory.
+{% include "abstractions/filesystem/rdonly/media.toml" %}
+{% include "abstractions/filesystem/rdonly/u-home-slim.toml" %}
+{% include "abstractions/filesystem/rdonly/u-trash.toml" %}
+{% include "abstractions/filesystem/xdg-downloads.toml" %}
 ```
 
 ## Development
