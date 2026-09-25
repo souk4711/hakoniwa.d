@@ -13,7 +13,7 @@ rw = true
 {% endif %}
 
 # Video capture devices
-{% for device in fs_glob("/dev/video*") %}
+{% for device in find("/dev/video*") %}
 [[mounts]]
 source = "{{ device }}"
 rw = true

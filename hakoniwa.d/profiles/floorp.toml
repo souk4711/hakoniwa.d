@@ -12,8 +12,8 @@
 
 # Persist HOME subdirs
 {% set source = _apphome_ + "/.floorp" %}
-{% set destination = os_env("HOME") + "/.floorp" %}
-{% set _ = fs_mkdir(source) %}
+{% set destination = printenv("HOME") + "/.floorp" %}
+{% set _ = mkdir_p(source) %}
 [[mounts]]
 source = "{{ source }}"
 destination = "{{ destination }}"

@@ -5,7 +5,7 @@
 
 
 # Trash folder
-{% set folder = os_env("HOME") + "/.local/share/Trash" %}
+{% set folder = printenv("HOME") + "/.local/share/Trash" %}
 {% if path_exists(folder) %}
 [[mounts]]
 source = "{{ folder }}"

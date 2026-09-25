@@ -11,17 +11,17 @@
 {% include "presets/devkit.toml" %}
 
 # Mount mise folders
-{% set _ = fs_mkdir(os_env("HOME") + "/.cache/mise")        %}
-{% set _ = fs_mkdir(os_env("HOME") + "/.config/mise")       %}
-{% set _ = fs_mkdir(os_env("HOME") + "/.local/share/mise")  %}
-{% set _ = fs_mkdir(os_env("HOME") + "/.local/state/mise")  %}
-{% set _ = fs_touch(os_env("HOME") + "/.tool-versions")     %}
+{% set _ = mkdir_p(printenv("HOME") + "/.cache/mise")        %}
+{% set _ = mkdir_p(printenv("HOME") + "/.config/mise")       %}
+{% set _ = mkdir_p(printenv("HOME") + "/.local/share/mise")  %}
+{% set _ = mkdir_p(printenv("HOME") + "/.local/state/mise")  %}
+{% set _ = touch(printenv("HOME") + "/.tool-versions")     %}
 {% for entry in [
-  os_env("HOME") + "/.cache/mise",
-  os_env("HOME") + "/.config/mise",
-  os_env("HOME") + "/.local/share/mise",
-  os_env("HOME") + "/.local/state/mise",
-  os_env("HOME") + "/.tool-versions",
+  printenv("HOME") + "/.cache/mise",
+  printenv("HOME") + "/.config/mise",
+  printenv("HOME") + "/.local/share/mise",
+  printenv("HOME") + "/.local/state/mise",
+  printenv("HOME") + "/.tool-versions",
 ] %}
   {% if path_exists(entry) %}
 [[mounts]]

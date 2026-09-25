@@ -5,9 +5,9 @@
 
 
 # AT-SPI-Bus socket
-{% set address = os_env("AT_SPI_BUS_ADDRESS") %}
+{% set address = printenv("AT_SPI_BUS_ADDRESS") %}
 {% if address is eq "" %}
-  {% set socket = os_env("XDG_RUNTIME_DIR") + "/at-spi" %}
+  {% set socket = printenv("XDG_RUNTIME_DIR") + "/at-spi" %}
   {% if path_exists(socket) %}
 [[mounts]]
 source = "{{ socket }}"
@@ -26,7 +26,7 @@ rw = true
 {% for name in [
   "AT_SPI_BUS_ADDRESS",
 ] %}
-  {% if os_env(name) is ne "" %}
+  {% if printenv(name) is ne "" %}
 [[envs]]
 name = "{{ name }}"
   {% endif %}

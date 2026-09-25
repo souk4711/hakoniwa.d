@@ -15,13 +15,13 @@
 ]
 
 # Persist XDG base directories
-{% set _apphome_ = os_env("HOME") + "/.local/share/hakoniwa/apps/" + _appname_ + "/persist" %}
+{% set _apphome_ = printenv("HOME") + "/.local/share/hakoniwa/apps/" + _appname_ + "/persist" %}
 {% for (source, destination) in [
-  ( _apphome_ + "/.cache" , os_env("HOME") + "/.cache" ),
-  ( _apphome_ + "/.config", os_env("HOME") + "/.config"),
-  ( _apphome_ + "/.local" , os_env("HOME") + "/.local" ),
+  ( _apphome_ + "/.cache" , printenv("HOME") + "/.cache" ),
+  ( _apphome_ + "/.config", printenv("HOME") + "/.config"),
+  ( _apphome_ + "/.local" , printenv("HOME") + "/.local" ),
 ] %}
-  {% set _ = fs_mkdir(source) %}
+  {% set _ = mkdir_p(source) %}
 [[mounts]]
 source = "{{ source }}"
 destination = "{{ destination }}"
@@ -34,4 +34,4 @@ rw = true
 # COMMAND
 [command]
 cmdline = ["{{ "/usr/bin/" + _appname_ }}"]
-cwd = "{{ os_env("PWD") }}"
+cwd = "{{ printenv("PWD") }}"

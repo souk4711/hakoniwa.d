@@ -9,7 +9,7 @@
   "XDG_CURRENT_DESKTOP",
   "XDG_MENU_PREFIX",
 ] %}
-  {% if os_env(name) is ne "" %}
+  {% if printenv(name) is ne "" %}
 [[envs]]
 name = "{{ name }}"
   {% endif %}
@@ -24,7 +24,7 @@ name = "{{ name }}"
   "KDE_FULL_SESSION",
   "KDE_SESSION_VERSION",
 ] %}
-  {% if os_env(name) is ne "" %}
+  {% if printenv(name) is ne "" %}
 [[envs]]
 name = "{{ name }}"
   {% endif %}
@@ -37,7 +37,7 @@ name = "{{ name }}"
   "GDK_SCALE",
   "GDK_DEBUG",
 ] %}
-  {% if os_env(name) is ne "" %}
+  {% if printenv(name) is ne "" %}
 [[envs]]
 name = "{{ name }}"
   {% endif %}

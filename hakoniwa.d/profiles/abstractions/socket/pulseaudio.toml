@@ -5,7 +5,7 @@
 
 
 # PulseAudio socket
-{% set socket = os_env("XDG_RUNTIME_DIR") + "/pulse" %}
+{% set socket = printenv("XDG_RUNTIME_DIR") + "/pulse" %}
 {% if path_exists(socket) %}
 [[mounts]]
 source = "{{ socket }}"
@@ -13,7 +13,7 @@ rw = true
 {% endif %}
 
 # PulseAudio cookie
-{% set cookie = os_env("HOME") + "/.config/pulse" %}
+{% set cookie = printenv("HOME") + "/.config/pulse" %}
 {% if path_exists(cookie) %}
 [[mounts]]
 source = "{{ cookie }}"

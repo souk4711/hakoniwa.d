@@ -5,7 +5,7 @@
 
 
 # xdg-user-dir DOWNLOAD
-{% set folder = fs_xdg_user_dir("DOWNLOAD") %}
+{% set folder = xdg_user_dir("DOWNLOAD") %}
 {% if path_exists(folder) %}
 [[mounts]]
 source = "{{ folder }}"

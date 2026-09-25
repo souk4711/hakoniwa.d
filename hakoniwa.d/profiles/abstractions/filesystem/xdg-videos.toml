@@ -5,7 +5,7 @@
 
 
 # xdg-user-dir VIDEOS
-{% set folder = fs_xdg_user_dir("VIDEOS") %}
+{% set folder = xdg_user_dir("VIDEOS") %}
 {% if path_exists(folder) %}
 [[mounts]]
 source = "{{ folder }}"

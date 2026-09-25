@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: GPL-3.0-only
 
 
-{% set display = os_env("DISPLAY")%}
+{% set display = printenv("DISPLAY")%}
 {% if display is ne "" %}
   # X socket
   {% set socket = "/tmp/.X11-unix" %}
@@ -15,7 +15,7 @@ rw = true
   {% endif %}
 
   # X authority file
-  {% set xauthority = os_env("XAUTHORITY") %}
+  {% set xauthority = printenv("XAUTHORITY") %}
   {% if path_exists(xauthority) %}
 [[mounts]]
 source = "{{ xauthority }}"
@@ -27,7 +27,7 @@ rw = true
     "DISPLAY",
     "XAUTHORITY",
   ] %}
-    {% if os_env(name) is ne "" %}
+    {% if printenv(name) is ne "" %}
 [[envs]]
 name = "{{ name }}"
     {% endif %}

@@ -13,7 +13,7 @@ rw = true
 {% endif %}
 
 # NVIDIA
-{% for device in fs_glob("/dev/nvidia*") %}
+{% for device in find("/dev/nvidia*") %}
 [[mounts]]
 source = "{{ device }}"
 rw = true

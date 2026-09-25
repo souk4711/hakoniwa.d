@@ -11,30 +11,30 @@
 {% include "presets/devkit.toml" %}
 
 # Mount ASDF_DATA_DIR
-{% if os_env("ASDF_DATA_DIR") is eq "" %}
-  {% set asdf_data_dir = os_env("HOME") + "/.asdf" %}
+{% if printenv("ASDF_DATA_DIR") is eq "" %}
+  {% set asdf_data_dir = printenv("HOME") + "/.asdf" %}
 {% else %}
-  {% set asdf_data_dir = os_env("ASDF_DATA_DIR")   %}
+  {% set asdf_data_dir = printenv("ASDF_DATA_DIR")   %}
 {% endif %}
-{% set _ = fs_mkdir(asdf_data_dir) %}
+{% set _ = mkdir_p(asdf_data_dir) %}
 [[mounts]]
 source = "{{ asdf_data_dir }}"
 rw = true
 
 # Mount ASDF_CONFIG_FILE
-{% if os_env("ASDF_CONFIG_FILE") is eq "" %}
-  {% set asdf_config_file = os_env("HOME") + "/.asdfrc" %}
+{% if printenv("ASDF_CONFIG_FILE") is eq "" %}
+  {% set asdf_config_file = printenv("HOME") + "/.asdfrc" %}
 {% else %}
-  {% set asdf_config_file = os_env("ASDF_CONFIG_FILE")   %}
+  {% set asdf_config_file = printenv("ASDF_CONFIG_FILE")   %}
 {% endif %}
-{% set _ = fs_touch(asdf_config_file) %}
+{% set _ = touch(asdf_config_file) %}
 [[mounts]]
 source = "{{ asdf_config_file }}"
 rw = true
 
 # Mount .tool-versions
-{% set tool_versions = os_env("HOME") + "/.tool-versions" %}
-{% set _ = fs_touch(tool_versions) %}
+{% set tool_versions = printenv("HOME") + "/.tool-versions" %}
+{% set _ = touch(tool_versions) %}
 [[mounts]]
 source = "{{ tool_versions }}"
 rw = true
@@ -45,7 +45,7 @@ rw = true
   "ASDF_CONFIG_FILE",
   "ASDF_CONCURRENCY",
 ] %}
-  {% if os_env(name) is ne "" %}
+  {% if printenv(name) is ne "" %}
 [[envs]]
 name = "{{ name }}"
   {% endif %}

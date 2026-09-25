@@ -5,7 +5,7 @@
 
 
 # Nonhidden folders in HOME
-{% for entry in fs_glob(os_env("HOME") + "/[!.]*") %}
+{% for entry in find(printenv("HOME") + "/[!.]*") %}
   {% if path_is_dir(entry) %}
 [[mounts]]
 source = "{{ entry }}"

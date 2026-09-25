@@ -19,8 +19,8 @@ source = "{{ folder }}"
 
 # Mount AUR folders
 {% for entry in [
-  os_env("HOME") + "/.cache/paru",
-  os_env("HOME") + "/.cache/yay",
+  printenv("HOME") + "/.cache/paru",
+  printenv("HOME") + "/.cache/yay",
 ] %}
   {% if path_exists(entry) %}
 [[mounts]]

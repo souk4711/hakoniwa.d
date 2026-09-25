@@ -12,10 +12,10 @@
 
 # Persist HOME subdirs
 {% for (source, destination) in [
-  ( _apphome_ + "/.mozilla", os_env("HOME") + "/.mozilla"),
-  ( _apphome_ + "/.zen", os_env("HOME") + "/.zen"),
+  ( _apphome_ + "/.mozilla", printenv("HOME") + "/.mozilla"),
+  ( _apphome_ + "/.zen", printenv("HOME") + "/.zen"),
 ] %}
-  {% set _ = fs_mkdir(source) %}
+  {% set _ = mkdir_p(source) %}
 [[mounts]]
 source = "{{ source }}"
 destination = "{{ destination }}"

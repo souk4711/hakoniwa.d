@@ -20,7 +20,7 @@ type = "{{ ns }}"
 {% for entry in rootfs %}
   {% if path_exists(entry) %}
     {% if path_is_symlink(entry) %}
-    {% set original = fs_read_link(entry) %}
+    {% set original = readlink(entry) %}
 [[filesystem.symlinks]]
 original = "{{ original }}"
 link = "{{ entry }}"
@@ -57,7 +57,7 @@ type = "tmpfs"
   "TERM",
   "USER",
 ] %}
-  {% if os_env(name) is ne "" %}
+  {% if printenv(name) is ne "" %}
 [[envs]]
 name = "{{ name }}"
   {% endif %}
@@ -75,7 +75,7 @@ name = "{{ name }}"
   "XDG_SESSION_TYPE",
   "XDG_VTNR",
 ] %}
-  {% if os_env(name) is ne "" %}
+  {% if printenv(name) is ne "" %}
 [[envs]]
 name = "{{ name }}"
   {% endif %}
@@ -83,10 +83,10 @@ name = "{{ name }}"
 
 # List of environment variables, XDG base directories should use standard locations which will persist later
 {% for (name, value) in [
-  ( "XDG_CACHE_HOME", os_env("HOME") + "/.cache"      ),
-  ("XDG_CONFIG_HOME", os_env("HOME") + "/.config"     ),
-  (  "XDG_DATA_HOME", os_env("HOME") + "/.local/share"),
-  ( "XDG_STATE_HOME", os_env("HOME") + "/.local/state"),
+  ( "XDG_CACHE_HOME", printenv("HOME") + "/.cache"      ),
+  ("XDG_CONFIG_HOME", printenv("HOME") + "/.config"     ),
+  (  "XDG_DATA_HOME", printenv("HOME") + "/.local/share"),
+  ( "XDG_STATE_HOME", printenv("HOME") + "/.local/state"),
 ] %}
 [[envs]]
 name = "{{ name }}"
@@ -94,7 +94,7 @@ value = "{{ value }}"
 {% endfor %}
 
 # XDG user-dirs.dirs
-{% set file = os_env("HOME") + "/.config/user-dirs.dirs" %}
+{% set file = printenv("HOME") + "/.config/user-dirs.dirs" %}
 {% if path_exists(file) %}
 [[mounts]]
 source = "{{ file }}"
@@ -132,7 +132,7 @@ access = "rw-"
 {% endfor %}
 
 # Fix wrong permissions on runtime directory /run/user/1000, 0755 instead of 0700
-{% set folder = os_env("XDG_RUNTIME_DIR") %}
+{% set folder = printenv("XDG_RUNTIME_DIR") %}
 {% if path_exists(folder) %}
 [[filesystem.dirs]]
 destination = "{{ folder }}"

@@ -5,9 +5,9 @@
 
 
 # D-Bus socket
-{% set address = os_env("DBUS_SESSION_BUS_ADDRESS") %}
+{% set address = printenv("DBUS_SESSION_BUS_ADDRESS") %}
 {% if address is eq "" %}
-  {% set socket = os_env("XDG_RUNTIME_DIR") + "/bus" %}
+  {% set socket = printenv("XDG_RUNTIME_DIR") + "/bus" %}
   {% if path_exists(socket) %}
 [[mounts]]
 source = "{{ socket }}"
@@ -26,7 +26,7 @@ rw = true
 {% for name in [
   "DBUS_SESSION_BUS_ADDRESS",
 ] %}
-  {% if os_env(name) is ne "" %}
+  {% if printenv(name) is ne "" %}
 [[envs]]
 name = "{{ name }}"
   {% endif %}

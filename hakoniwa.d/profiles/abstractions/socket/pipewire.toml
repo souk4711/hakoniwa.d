@@ -5,7 +5,7 @@
 
 
 # PipeWire socket
-{% set socket = os_env("XDG_RUNTIME_DIR") + "/pipewire-0" %}
+{% set socket = printenv("XDG_RUNTIME_DIR") + "/pipewire-0" %}
 {% if path_exists(socket) %}
 [[mounts]]
 source = "{{ socket }}"

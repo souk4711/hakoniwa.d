@@ -5,7 +5,7 @@
 
 
 # GNOME Virtual File System
-{% set folder = os_env("XDG_RUNTIME_DIR") + "/gvfsd" %}
+{% set folder = printenv("XDG_RUNTIME_DIR") + "/gvfsd" %}
 {% if path_exists(folder) %}
 [[mounts]]
 source = "{{ folder }}"

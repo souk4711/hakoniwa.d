@@ -10,7 +10,7 @@ mode = "host"
 
 # Setting DNS servers
 {% if path_is_symlink("/etc/resolv.conf") %}
-{% set original = fs_read_link("/etc/resolv.conf") %}
+{% set original = readlink("/etc/resolv.conf") %}
   {% if original is endingwith "/run/systemd/resolve/stub-resolv.conf" %}
 [[mounts]]
 source = "/run/systemd/resolve"

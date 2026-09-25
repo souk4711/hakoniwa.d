@@ -12,8 +12,8 @@
 
 # Persist HOME subdirs
 {% set source = _apphome_ + "/.xwechat" %}
-{% set destination = os_env("HOME") + "/.xwechat" %}
-{% set _ = fs_mkdir(source) %}
+{% set destination = printenv("HOME") + "/.xwechat" %}
+{% set _ = mkdir_p(source) %}
 [[mounts]]
 source = "{{ source }}"
 destination = "{{ destination }}"

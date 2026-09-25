@@ -5,7 +5,7 @@
 
 
 # D-Bus socket
-{% set address = os_env("DBUS_SYSTEM_BUS_ADDRESS") %}
+{% set address = printenv("DBUS_SYSTEM_BUS_ADDRESS") %}
 {% if address is eq "" %}
   {% set socket = "/run/dbus/system_bus_socket" %}
   {% if path_exists(socket) %}
@@ -26,7 +26,7 @@ rw = true
 {% for name in [
   "DBUS_SYSTEM_BUS_ADDRESS",
 ] %}
-  {% if os_env(name) is ne "" %}
+  {% if printenv(name) is ne "" %}
 [[envs]]
 name = "{{ name }}"
   {% endif %}
